@@ -1,0 +1,12 @@
+#tablamuestra table{
+	border-collapse: collapse;
+	border: 2px solid black;
+}
+#tablamuestra th,td{
+    text-align: left;
+    border: 1px solid black;
+    padding: 6px;
+}
+#tablamuestra tr:hover{
+    background-color: #FFFBA9;
+}

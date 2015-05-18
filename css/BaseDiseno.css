@@ -1,0 +1,111 @@
+html{
+	background:linear-gradient(#FBFBFB, #D4D4D4) repeat scroll 0% 0% transparent;/*,#FBFBFB) repeat scroll 0% 0% transparent;*/
+	min-height: 100%;
+	/*max-height: auto;*/
+}
+
+header{
+	width:98%;
+	margin-left:auto;
+	margin-right: auto;
+}
+body{
+	width:90%;
+	background-color:#FFFFFF;
+	margin-left:auto;
+	margin-right: auto;
+	/*border-style: solid;
+    border-width: 1px;
+    border-color: black;*/
+    border-radius: 9px;
+	
+}
+h3{
+	padding: 0.5em 5% 2em
+}
+.barraNavegacion{
+	background: linear-gradient(#585858, #3D3D3D) repeat scroll 0% 0% transparent;
+	clear:both;
+	display:block;
+	float: left;
+	margin: 0px auto 2px;
+	width: 100%;
+	text-align:center;
+	border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    border-radius: 9px;
+	
+}
+.barraNavegacion ul{
+	margin: 0px 0px 0px
+}
+.pestanaNav{
+	list-style: outside none none;
+	/*background-color: #FF0000;*/
+	float: left;
+	position: relative;
+	border-right: 1px solid #D4D4D4;
+	font: 300 15px/1.625 "Helvetica Neue",Helvetica,Arial,sans-serif;
+	color: #FFFFFF;
+	line-height: 3em;
+	padding: 0px 1.2125em;
+}
+.pestanaNav a{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.primPestanaNav{
+	border-left	: 5px solid transparent;
+}
+.pestanaNav:hover{
+	background: linear-gradient(#D4D4D4, #FFA347) repeat scroll 0% 0% transparent
+}
+/*.pestanaNav a:focus > li{ /* Cuando pinchas 
+	color:#FF0000;
+	background-color: #FF0000;
+}
+.pestanaNav li:over {/* Cuando pasas por encima
+	background-color: #FFA347;
+}*/
+#logoCabecera{
+	/*width: 200px;
+	height: 200px;*/
+	width:50%;
+	float:left;
+	position:relative;
+	text-align: center;
+}
+#textoCabecera{
+	background-color:red;
+	/*display:block;*/
+	width:50%;
+	float: left;
+	position:relative;
+	text-align: center;
+}
+.cabecera1{
+	display:block;
+	height: 135px;
+}
+
+#formulario{
+	width: 90%;
+	margin-left:auto;
+	margin-right: auto;
+}
+#muestraErrores{
+	width: 80%;
+	margin-left:auto;
+	margin-right: auto;
+	text-align: center;
+	min-height: 30px;
+	color: red;
+	border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    border-radius: 9px;
+}
+#pie{
+	text-align:center;
+}
