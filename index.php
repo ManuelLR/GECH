@@ -21,8 +21,13 @@
 			}echo "</div>";	}
 	?>
 		<div id="presentacion">
-		<h1>Deberíamos escribir una presentación.</h1>
-	<br>
+		<h1>Breve Resumen</h1>
+		?¿?¿?¿?¿
+		Para más información consultar: <a href="/acercade.php"> acerca de</a>.
+		<h2>Otra info interesante</h2>
+		<a href="/mapa.php">Mapa de la web</a>		
+	<br/>
+	<br />
 	Las páginas realizadas hasta ahora son:
 	<ul>
 	<li><a href="pacientes/FormCreaPacientes.php"> Formulario para Crear Pacientes</a>.(Codigo SQL para que funcione MODIFICADO <a href="/pacientes/CodigoSQLPacienteModificado.php"> aquí</a>)</li>

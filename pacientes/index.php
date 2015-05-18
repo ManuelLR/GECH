@@ -1,6 +1,4 @@
-<?php
-	session_start();
-?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -9,10 +7,16 @@
 		<link type="text/css" rel="stylesheet" href="/css/BaseDiseno.css">
 	</head>
 	<body>
-	<?php include_once("../CabeceraGenerica.php");?>
-	<div id="indiceInterno"
-<?php 	include_once("pacientes.html"); ?>
-</div>
-<?php 	include_once("../Pie.php"); ?>
-</body>
+		<?php
+		include_once ("../CabeceraGenerica.php");
+		?>
+		<div id="indiceInterno">
+			<?php
+			include_once ("pacientes.html");
+			?>
+		</div>
+		<?php
+			include_once ("../Pie.php");
+		?>
+	</body>
 </html>
