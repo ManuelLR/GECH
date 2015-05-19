@@ -22,8 +22,6 @@
 	?>
 		<div id="presentacion">
 		<h1>Breve Resumen</h1>
-		<h2>Migue guarra</h2>
-		<h1>Puton</h1>
 		?¿?¿?¿?¿
 		Para más información consultar: <a href="/acercade.php"> acerca de</a>.
 		<h2>Otra info interesante</h2>
