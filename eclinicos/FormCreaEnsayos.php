@@ -15,7 +15,7 @@
 	</head><body>
 	<?php include_once("../CabeceraGenerica.php");?>
 	<h3>Ensayo Clínico</h3>
-	<!--<?php 
+	<?php 
 		if(isset($_SESSION['erroresCreaEnsayos'])){
 		 	$erroresCreaEnsayos = $_SESSION['erroresCreaEnsayos'];
 			echo "<div id='muestraErrores'>";
@@ -26,24 +26,22 @@
 			}echo "</div>";
 		unset($_SESSION["erroresCreaEnsayos"]);
 		}
-	?>-->
+	?>
 	<div name ="formulario" id="formulario">
-	<!--<?php	 
-	if(!isset($_SESSION["crearPaciente"])){
-		$crearPaciente["situacion_actual"]="";
-		$crearPaciente["apellidos"]="";
-		$crearPaciente["nuhsa"]="";
-		$crearPaciente["nhc"]="";
-		$crearPaciente["criterio_inc"]="";
-		$crearPaciente["farmaco"]="";
-		$crearPaciente["fechaInclusion"]="";
-		$crearPaciente["idEnsayoClinico"]="";
-		$_SESSION["crearPaciente"]=$crearPaciente;
+	<?php	 
+	if(!isset($_SESSION["crearEnsayo"])){
+		$crearEnsayo["situacion_actual"]="";
+		$crearEnsayo["criterio_inc"]="";
+		$crearEnsayo["criterio_exc"]="";
+		$crearEnsayo["inicio_rec"]="";
+		$crearEnsayo["fin_rec"]="";
+		$crearEnsayo["farmaco"]="";
+		$_SESSION["crearEnsayo"]=$crearEnsayo;
 	}
 	else{
-		$crearPaciente=$_SESSION["crearPaciente"];
+		$crearEnsayo=$_SESSION["crearEnsayo"];
 	}
-	?>-->
+	?>
 
 	<div id="errores"></div>
 	
@@ -75,16 +73,8 @@
 		</div>
 		<div id="div_farmaco">
 			<label for="farmaco" id="label_farmaco">Farmaco del Ensayo Clínico:</label>
-			<input id="farmaco" name="farmaco" type="text" value="<?php echo $crearPaciente["farmaco"]; ?>"/>
+			<input id="farmaco" name="farmaco" type="text" value="<?php echo $crearEnsayo["farmaco"]; ?>"/>
 		</div>
-		<!--<div id="div_fechaInclusion">
-			<label for="fechaInclusion" id="label_fechaInclusion">Fecha Inclusión del Paciente (yyyy-mm-dd):</label>
-			<input id="fechaInclusion" name="fechaInclusion" type="date" max="<?php echo date("Y-m-d");?>" value="<?php echo date("Y-m-d");?>"/>
-		</div>
-		<div id="div_idEnsayoClinico">
-			<label for="idEnsayoClinico" id="label_idEnsayoClinico">ID Ensayo Clínico del Paciente:</label>
-			<input id="idEnsayoClinico" name="idEnsayoClinico" type="text" value="<?php echo $crearPaciente["idEnsayoClinico"]; ?>"/>
-		</div>-->
 		<div id="div_submit">
 			<input type="submit" value="Crear"></input>
 		</div>

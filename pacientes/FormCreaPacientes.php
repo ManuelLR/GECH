@@ -3,6 +3,22 @@
 	//require_once("../GestionarDB.php"); 
 	//include_once('gestionUsuarios.php');
 	//$conexion = conectarDB(); 
+		 
+	if(!isset($_SESSION["crearPaciente"])){
+		$crearPaciente["nombre"]="";
+		$crearPaciente["apellidos"]="";
+		$crearPaciente["nuhsa"]="";
+		$crearPaciente["nhc"]="";
+		$crearPaciente["diagnostico"]="";
+		$crearPaciente["medicacion"]="";
+		$crearPaciente["fechaInclusion"]="";
+		$crearPaciente["idEnsayoClinico"]="";
+		$_SESSION["crearPaciente"]=$crearPaciente;
+	}
+	else{
+		$crearPaciente=$_SESSION["crearPaciente"];
+	}
+	
 ?>
 <!DOCTYPE html>
 <html>
@@ -28,22 +44,7 @@
 		}
 	?>
 	<div name ="formulario" id="formulario">
-	<?php	 
-	if(!isset($_SESSION["crearPaciente"])){
-		$crearPaciente["nombre"]="";
-		$crearPaciente["apellidos"]="";
-		$crearPaciente["nuhsa"]="";
-		$crearPaciente["nhc"]="";
-		$crearPaciente["diagnostico"]="";
-		$crearPaciente["medicacion"]="";
-		$crearPaciente["fechaInclusion"]="";
-		$crearPaciente["idEnsayoClinico"]="";
-		$_SESSION["crearPaciente"]=$crearPaciente;
-	}
-	else{
-		$crearPaciente=$_SESSION["crearPaciente"];
-	}
-	?>
+	
 
 	<div id="errores"></div>
 	
