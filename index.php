@@ -23,6 +23,7 @@
 		<div id="presentacion">
 		<h1>Breve Resumen</h1>
 		?¿?¿?¿?¿
+		<h1>Otra prueba</h1>
 		Para más información consultar: <a href="/acercade.php"> acerca de</a>.
 		<h2>Otra info interesante</h2>
 		<a href="/mapa.php">Mapa de la web</a>		
