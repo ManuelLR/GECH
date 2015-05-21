@@ -1,6 +1,7 @@
 <?php
 	session_start();
 	unset($_SESSION["crearPaciente"]);
+	unset($_SESSION["modPaciente"]);
 ?>
 <!DOCTYPE html>
 <html>

@@ -43,10 +43,12 @@
 	}elseif(isset($_SESSION["modPaciente"])){
 		$crearPaciente=$_SESSION["modPaciente"];
 		$crearPaciente["modificacion"]="true";
-		
+		$_SESSION["crearPaciente"]=$crearPaciente;
+		#unset($_SESSION["modPaciente"]);		
 	}else if(isset($_SESSION["crearPaciente"])){
 		$crearPaciente=$_SESSION["crearPaciente"];
 		$crearPaciente["modificacion"]="false";
+		$_SESSION["crearPaciente"]=$crearPaciente;
 	}
 	?>
 
