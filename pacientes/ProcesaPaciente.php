@@ -15,7 +15,7 @@
 	$_SESSION["paciente"]=$paciente;
 	
 	if(isset($_REQUEST["editar"])){
-		header("Location:FormCreaPacientes.php");
+		header("Location:FormPacientes.php");
 		$_SESSION["modPaciente"]=$paciente;
 	}elseif(isset($_REQUEST["quitar"])){
 		

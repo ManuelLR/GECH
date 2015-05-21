@@ -18,12 +18,12 @@
 		
 		if ( count ($erroresCreaPacientes) > 0 ) {
 			$_SESSION["erroresCreaPacientes"] = $erroresCreaPacientes;
-			Header("Location: FormCreaPacientes.php");
+			Header("Location: FormPacientes.php");
 		}
 		else {
-			Header("Location: ExitoCreaPacientes.php");}
+			Header("Location: ExitoPacientes.php");}
 	}
-	else Header("Location: FormCreaPacientes.php");
+	else Header("Location: FormPacientes.php");
 
 	function validar($crearPaciente) {
 		if (empty($crearPaciente["nombre"])) {
