@@ -47,9 +47,14 @@ function modificarPaciente($conexion, $OidPaciente, $nombre, $apellidos, $nuhsa,
 		$stmt->bindParam(':fechaInclusion',$fechaInclusion);
 		$stmt->bindParam(':idEnsayoClinico',$idEnsayoClinico);
 		$stmt->execute();
-		return "";
+		return true;
 	}catch(PDOException $e){
-		return $e->getMessage();
+		echo "<div id='muestraErrores'>";
+		echo "<div class='error'>";
+		echo "<b>ERROR: </b>" . $e -> GetMessage();
+		echo "</div>";
+		echo "</div>";
+		return false;		
 	}
 }
 ?>
