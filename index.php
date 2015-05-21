@@ -22,6 +22,7 @@
 	?>
 		<div id="presentacion">
 		<h1>Breve Resumen</h1>
+		<h1>Migue puta</h1>
 		?¿?¿?¿?¿
 		<h1>Otra prueba</h1>
 		Para más información consultar: <a href="/acercade.php"> acerca de</a>.
