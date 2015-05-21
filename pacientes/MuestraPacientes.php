@@ -16,9 +16,9 @@
 	<?php include_once("../CabeceraGenerica.php");?>
 	<h3>Muestra Paciente</h3>
 <body>	
+	<div id='tablamuestra'>
 	<?php
 		$stmp = seleccionarPacientes($conexion);
-		echo "<div id='tablamuestra'>";
 		echo "<table>";
 		echo "<tr>";
 		echo "<th class='nombre'>Nombre</th>";
@@ -34,8 +34,30 @@
 			echo "<td class='medicacion'>".$fila["MEDICACION_AUX"]."</td>";
 			echo "</tr>";
 		}
-		echo "</table></div>";
+		echo "</table>";
 	?>
+	</div>
+	<h3>Muestra pacientes modificado</h3>
+	<div id='tablamuestra'>
+		<table>
+		<?php 
+			$stmp = seleccionarPacientes($conexion);
+			foreach($stmp as $fila) {
+		?>
+		<tr>			
+		<form method="post" action="ProcesaPaciente.php">
+			<td><input id="OID_PACIENTE" name="OID_PACIENTE" type="text" value="<?php echo $fila["ID_PAC"]?>"/></td>
+			<td><?php	
+			
+				echo $fila["NOMBRE"]." ".$fila["APELLIDOS"]." ". "<div class='titulo'>" .$fila["DIAGNOSTICO"] . "</div>"; 
+						?></td>
+		</form></tr>
+<?php
+		}
+		?>
+		</table>
+		
+	</div>
 <?php 	include_once("../Pie.php"); ?>
 </body>
 </html>
