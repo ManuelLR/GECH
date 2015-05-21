@@ -29,7 +29,7 @@
 	?>
 	<div name ="formulario" id="formulario">
 	<?php	 
-	if(!isset($_SESSION["crearPaciente"])){
+	if(!isset($_SESSION["crearPaciente"]) && !isset($_SESSION["modPaciente"])){
 		$crearPaciente["nombre"]="";
 		$crearPaciente["apellidos"]="";
 		$crearPaciente["nuhsa"]="";
@@ -38,10 +38,15 @@
 		$crearPaciente["medicacion"]="";
 		$crearPaciente["fechaInclusion"]="";
 		$crearPaciente["idEnsayoClinico"]="";
+		$crearPaciente["modificacion"]="false";
 		$_SESSION["crearPaciente"]=$crearPaciente;
-	}
-	else{
+	}elseif(isset($_SESSION["modPaciente"])){
+		$crearPaciente=$_SESSION["modPaciente"];
+		$crearPaciente["modificacion"]="true";
+		
+	}else if(isset($_SESSION["crearPaciente"])){
 		$crearPaciente=$_SESSION["crearPaciente"];
+		$crearPaciente["modificacion"]="false";
 	}
 	?>
 
@@ -81,9 +86,18 @@
 			<label for="idEnsayoClinico" id="label_idEnsayoClinico">ID Ensayo Clínico del Paciente:</label>
 			<input id="idEnsayoClinico" name="idEnsayoClinico" type="text" value="<?php echo $crearPaciente["idEnsayoClinico"]; ?>"/>
 		</div>
+		
+		<input id="modificacion" name="modificacion" type="hidden" value="<?php echo $crearPaciente["modificacion"]; ?>"/>
+		<?php if($crearPaciente["modificacion"]!="true"){?>
 		<div id="div_submit">
 			<input type="submit" value="Crear"></input>
 		</div>
+		<?php }else{ ?>
+		<input id="ID_PAC" name="ID_PAC" type="hidden" value="<?php echo $crearPaciente["ID_PAC"]; ?>"/>
+		<div id="div_submit">
+			<input type="submit" value="Actualizar"></input>
+		</div>			
+		<?php }?>
 	</form>
 	</div>
 <?php 	include_once("../Pie.php"); ?>

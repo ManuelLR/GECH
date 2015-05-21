@@ -9,6 +9,8 @@
 		$crearPaciente["medicacion"]=$_REQUEST["medicacion"];
 		$crearPaciente["fechaInclusion"]=$_REQUEST["fechaInclusion"];
 		$crearPaciente["idEnsayoClinico"]=$_REQUEST["idEnsayoClinico"];
+		$crearPaciente["modificacion"]=$_REQUEST["modificacion"];
+		$crearPaciente["ID_PAC"]=$_REQUEST["ID_PAC"];		
 		$_SESSION["crearPaciente"]=$crearPaciente;
 
 		
@@ -18,7 +20,8 @@
 			$_SESSION["erroresCreaPacientes"] = $erroresCreaPacientes;
 			Header("Location: FormCreaPacientes.php");
 		}
-		else Header("Location: ExitoCreaPacientes.php");
+		else {
+			Header("Location: ExitoCreaPacientes.php");}
 	}
 	else Header("Location: FormCreaPacientes.php");
 
