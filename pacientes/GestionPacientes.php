@@ -35,6 +35,21 @@ function seleccionarPacientes($conexion) {
 }
 
 function modificarPaciente($conexion, $OidPaciente, $nombre, $apellidos, $nuhsa, $nhc, $diagnostico, $medicacion, $fechaInclusion, $idEnsayoClinico) {
-
+	try{
+		$stmt=$conexion->prepare('CALL MODIFICAR_PACIENTE(:OidPaciente,:nombre, :apellidos, :nuhsa, :nhc, :diagnostco, :medicacion, :fechaInclusion, :idEnsayoClinico)');
+		$stmt->bindParam(':OidPaciente', $OidPaciente);
+		$stmt->bindParam(':nombre',$nombre);
+		$stmt->bindParam(':apellidos',$apellidos);
+		$stmt->bindParam(':nuhsa',$nuhsa);
+		$stmt->bindParam(':nhc',$nhc);
+		$stmt->bindParam(':diagnostco',$diagnostico);
+		$stmt->bindParam(':medicacion',$medicacion);
+		$stmt->bindParam(':fechaInclusion',$fechaInclusion);
+		$stmt->bindParam(':idEnsayoClinico',$idEnsayoClinico);
+		$stmt->execute();
+		return "";
+	}catch(PDOException $e){
+		return $e->getMessage();
+	}
 }
 ?>
