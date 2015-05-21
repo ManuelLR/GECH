@@ -11,7 +11,7 @@
 		<title>Crear nuevo Ensayo Clínico</title>
 		<link type="text/css" rel="stylesheet" href="../css/BaseDiseno.css">
 		<link type="text/css" rel="stylesheet" href="../css/Formularios.css">  
-		<!--<script src="validacionEnsayo.js"></script>-->
+		<script src="validacionEnsayo.js"></script>
 	</head><body>
 	<?php include_once("../CabeceraGenerica.php");?>
 	<h3>Ensayo Clínico</h3>
