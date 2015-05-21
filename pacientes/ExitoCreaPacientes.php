@@ -47,15 +47,14 @@ $crearPaciente["diagnostico"], $crearPaciente["medicacion"], $crearPaciente["fec
 		<?php }else{
 			if(modificarPaciente($conexion,$crearPaciente["ID_PAC"], $crearPaciente["nombre"], $crearPaciente["apellidos"], $crearPaciente["nuhsa"], $crearPaciente["nhc"],
 			$crearPaciente["diagnostico"], $crearPaciente["medicacion"], $crearPaciente["fechaInclusion"], $crearPaciente["idEnsayoClinico"])){
-		?><
-		div id="div_exito">El paciente <?php echo $crearPaciente["nombre"] . " " . $crearPaciente["apellidos"]; ?>
-		ha sido actualizado correctamente.</div>
-		<?php }else{ ?>
-		<div id="div_errorRegistro">
-			Lo sentimos, el paciente <?php echo $crearPaciente["nombre"] . " " . $crearPaciente["apellidos"]; ?>
-			<b>NO</b> ha sido actualizado.
-		</div>
-		<?php } ?>
+
+		$_SESSION["exitoModPacientes"]="El paciente ". $crearPaciente["nombre"] . " " . $crearPaciente["apellidos"]." ha sido actualizado correctamente.";
+		header("Location: MuestraPacientes.php");
+		 }else{ 
+			
+		$_SESSION["errorModPacientes"]="El paciente ". $crearPaciente["nombre"] . " " . $crearPaciente["apellidos"]." <b>NO</b> ha sido actualizado correctamente.";
+		header("Location: MuestraPacientes.php");
+ } ?>
 		<div id="div_volver">
 			Para volver a la lista de pacientes pulsa <a href="MuestraPacientes.php">aquí</a>.
 		</div>

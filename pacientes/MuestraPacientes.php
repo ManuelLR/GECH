@@ -16,6 +16,32 @@ include_once 'GestionPacientes.php';
 		include_once ("../CabeceraGenerica.php");
 	?>
 	<h3>Muestra Paciente</h3>
+		<?php 
+		if(isset($_SESSION['exitoModPacientes'])){
+		 	$exitoPacientes = $_SESSION['exitoModPacientes'];
+			echo "<div id='muestraExitos'>";
+			#foreach($exitoPacientes as $status){
+				print("<div class='error'>");
+				#print("$status");
+				print ("$exitoPacientes");
+				print("</div>");
+			#}
+			echo "</div>";
+		unset($_SESSION["exitoModPacientes"]);
+		}
+		if(isset($_SESSION['errorModPacientes'])){
+		 	$errorPacientes = $_SESSION['errorModPacientes'];
+			echo "<div id='muestraErrores'>";
+			#foreach($exitoPacientes as $status){
+				print("<div class='error'>");
+				#print("$status");
+				print ("$errorPacientes");
+				print("</div>");
+			#}
+			echo "</div>";
+		unset($_SESSION["exitoModPacientes"]);
+		}
+	?>
 <body>	
 	<div id='tablamuestra'>
 	<?php $stmp = seleccionarPacientes($conexion);
