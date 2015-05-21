@@ -9,7 +9,7 @@ if (isset($_SESSION["crearPaciente"])) {//&& !(count($_SESSION["erroresCreaPacie
 	unset($_SESSION["erroresCreaPacientes"]);
 } else {
 	$_SESSION["erroresCreaPacientes"] = "No se ha recibido ningun dato, por favor vuelve a introducirlos";
-	Header("Location: FormCreaPacientes.php");
+	Header("Location: FormPacientes.php");
 }
 ?>
 <!DOCTYPE html>
@@ -43,7 +43,7 @@ $crearPaciente["diagnostico"], $crearPaciente["medicacion"], $crearPaciente["fec
 		<?php $_SESSION["crearPaciente"] = $crearPaciente;
 		}
 	?><
-		div id="div_volver"> Para volver al formulario pulsa <a href="FormCreaPacientes.php">aquí</a>.</div>
+		div id="div_volver"> Para volver al formulario pulsa <a href="FormPacientes.php">aquí</a>.</div>
 		<?php }else{
 			if(modificarPaciente($conexion,$crearPaciente["ID_PAC"], $crearPaciente["nombre"], $crearPaciente["apellidos"], $crearPaciente["nuhsa"], $crearPaciente["nhc"],
 			$crearPaciente["diagnostico"], $crearPaciente["medicacion"], $crearPaciente["fechaInclusion"], $crearPaciente["idEnsayoClinico"])){

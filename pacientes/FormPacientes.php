@@ -55,7 +55,7 @@
 	<div id="errores"></div>
 	
 
-	<form action="TratamientoFormCrearPaciente.php" onsubmit="return validaForm()">
+	<form action="TratamientoFormPaciente.php" onsubmit="return validaForm()">
 		<div id="div_nombre">
 			<label for="nombre" id="label_nombre">Nombre del Paciente:</label>
 			<input id="nombre" name="nombre" type="text" value="<?php echo $crearPaciente["nombre"]; ?>"/>
