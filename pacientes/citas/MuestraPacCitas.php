@@ -13,7 +13,7 @@ $_SESSION["citaPac"]=$citaPac;
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Formulario Citas</title>
 		<link type="text/css" rel="stylesheet" href="/css/BaseDiseno.css">
-		<link type="text/css" rel="stylesheet" href="/css/Formularios.css">  
+		<link type="text/css" rel="stylesheet" href="/css/Tablas.css">  
 		<script src="validacionPaciente.js"></script>
 	</head><body>
 	<?php include_once("../../CabeceraGenerica.php");?>
@@ -41,10 +41,6 @@ $_SESSION["citaPac"]=$citaPac;
 		unset($_SESSION["errorModPacCita"]);
 		}
 ?>
-<?php
-if (isset($_SESSION["paciente"])) {
-	$paciente = $_SESSION["paciente"];
-?>
 	<form method="post" action="
 	<?php 
 		if (isset($_REQUEST["unset"])){
@@ -56,15 +52,21 @@ Todas las citas</button>
 </form>
 <form method="post" action="
 	<?php 
-		if (isset($_REQUEST["unset"])){
-			$citaPac["accionCitaPac"]="insert";
-			$_SESSION["citaPac"]=$citaPac;
+		if (isset($_REQUEST["new"])){
+			#$citaPac["accionCitaPac"]="insert";
+			#$_SESSION["citaPac"]=$citaPac;
 			$_SESSION["paciente"]=$paciente;
+			unset($_SESSION["citaPac"]);
 			header("Location:FormPacCitas.php");
 		}?>">
-<button id="unset" name="unset" type="submit" class="Limpiar formulario">
+<button id="new" name="new" type="submit" class="Limpiar formulario">
 Inserta cita</button>
 </form>
+<?php
+if (isset($_SESSION["paciente"])) {
+	$paciente = $_SESSION["paciente"];
+?>
+
 	<div id='tablamuestra'>
 		<table>
 			<tr><th>ID</th><th>Fecha</th><th>Tipo</th><th>ID_PAC</th><th>Controles</th></tr>
