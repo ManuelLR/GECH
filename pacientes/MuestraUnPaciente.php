@@ -43,6 +43,7 @@ if (isset($_SESSION["paciente"])) {
 	?>-->
 <body>	
 	<h3>Detalles paciente</h3>
+	<a href="MuestraPacientes.php"><img src="/images/volver.bmp" /></a>
 	<div id='tablamuestra'>
 		<table>
 			<tr><th>ID</th><th>Nombre</th><th>Apellidos</th><th>NUHSA</th><th>NHC</th><th>Diagnóstico</th><th>Medicación</th><th>Fecha Inclusión</th><th>ID Ensayo Clínico</th><th>Controles</th></tr>

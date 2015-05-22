@@ -42,22 +42,27 @@ $paciente["diagnostico"], $paciente["medicacion"], $paciente["fechaInclusion"], 
 		<?php $_SESSION["paciente"] = $paciente;
 		}
 	?> <div id="div_volver"> Para volver al formulario pulsa <a href="FormPacientes.php">aquí</a>.</div>
-		<?php }else{
+		<?php }elseif($paciente["accion"]=="update"){
 			if(modificarPaciente($conexion,$paciente["ID_PAC"], $paciente["nombre"], $paciente["apellidos"], $paciente["nuhsa"], $paciente["nhc"],
 			$paciente["diagnostico"], $paciente["medicacion"], $paciente["fechaInclusion"], $paciente["idEnsayoClinico"])){
 
 		$_SESSION["exitoModPacientes"]="El paciente ". $paciente["nombre"] . " " . $paciente["apellidos"]." ha sido actualizado correctamente.";
 		header("Location: MuestraPacientes.php");
-		 }elseif($paciente["accion"]=="update"){ 
+		 }else{ 
 		$errores[]="El paciente ". $paciente["nombre"] . " " . $paciente["apellidos"]." <b>NO</b> ha sido actualizado correctamente.";
 		$_SESSION["errorModPacientes"]=$errores;
 		header("Location: MuestraPacientes.php");
- } ?>
-		<div id="div_volver">
-			Para volver a la lista de pacientes pulsa <a href="MuestraPacientes.php">aquí</a>.
-		</div>
-
-		<?php }
+ }}
+ elseif($paciente["accion"]=="remove"){
+ 		$errores[]="El paciente ". $paciente["nombre"] . " " . $paciente["apellidos"]." no se puede borrar debido a políticas del sistema";
+		$_SESSION["errorModPacientes"]=$errores;
+		header("Location: MuestraPacientes.php");	
+ }
+		 
+		 
+		 
+		  ?>
+		<?php 
 	desconectarDB($conexion);
 		?>
 		<?php 	include_once("../Pie.php");
