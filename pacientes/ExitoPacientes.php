@@ -2,10 +2,9 @@
 session_start();
 include_once ("../GestionarDB.php");
 include_once ('GestionPacientes.php');
-if (isset($_SESSION["crearPaciente"])) {//&& !(count($_SESSION["erroresCreaPacientes"]>0))){//En las transparencias no era así
-	$crearPaciente = $_SESSION["crearPaciente"];
-	unset($_SESSION["crearPaciente"]);
-	unset($_SESSION["modPaciente"]);
+if (isset($_SESSION["paciente"])) {//&& !(count($_SESSION["erroresCreaPacientes"]>0))){//En las transparencias no era así
+	$paciente = $_SESSION["paciente"];
+	unset($_SESSION["paciente"]);
 	unset($_SESSION["erroresCreaPacientes"]);
 } else {
 	$_SESSION["erroresCreaPacientes"] = "No se ha recibido ningun dato, por favor vuelve a introducirlos";
@@ -27,32 +26,31 @@ if (isset($_SESSION["crearPaciente"])) {//&& !(count($_SESSION["erroresCreaPacie
 		<h3>Estado Registro del Paciente</h3>
 		<?php
 $conexion=conectarBD();
-if($crearPaciente["modificacion"]!="true"){
-if (insertarPaciente($crearPaciente["nombre"], $crearPaciente["apellidos"], $crearPaciente["nuhsa"], $crearPaciente["nhc"],
-$crearPaciente["diagnostico"], $crearPaciente["medicacion"], $crearPaciente["fechaInclusion"], $crearPaciente["idEnsayoClinico"], $conexion)){
+if($paciente["accion"]=="insert"){
+if (insertarPaciente($paciente["nombre"], $paciente["apellidos"], $paciente["nuhsa"], $paciente["nhc"],
+$paciente["diagnostico"], $paciente["medicacion"], $paciente["fechaInclusion"], $paciente["idEnsayoClinico"], $conexion)){
 ?>
 		<div id="div_exito">
-			El paciente <?php echo $crearPaciente["nombre"] . " " . $crearPaciente["apellidos"]; ?>
+			El paciente <?php echo $paciente["nombre"] . " " . $paciente["apellidos"]; ?>
 			ha sido insertado correctamente.
 		</div>
 		<?php }else{ ?>
 		<div id="div_errorRegistro">
-			Lo sentimos, el paciente <?php echo $crearPaciente["nombre"] . " " . $crearPaciente["apellidos"]; ?>
+			Lo sentimos, el paciente <?php echo $paciente["nombre"] . " " . $paciente["apellidos"]; ?>
 			<b>NO</b> ha sido insertado.
 		</div>
-		<?php $_SESSION["crearPaciente"] = $crearPaciente;
+		<?php $_SESSION["paciente"] = $paciente;
 		}
-	?><
-		div id="div_volver"> Para volver al formulario pulsa <a href="FormPacientes.php">aquí</a>.</div>
+	?> <div id="div_volver"> Para volver al formulario pulsa <a href="FormPacientes.php">aquí</a>.</div>
 		<?php }else{
-			if(modificarPaciente($conexion,$crearPaciente["ID_PAC"], $crearPaciente["nombre"], $crearPaciente["apellidos"], $crearPaciente["nuhsa"], $crearPaciente["nhc"],
-			$crearPaciente["diagnostico"], $crearPaciente["medicacion"], $crearPaciente["fechaInclusion"], $crearPaciente["idEnsayoClinico"])){
+			if(modificarPaciente($conexion,$paciente["ID_PAC"], $paciente["nombre"], $paciente["apellidos"], $paciente["nuhsa"], $paciente["nhc"],
+			$paciente["diagnostico"], $paciente["medicacion"], $paciente["fechaInclusion"], $paciente["idEnsayoClinico"])){
 
-		$_SESSION["exitoModPacientes"]="El paciente ". $crearPaciente["nombre"] . " " . $crearPaciente["apellidos"]." ha sido actualizado correctamente.";
+		$_SESSION["exitoModPacientes"]="El paciente ". $paciente["nombre"] . " " . $paciente["apellidos"]." ha sido actualizado correctamente.";
 		header("Location: MuestraPacientes.php");
-		 }else{ 
-			
-		$_SESSION["errorModPacientes"]="El paciente ". $crearPaciente["nombre"] . " " . $crearPaciente["apellidos"]." <b>NO</b> ha sido actualizado correctamente.";
+		 }elseif($paciente["accion"]=="update"){ 
+		$errores[]="El paciente ". $paciente["nombre"] . " " . $paciente["apellidos"]." <b>NO</b> ha sido actualizado correctamente.";
+		$_SESSION["errorModPacientes"]=$errores;
 		header("Location: MuestraPacientes.php");
  } ?>
 		<div id="div_volver">

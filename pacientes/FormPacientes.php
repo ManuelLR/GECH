@@ -14,7 +14,7 @@
 		<script src="validacionPaciente.js"></script>
 	</head><body>
 	<?php include_once("../CabeceraGenerica.php");?>
-	<h3>Paciente</h3>
+	<h3>Formulario Pacientes</h3>
 	<?php 
 		if(isset($_SESSION['erroresCreaPacientes'])){
 		 	$erroresCreaPacientes = $_SESSION['erroresCreaPacientes'];
@@ -27,79 +27,88 @@
 		unset($_SESSION["erroresCreaPacientes"]);
 		}
 	?>
+<form method="post" action="
+	<?php if (isset($_REQUEST["unset"])){
+		unset($_SESSION["paciente"]);
+		header("Location:FormPacientes.php");}?>">
+<button id="unset" name="unset" type="submit" class="Limpiar formulario">
+Limpia contenido</button>
+</form>
+	</br>	
 	<div name ="formulario" id="formulario">
 	<?php	 
-	if(!isset($_SESSION["crearPaciente"]) && !isset($_SESSION["modPaciente"])){
-		$crearPaciente["nombre"]="";
-		$crearPaciente["apellidos"]="";
-		$crearPaciente["nuhsa"]="";
-		$crearPaciente["nhc"]="";
-		$crearPaciente["diagnostico"]="";
-		$crearPaciente["medicacion"]="";
-		$crearPaciente["fechaInclusion"]="";
-		$crearPaciente["idEnsayoClinico"]="";
-		$crearPaciente["modificacion"]="false";
-		$_SESSION["crearPaciente"]=$crearPaciente;
-	}elseif(isset($_SESSION["modPaciente"])){
-		$crearPaciente=$_SESSION["modPaciente"];
-		$crearPaciente["modificacion"]="true";
-		$_SESSION["crearPaciente"]=$crearPaciente;
-		#unset($_SESSION["modPaciente"]);		
-	}else if(isset($_SESSION["crearPaciente"])){
-		$crearPaciente=$_SESSION["crearPaciente"];
-		$crearPaciente["modificacion"]="false";
-		$_SESSION["crearPaciente"]=$crearPaciente;
+	if(!isset($_SESSION["paciente"])){
+		$paciente["ID_PAC"]="";
+		$paciente["nombre"]="";
+		$paciente["apellidos"]="";
+		$paciente["nuhsa"]="";
+		$paciente["nhc"]="";
+		$paciente["diagnostico"]="";
+		$paciente["medicacion"]="";
+		$paciente["fechaInclusion"]="";
+		$paciente["idEnsayoClinico"]="";
+		$paciente["accion"]="insert";
+		$_SESSION["paciente"]=$paciente;
+	}else{
+		$paciente=$_SESSION["paciente"];		
+		$_SESSION["paciente"]=$paciente;
 	}
 	?>
 
 	<div id="errores"></div>
-	
 
-	<form action="TratamientoFormPaciente.php" onsubmit="return validaForm()">
+	<form action="ProcesaPaciente.php" onsubmit="return validaForm()">
+		<input id="ID_PAC" name="ID_PAC" type="hidden" value="<?php echo $paciente["ID_PAC"]; ?>"/>
+
 		<div id="div_nombre">
 			<label for="nombre" id="label_nombre">Nombre del Paciente:</label>
-			<input id="nombre" name="nombre" type="text" value="<?php echo $crearPaciente["nombre"]; ?>"/>
+			<input id="nombre" name="nombre" type="text" value="<?php echo $paciente["nombre"]; ?>"/>
 		</div>
 		<div id="div_apellidos">
 			<label for="apellidos" id="label_apellidos">Apellidos del Paciente:</label>
-			<input id="apellidos" name="apellidos" type="text" value="<?php echo $crearPaciente["apellidos"]; ?>"/>
+			<input id="apellidos" name="apellidos" type="text" value="<?php echo $paciente["apellidos"]; ?>"/>
 		</div>
 		<div id="div_nuhsa">
 			<label for="nuhsa" id="label_nuhsa">NUHSA del Paciente:</label>
-			<input id="nuhsa" name="nuhsa" type="text" value="<?php echo $crearPaciente["nuhsa"]; ?>"/>
+			<input id="nuhsa" name="nuhsa" type="text" value="<?php echo $paciente["nuhsa"]; ?>"/>
 		</div>
 		<div id="div_nhc">
 			<label for="nhc" id="label_nhc">NHC del Paciente:</label>
-			<input id="nhc" name="nhc" type="text" value="<?php echo $crearPaciente["nhc"]; ?>"/>
+			<input id="nhc" name="nhc" type="text" value="<?php echo $paciente["nhc"]; ?>"/>
 		</div>
 		<div id="div_diagnostico">
 			<label for="diagnostico" id="label_diagnostico">Diagnóstico del Paciente:</label>
-			<textarea id="diagnostico" name="diagnostico" rows="10" cols="80"><?php echo $crearPaciente["diagnostico"]; ?></textarea>
+			<textarea id="diagnostico" name="diagnostico" rows="10" cols="80"><?php echo $paciente["diagnostico"]; ?></textarea>
 		</div>
 		<div id="div_medicacion">
 			<label for="medicacion" id="label_medicacion">Medicación del Paciente:</label>
-			<input id="medicacion" name="medicacion" type="text" value="<?php echo $crearPaciente["medicacion"]; ?>"/>
+			<input id="medicacion" name="medicacion" type="text" value="<?php echo $paciente["medicacion"]; ?>"/>
 		</div>
 		<div id="div_fechaInclusion">
 			<label for="fechaInclusion" id="label_fechaInclusion">Fecha Inclusión del Paciente (yyyy-mm-dd):</label>
-			<input id="fechaInclusion" name="fechaInclusion" type="date" max="<?php echo date("Y-m-d");?>" value="<?php if($crearPaciente["fechaInclusion"]==""){echo date("Y-m-d");}else{echo $crearPaciente["fechaInclusion"];} ?>"/>
+			<input id="fechaInclusion" name="fechaInclusion" type="date" max="<?php echo date("Y-m-d");?>" value="<?php if($paciente["fechaInclusion"]==""){echo date("Y-m-d");}else{echo $paciente["fechaInclusion"];} ?>"/>
 		</div>
 		<div id="div_idEnsayoClinico">
 			<label for="idEnsayoClinico" id="label_idEnsayoClinico">ID Ensayo Clínico del Paciente:</label>
-			<input id="idEnsayoClinico" name="idEnsayoClinico" type="text" value="<?php echo $crearPaciente["idEnsayoClinico"]; ?>"/>
+			<input id="idEnsayoClinico" name="idEnsayoClinico" type="text" value="<?php echo $paciente["idEnsayoClinico"]; ?>"/>
 		</div>
-		
-		<input id="modificacion" name="modificacion" type="hidden" value="<?php echo $crearPaciente["modificacion"]; ?>"/>
-		<?php if($crearPaciente["modificacion"]!="true"){?>
+		<?php if($paciente["accion"]!="pre-update"){
+			$paciente["accion"]="insert";
+
+			?>
 		<div id="div_submit">
-			<input type="submit" value="Crear"></input>
+			<input type="submit" value="Insertar"></input>
 		</div>
-		<?php }else{ ?>
-		<input id="ID_PAC" name="ID_PAC" type="hidden" value="<?php echo $crearPaciente["ID_PAC"]; ?>"/>
+		<?php }elseif($paciente["accion"]=="pre-update"){ 
+				$paciente["accion"]="update";
+			
+			?>
 		<div id="div_submit">
 			<input type="submit" value="Actualizar"></input>
 		</div>			
 		<?php }?>
+		<input id="accion" name="accion" type="hidden" value="<?php echo $paciente["accion"]; ?>"/>
+
 	</form>
 	</div>
 <?php 	include_once("../Pie.php"); ?>

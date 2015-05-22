@@ -20,12 +20,9 @@ include_once 'GestionPacientes.php';
 		if(isset($_SESSION['exitoModPacientes'])){
 		 	$exitoPacientes = $_SESSION['exitoModPacientes'];
 			echo "<div id='muestraExitos'>";
-			#foreach($exitoPacientes as $status){
 				print("<div class='error'>");
-				#print("$status");
 				print ("$exitoPacientes");
 				print("</div>");
-			#}
 			echo "</div>";
 		unset($_SESSION["exitoModPacientes"]);
 		}
@@ -39,7 +36,7 @@ include_once 'GestionPacientes.php';
 				print("</div>");
 			#}
 			echo "</div>";
-		unset($_SESSION["exitoModPacientes"]);
+		unset($_SESSION["errorModPacientes"]);
 		}
 	?>
 <body>	
@@ -75,25 +72,25 @@ include_once 'GestionPacientes.php';
 		<div class="paciente">		
 		<form method="post" action="ProcesaPaciente.php">
 			<input id="ID_PAC" name="ID_PAC" type="hidden" value="<?php echo $fila["ID_PAC"]?>"/>
-			<input id="NOMBRE" name="NOMBRE" type="hidden" value="<?php echo $fila["NOMBRE"]?>"/>
-			<input id="APELLIDOS" name="APELLIDOS" type="hidden" value="<?php echo $fila["APELLIDOS"]?>"/>
-			<input id="NUHSA" name="NUHSA" type="hidden" value="<?php echo $fila["NUHSA"]?>"/>
-			<input id="NHC" name="NHC" type="hidden" value="<?php echo $fila["NHC"]?>"/>
-			<input id="DIAGNOSTICO" name="DIAGNOSTICO" type="hidden" value="<?php echo $fila["DIAGNOSTICO"]?>"/>
-			<input id="MEDICACION_AUX" name="MEDICACION_AUX" type="hidden" value="<?php echo $fila["MEDICACION_AUX"]?>"/>
-			<input id="FECHA_INCLUSION" name="FECHA_INCLUSION" type="hidden" value="<?php echo $fila["FECHA_INCLUSION"]?>"/>
-			<input id="ID_EC" name="ID_EC" type="hidden" value="<?php echo $fila["ID_EC"]?>"/>
+			<input id="nombre" name="nombre" type="hidden" value="<?php echo $fila["NOMBRE"]?>"/>
+			<input id="apellidos" name="apellidos" type="hidden" value="<?php echo $fila["APELLIDOS"]?>"/>
+			<input id="nuhsa" name="nuhsa" type="hidden" value="<?php echo $fila["NUHSA"]?>"/>
+			<input id="nhc" name="nhc" type="hidden" value="<?php echo $fila["NHC"]?>"/>
+			<input id="diagnostico" name="diagnostico" type="hidden" value="<?php echo $fila["DIAGNOSTICO"]?>"/>
+			<input id="medicacion" name="medicacion" type="hidden" value="<?php echo $fila["MEDICACION_AUX"]?>"/>
+			<input id="fechaInclusion" name="fechaInclusion" type="hidden" value="<?php echo $fila["FECHA_INCLUSION"]?>"/>
+			<input id="idEnsayoClinico" name="idEnsayoClinico" type="hidden" value="<?php echo $fila["ID_EC"]?>"/>
 			<td><?php echo $fila["ID_PAC"]?></td>
 			<td><?php echo $fila["NOMBRE"]?></td>
 			<td><?php echo $fila["APELLIDOS"]?></td>
 				
 			<td>
 				<div id="botones_fila">						
-				<button id="editar" name="editar" type="submit" class="editar_fila">
+				<button id="accion" name="accion" type="submit" value="pre-update" class="editar_fila">
 					<img src="/images/editFila.bmp" class="editar_fila" width="25px"></button>
-				<button id="quitar" name="quitar" type="submit" class="editar_fila">
+				<button id="accion" name="accion" type="submit" value="remove" class="editar_fila">
 					<img src="/images/remFila.bmp" class="editar_fila" width="25px"></button>
-				<button id="masInfo" name="masInfo" type="submit" class="editar_fila">
+				<button id="accion" name="accion" type="submit" value="more" class="editar_fila">
 					<img src="/images/masFila.bmp" class="editar_fila" width="25px"></button>
 					
 				</div>
