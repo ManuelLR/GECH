@@ -45,6 +45,26 @@ $_SESSION["citaPac"]=$citaPac;
 if (isset($_SESSION["paciente"])) {
 	$paciente = $_SESSION["paciente"];
 ?>
+	<form method="post" action="
+	<?php 
+		if (isset($_REQUEST["unset"])){
+			unset($_SESSION["paciente"]);
+			header("Location: MuestraPacCitas.php");
+		}?>">
+<button id="unset" name="unset" type="submit" class="Limpiar formulario">
+Todas las citas</button>
+</form>
+<form method="post" action="
+	<?php 
+		if (isset($_REQUEST["unset"])){
+			$citaPac["accionCitaPac"]="insert";
+			$_SESSION["citaPac"]=$citaPac;
+			$_SESSION["paciente"]=$paciente;
+			header("Location:FormPacCitas.php");
+		}?>">
+<button id="unset" name="unset" type="submit" class="Limpiar formulario">
+Inserta cita</button>
+</form>
 	<div id='tablamuestra'>
 		<table>
 			<tr><th>ID</th><th>Fecha</th><th>Tipo</th><th>ID_PAC</th><th>Controles</th></tr>
@@ -85,7 +105,7 @@ if (isset($_SESSION["paciente"])) {
 		
 	</div>
 <?php }else {
-	echo "NO Ha entrado paciente por lo que solo debe mostrar todas las citas";
+	echo "NO Ha entrado paciente por lo que debe mostrar todas las citas";
 }
 	
 	

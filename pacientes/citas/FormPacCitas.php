@@ -3,7 +3,7 @@
 	if(!isset($_SESSION["paciente"])){
 		$errores[]="Debes seleccionar un paciente antes de añadirle una cita";
 		$_SESSION["errorModPacientes"]=$errores;		
-		header("Location: ../MuestraPaciente.php");
+		header("Location: ../MuestraPacientes.php");
 	}else{
 		$paciente=$_SESSION["paciente"];
 ?>

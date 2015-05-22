@@ -19,13 +19,13 @@
 	?>
 		<div id="presentacion">
 		<h1>Gech.com</h1>
-		Es una aplicación web desarrollada por Miguel Rodríguez Caballero y Francisco Manuel López Ruiz para la asignatura IISSI de la Universidad de Sevilla
+		Es una aplicación web desarrollada por Miguel Rodríguez Caballero y Manuel Francisco López Ruiz para la asignatura IISSI de la Universidad de Sevilla
 
 		<br />
 		<br />
 		Email de Miguel Rodríguez Caballero: miguel.rc95@gmail.com
 		<br />
-		Email de Francisco Manuel López Ruiz:
+		Email de Manuel Francisco López Ruiz: manloprui1@alum.us.es
 	</div>
 <?php 	include_once("Pie.php"); ?>
 </body>
