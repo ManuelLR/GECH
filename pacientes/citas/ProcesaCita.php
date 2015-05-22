@@ -1,7 +1,12 @@
 <?php
 session_start();
 
-if (!isset($_SESSION["citaPac"])){
+if (!isset($_SESSION["accionCitaPac"])){
+	$erroresCita[]="Acción indfeinida";
+	$_SESSION["erroresCita"]=$erroresCita;
+	Header("Location: FormCitas.php");
+	
+}else{
 	$citaPac["ID_PAC"]=$_REQUEST["ID_PAC"];		
 	$citaPac["nombre"] = $_REQUEST["nombre"];
 	$citaPac["apellidos"] = $_REQUEST["apellidos"];
@@ -11,14 +16,15 @@ if (!isset($_SESSION["citaPac"])){
 	$citaPac["medicacion"]=$_REQUEST["medicacion"];
 	$citaPac["fechaInclusion"]=$_REQUEST["fechaInclusion"];
 	$citaPac["idEnsayoClinico"]=$_REQUEST["idEnsayoClinico"];
-	$citaPac["accion"]=$_REQUEST["accion"];
+	$citaPac["accionCitaPac"]=$_REQUEST["accionCitaPac"];
 	$_SESSION["citaPac"]=$citaPac;
-}else{
 	$citaPac=$_SESSION["citaPac"];
-}
 
-if($citaPac["accion"]=="view"){
-	header("Location: MuestraCitas.php");
-}
 
+	if($_SESSION["accionCitaPac"]=="view"){
+		header("Location: MuestraCitas.php");
+	}if($_SESSION["accionCitaPac"]=="insert"){
+		header("Location: ExitoPacCitas.php");
+	}	
+}
 ?>

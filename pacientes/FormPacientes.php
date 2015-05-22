@@ -47,7 +47,7 @@ Limpia contenido</button>
 		$paciente["medicacion"]="";
 		$paciente["fechaInclusion"]="";
 		$paciente["idEnsayoClinico"]="";
-		$paciente["accion"]="insert";
+		$paciente["accionPac"]="insert";
 		$_SESSION["paciente"]=$paciente;
 	}else{
 		$paciente=$_SESSION["paciente"];		
@@ -92,24 +92,24 @@ Limpia contenido</button>
 			<label for="idEnsayoClinico" id="label_idEnsayoClinico">ID Ensayo Clínico del Paciente:</label>
 			<input id="idEnsayoClinico" name="idEnsayoClinico" type="text" value="<?php echo $paciente["idEnsayoClinico"]; ?>"/>
 		</div>
-		<?php if($paciente["accion"]!="pre-update"){
-			$paciente["accion"]="insert";
+		<?php if($paciente["accionPac"]!="pre-update"){
+			$paciente["accionPac"]="insert";
 
 			?>
-		<input id="accion" name="accion" type="hidden" value="insert"/>
+		<input id="accionPac" name="accionPac" type="hidden" value="insert"/>
 
 		<div id="div_submit">
 			<input type="submit" value="Insertar"></input>
 		</div>
-		<?php }elseif($paciente["accion"]=="pre-update"){ 
-				$paciente["accion"]="update";?>
-		<input id="accion" name="accion" type="hidden" value="update"/>
+		<?php }elseif($paciente["accionPac"]=="pre-update"){ 
+				$paciente["accionPac"]="update";?>
+		<input id="accionPac" name="accionPac" type="hidden" value="update"/>
 		
 		<div id="div_submit">
 			<input type="submit" value="Actualizar"></input>
 		</div>			
 		<?php }?>
-		<input id="accion" name="accion" type="hidden" value="<?php echo $paciente["accion"]; ?>"/>
+		<input id="accionPac" name="accionPac" type="hidden" value="<?php echo $paciente["accionPac"]; ?>"/>
 
 	</form>
 	</div>

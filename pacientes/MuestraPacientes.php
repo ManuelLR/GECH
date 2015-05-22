@@ -68,13 +68,13 @@ unset($_SESSION["paciente"]);
 				
 			<td>
 				<div id="botones_fila">						
-				<button id="accion" name="accion" type="submit" value="pre-update" class="editar_fila">
+				<button id="accionPac" name="accionPac" type="submit" value="pre-update" class="editar_fila">
 					<img src="/images/editFila.bmp" class="editar_fila" width="25px"></button>
-				<button id="accion" name="accion" type="submit" value="remove" class="editar_fila">
+				<button id="accionPac" name="accionPac" type="submit" value="remove" class="editar_fila">
 					<img src="/images/remFila.bmp" class="editar_fila" width="25px"></button>
-				<button id="accion" name="accion" type="submit" value="more" class="editar_fila">
+				<button id="accionPac" name="accionPac" type="submit" value="more" class="editar_fila">
 					<img src="/images/masFila.bmp" class="editar_fila" width="25px"></button>
-				<button id="accion" name="accion" type="submit" value="calendar" class="editar_fila">
+				<button id="accionPac" name="accionPac" type="submit" value="calendar" class="editar_fila">
 					<img src="/images/calendarFila.bmp" class="editar_fila" width="25px"></button>
 					
 				</div>

@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	
-if(!isset($_REQUEST["accion"])) {
+if(!isset($_REQUEST["accionPac"])) {
 			$erroresCreaPacientes[]="Acción indefinida";
 			$_SESSION["erroresCreaPacientes"]=$erroresCreaPacientes;
 			Header("Location: FormPacientes.php");
@@ -15,11 +15,11 @@ if(!isset($_REQUEST["accion"])) {
 			$paciente["medicacion"]=$_REQUEST["medicacion"];
 			$paciente["fechaInclusion"]=$_REQUEST["fechaInclusion"];
 			$paciente["idEnsayoClinico"]=$_REQUEST["idEnsayoClinico"];
-			$paciente["accion"]=$_REQUEST["accion"];
+			$paciente["accionPac"]=$_REQUEST["accionPac"];
 			$_SESSION["paciente"]=$paciente;	
 		
 
-		if($_REQUEST["accion"]=="insert"){	
+		if($_REQUEST["accionPac"]=="insert"){	
 			$erroresPacientes = validar($paciente);
 			if(count ($erroresPacientes) > 0){
 				$_SESSION["erroresCreaPacientes"]=$erroresPacientes;
@@ -27,28 +27,27 @@ if(!isset($_REQUEST["accion"])) {
 			}else{
 				Header("Location: ExitoPacientes.php");}
 		}
-		elseif($_REQUEST["accion"]=="update"){
+		elseif($_REQUEST["accionPac"]=="update"){
 			$erroresPacientes = validar($paciente);
 			if(count ($erroresPacientes) > 0){
 				$_SESSION["erroresCreaPacientes"]=$erroresPacientes;
-				$paciente["accion"]="pre-update";
+				$paciente["accionPac"]="pre-update";
 				$_SESSION["paciente"]=$paciente;
 				Header("Location: FormPacientes.php");
 			}else{
 				header("Location: ExitoPacientes.php");}
 		}
-		elseif($_REQUEST["accion"]=="pre-update"){
+		elseif($_REQUEST["accionPac"]=="pre-update"){
 			header("Location: FormPacientes.php");
 		}
-		elseif($_REQUEST["accion"]=="more"){
+		elseif($_REQUEST["accionPac"]=="more"){
 			header("Location: MuestraUnPaciente.php");
 		}
-		elseif($_REQUEST["accion"]=="calendar"){
-			$citaPac["accion"]="view";
-			$_SESSION["citaPac"]=$citaPac;
+		elseif($_REQUEST["accionPac"]=="calendar"){
+			?><input id="accionCitaPac" name="accionCitaPac" type="hidden" value="view"/><?php
 			header("Location: citas/ProcesaCita.php");
 			
-		}elseif($_REQUEST["accion"]=="remove"){
+		}elseif($_REQUEST["accionPac"]=="remove"){
 			header("Location: ExitoPacientes.php");			
 		}
 }
