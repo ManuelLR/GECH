@@ -45,7 +45,7 @@ if(!isset($_REQUEST["accionPac"])) {
 		}
 		elseif($_REQUEST["accionPac"]=="calendar"){
 			?><input id="accionCitaPac" name="accionCitaPac" type="hidden" value="view"/><?php
-			header("Location: citas/ProcesaCita.php");
+			header("Location: citas/ProcesaPacCita.php");
 			
 		}elseif($_REQUEST["accionPac"]=="remove"){
 			header("Location: ExitoPacientes.php");			
