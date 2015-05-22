@@ -37,7 +37,7 @@ $paciente["diagnostico"], $paciente["medicacion"], $paciente["fechaInclusion"], 
 		<?php }else{ ?>
 		<div id="div_errorRegistro">
 			Lo sentimos, el paciente <?php echo $paciente["nombre"] . " " . $paciente["apellidos"]; ?>
-			<b>NO</b> ha sido insertado.
+			<b>NO</b> ha sido insertado.-
 		</div>
 		<?php $_SESSION["paciente"] = $paciente;
 		}

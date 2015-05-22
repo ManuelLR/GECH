@@ -1,8 +1,12 @@
-<?php session_start();
+<?php 
+
+session_start();
 require_once ("../GestionarDB.php");
 //include_once('gestionUsuarios.php');
 $conexion = conectarBD();
 include_once 'GestionPacientes.php';
+unset($_SESSION["paciente"]);
+$_SESSION["paciente"]=" ";
 ?>
 <!DOCTYPE html>
 <html>
@@ -29,18 +33,18 @@ include_once 'GestionPacientes.php';
 		if(isset($_SESSION['errorModPacientes'])){
 		 	$errorPacientes = $_SESSION['errorModPacientes'];
 			echo "<div id='muestraErrores'>";
-			#foreach($exitoPacientes as $status){
+			foreach($errorPacientes as $status){
 				print("<div class='error'>");
-				#print("$status");
-				print ("$errorPacientes");
+				print("$status");
+				#print ("$errorPacientes");
 				print("</div>");
-			#}
+			}
 			echo "</div>";
 		unset($_SESSION["errorModPacientes"]);
 		}
 	?>
 <body>	
-	<div id='tablamuestra'>
+	<!--<div id='tablamuestra'>
 	<?php $stmp = seleccionarPacientes($conexion);
 	echo "<table>";
 	echo "<tr>";
@@ -60,7 +64,7 @@ include_once 'GestionPacientes.php';
 	echo "</table>";
 	?>
 	</div>
-	<h3>Muestra pacientes modificado</h3>
+	<h3>Muestra pacientes modificado</h3>-->
 	<div id='tablamuestra'>
 		<table>
 			<tr><th>ID</th><th>Nombre</th><th>Apellidos</th><th>Controles</th></tr>

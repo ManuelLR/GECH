@@ -39,6 +39,8 @@
 		}
 		elseif($_REQUEST["accion"]=="pre-update"){
 			header("Location: FormPacientes.php");
+		}elseif($_REQUEST["accion"]=="more"){
+			header("Location: MuestraUnPaciente.php");
 		}
 	}else{
 		$erroresCreaPacientes[]="La sesión no ha sido iniciada";
