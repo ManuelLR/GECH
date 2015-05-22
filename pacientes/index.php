@@ -1,4 +1,7 @@
-<?php session_start(); ?>
+<?php 
+session_start(); 
+unset($_SESSION["paciente"]);
+?>
 <!DOCTYPE html>
 <html>
 	<head>

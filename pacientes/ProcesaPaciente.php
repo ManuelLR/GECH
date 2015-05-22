@@ -39,8 +39,16 @@
 		}
 		elseif($_REQUEST["accion"]=="pre-update"){
 			header("Location: FormPacientes.php");
-		}elseif($_REQUEST["accion"]=="more"){
+		}
+		elseif($_REQUEST["accion"]=="more"){
 			header("Location: MuestraUnPaciente.php");
+		}
+		elseif($_REQUEST["accion"]=="calendar"){
+			header("Location: MuestraCitas.php");
+		}elseif($_REQUEST["accion"]=="remove"){
+			$errores[]="El paciente ". $paciente["nombre"] . " " . $paciente["apellidos"]." no se puede borrar debido a políticas del sistema";
+			$_SESSION["errorModPacientes"]=$errores;
+			header("Location: MuestraPacientes.php");
 		}
 	}else{
 		$erroresCreaPacientes[]="La sesión no ha sido iniciada";
