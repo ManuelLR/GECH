@@ -11,7 +11,7 @@
 		<title>Crear nueva entrada</title>
 		<link type="text/css" rel="stylesheet" href="../css/BaseDiseno.css">
 		<link type="text/css" rel="stylesheet" href="../css/Formularios.css">  
-		<!--<script src="validacionPromotor.js"></script>-->
+		<script src="validacionPromotor.js"></script>
 	</head><body>
 	<?php include_once("../CabeceraGenerica.php");?>
 	<h3>Formulario Promotores</h3>
