@@ -20,23 +20,18 @@ function insertarPacCitas($conexion, $fecha, $tipo, $idPac) {
 	}
 	return $result;
 }
-function seleccionarPacientes($conexion) {
-	$SQL = "SELECT * FROM PACIENTE";
+function seleccionarPacCitas($conexion) {
+	$SQL = "SELECT * FROM FECHA_PACIENTE";
 	$stmt = $conexion -> query($SQL);
 	return $stmt;
 }
-function modificarPaciente($conexion, $OidPaciente, $nombre, $apellidos, $nuhsa, $nhc, $diagnostico, $medicacion, $fechaInclusion, $idEnsayoClinico) {
+function modificarPacCitas($conexion,$oidfecha, $fecha, $tipo, $idPac) {
 	try{
-		$stmt=$conexion->prepare('CALL MODIFICAR_PACIENTE(:OidPaciente,:nombre, :apellidos, :nuhsa, :nhc, :diagnostco, :medicacion, :fechaInclusion, :idEnsayoClinico)');
-		$stmt->bindParam(':OidPaciente', $OidPaciente);
-		$stmt->bindParam(':nombre',$nombre);
-		$stmt->bindParam(':apellidos',$apellidos);
-		$stmt->bindParam(':nuhsa',$nuhsa);
-		$stmt->bindParam(':nhc',$nhc);
-		$stmt->bindParam(':diagnostco',$diagnostico);
-		$stmt->bindParam(':medicacion',$medicacion);
-		$stmt->bindParam(':fechaInclusion',$fechaInclusion);
-		$stmt->bindParam(':idEnsayoClinico',$idEnsayoClinico);
+		$stmt=$conexion->prepare("CALL MODIFICAR_FECHA_PACIENTE(:OID_FECHA, to_date(:FECHA,'yyyy-mm-dd'), :TIPO, :IDPAC)");
+		$stmt->bindParam(':OID_FECHA', $oidfecha);
+		$stmt->bindParam(':FECHA',$fecha);
+		$stmt->bindParam(':TIPO',$tipo);
+		$stmt->bindParam(':IDPAC',$idPac);
 		$stmt->execute();
 		return true;
 	}catch(PDOException $e){
