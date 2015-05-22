@@ -48,4 +48,10 @@ function modificarPacCitas($conexion,$oidfecha, $fecha, $tipo, $idPac) {
 		return false;		
 	}
 }
+
+function eliminaPacCitas($conexion,$oidfecha){
+	$erroresCreaPacCitas[]="El método eliminaPacCitas no está implementado";
+ 	$_SESSION['errorModPacCita']=$erroresCreaPacCitas;
+	return true;
+}
 ?>

@@ -1,6 +1,7 @@
 <?php 
 session_start(); 
 unset($_SESSION["paciente"]);
+unset($_SESSION["citaPac"]);
 ?>
 <!DOCTYPE html>
 <html>

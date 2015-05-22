@@ -1,7 +1,7 @@
 		<header>
 			<div class="cabecera1">
 			 <div id="logoCabecera">
-			 	<img src="../images/LogoCabecera3.png" alt="GECH">
+			 	<img src="/images/LogoCabecera3.png" alt="GECH">
 			 </div>
 			 <div id="textoCabecera">
 			 	<h1> GECH</h1>

@@ -48,18 +48,24 @@ if($citaPac["accionCitaPac"]=="insert"){
 <?php
 }elseif($citaPac["accionCitaPac"]=="update"){
 		if(modificarPacCitas($conexion,$citaPac["ID_FECHA"],$citaPac["fecha"], $citaPac["tipo"], $citaPac["idPac"])){
-			$_SESSION["exitoModPacCita"]="El paciente ". $paciente["nombre"] . " " . $paciente["apellidos"]." ha sido actualizado correctamente.";
+			$_SESSION["exitoModPacCita"]="La cita del paciente ". $paciente["nombre"] . " " . $paciente["apellidos"]." ha sido actualizado correctamente.";
 			header("Location: MuestraPacCitas.php");
 		 }else{ 
-			$errores[]="El paciente ". $paciente["nombre"] . " " . $paciente["apellidos"]." <b>NO</b> ha sido actualizado correctamente.";
+			$errores[]="La cita del paciente ". $paciente["nombre"] . " " . $paciente["apellidos"]." <b>NO</b> ha sido actualizado correctamente.";
 			$_SESSION["errorModPacCita"]=$errores;
 			header("Location: MuestraPacCitas.php");
 		}
 }
- elseif($paciente["accionPac"]=="remove"){
- 		$errores[]="El paciente ". $paciente["nombre"] . " " . $paciente["apellidos"]." no se puede borrar debido a políticas del sistema";
-		$_SESSION["errorModPacientes"]=$errores;
-		header("Location: MuestraPacientes.php");	
+ elseif($citaPac["accionCitaPac"]=="remove"){
+ 		if(eliminaPacCitas($conexion, $citaPac["ID_FECHA"])){
+ 			$_SESSION["exitoModPacCita"]="La cita del paciente ". $paciente["nombre"] . " " . $paciente["apellidos"]." ha sido eliminada.";
+			header("Location: MuestraPacCitas.php");	
+ 		}else{
+ 	 		$errores[]="La cita del paciente ". $paciente["nombre"] . " " . $paciente["apellidos"]." no se ha podido borrar.";
+			$_SESSION["errorModPacCita"]=$errores;
+			header("Location: MuestraPacCitas.php");		
+ 		}
+	
  }
 		 
 	desconectarDB($conexion);
