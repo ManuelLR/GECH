@@ -38,6 +38,9 @@ if (#!isset($_REQUEST["accionCitaPac"])){#&&
 	}
 	elseif($citaPac["accionCitaPac"]=="pre-update"){
 		header("Location: FormPacCitas.php");		
+	}elseif($citaPac["accionCitaPac"]=="pre-insert"){
+		unset($_SESSION["citaPac"]);
+		header("Location: FormPacCitas.php");
 	}
 
 	else{

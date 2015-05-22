@@ -24,6 +24,11 @@ function seleccionarPacCitas($conexion) {
 	$SQL = "SELECT * FROM FECHA_PACIENTE";
 	$stmt = $conexion -> query($SQL);
 	return $stmt;
+}function seleccionarPacCitasUno($conexion, $paciente) {
+	$erroresCreaPacCitas[]="El método seleccionarPacCitasUno no está implementado";
+ 	$_SESSION['errorModPacCita']=$erroresCreaPacCitas;
+
+	return seleccionarPacCitas($conexion);
 }
 function modificarPacCitas($conexion,$oidfecha, $fecha, $tipo, $idPac) {
 	try{

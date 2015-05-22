@@ -11,10 +11,9 @@ $_SESSION["citaPac"]=$citaPac;
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>Formulario Citas</title>
+		<title>Muestra Citas</title>
 		<link type="text/css" rel="stylesheet" href="/css/BaseDiseno.css">
 		<link type="text/css" rel="stylesheet" href="/css/Tablas.css">  
-		<script src="validacionPaciente.js"></script>
 	</head><body>
 	<?php include_once("../../CabeceraGenerica.php");?>
 	<h3>Muestra Citas</h3>
@@ -34,46 +33,54 @@ $_SESSION["citaPac"]=$citaPac;
 			foreach($errorPacCita as $status){
 				print("<div class='error'>");
 				print("$status");
-				#print ("$errorPacientes");
 				print("</div>");
 			}
 			echo "</div>";
 		unset($_SESSION["errorModPacCita"]);
 		}
 ?>
-	<form method="post" action="
+<form method="post" action="
 	<?php 
-		if (isset($_REQUEST["unset"])){
+		if (isset($_REQUEST["clean"])){
 			unset($_SESSION["paciente"]);
 			header("Location: MuestraPacCitas.php");
 		}?>">
-<button id="unset" name="unset" type="submit" class="Limpiar formulario">
-Todas las citas</button>
+	<button id="clean" name="clean" type="submit" class="Limpiar formulario">Todas las citas</button>
 </form>
 <form method="post" action="
 	<?php 
 		if (isset($_REQUEST["new"])){
 			#$citaPac["accionCitaPac"]="insert";
 			#$_SESSION["citaPac"]=$citaPac;
-			$_SESSION["paciente"]=$paciente;
+			#$_SESSION["paciente"]=$paciente;
 			unset($_SESSION["citaPac"]);
-			header("Location:FormPacCitas.php");
+			$citaPac["accionCitaPac"]="pre-insert";
+			$_SESSION["citaPac"]=$citaPac;
+			header("Location:ProcesaPacCita.php");
 		}?>">
-<button id="new" name="new" type="submit" class="Limpiar formulario">
-Inserta cita</button>
+	<button id="new" name="new" type="submit" class="Limpiar formulario">Inserta cita</button>
 </form>
 <?php
 if (isset($_SESSION["paciente"])) {
 	$paciente = $_SESSION["paciente"];
-?>
 
+?>
+<h4>Citas del paciente: <?php echo $paciente["nombre"]." ".$paciente["apellidos"]?></h4>
+
+		<?php 
+	$stmp = seleccionarPacCitasUno($conexion, $paciente);
+}else{
+	echo "Muestra todas las citas";
+	$stmp = seleccionarPacCitas($conexion);
+	}
+?>
 	<div id='tablamuestra'>
 		<table>
 			<tr><th>ID</th><th>Fecha</th><th>Tipo</th><th>ID_PAC</th><th>Controles</th></tr>
-		<?php 
-	$stmp = seleccionarPacCitas($conexion);
+<?php	
 	foreach($stmp as $fila) {
-		?>		
+		?>
+		
 		<tr>
 		<div class="paciente">		
 		<form method="post" action="ProcesaPacCita.php">
@@ -93,11 +100,6 @@ if (isset($_SESSION["paciente"])) {
 					<img src="/images/editFila.bmp" class="editar_fila" width="25px"></button>
 				<button id="accionCitaPac" name="accionCitaPac" type="submit" value="remove" class="editar_fila">
 					<img src="/images/remFila.bmp" class="editar_fila" width="25px"></button>
-				<!--<button id="accionPac" name="accionPac" type="submit" value="more" class="editar_fila">
-					<img src="/images/masFila.bmp" class="editar_fila" width="25px"></button>
-				<button id="accionPac" name="accionPac" type="submit" value="calendar" class="editar_fila">
-					<img src="/images/calendarFila.bmp" class="editar_fila" width="25px"></button>-->
-					
 				</div>
 			</td>	
 		</form></div></tr>
@@ -106,10 +108,7 @@ if (isset($_SESSION["paciente"])) {
 		</table>
 		
 	</div>
-<?php }else {
-	echo "NO Ha entrado paciente por lo que debe mostrar todas las citas";
-}
-	
+<?php 
 	
 include_once("../../Pie.php"); 
 ?>
