@@ -96,13 +96,15 @@ Limpia contenido</button>
 			$paciente["accion"]="insert";
 
 			?>
+		<input id="accion" name="accion" type="hidden" value="insert"/>
+
 		<div id="div_submit">
 			<input type="submit" value="Insertar"></input>
 		</div>
 		<?php }elseif($paciente["accion"]=="pre-update"){ 
-				$paciente["accion"]="update";
-			
-			?>
+				$paciente["accion"]="update";?>
+		<input id="accion" name="accion" type="hidden" value="update"/>
+		
 		<div id="div_submit">
 			<input type="submit" value="Actualizar"></input>
 		</div>			

@@ -1,36 +1,36 @@
 <?php
 	session_start();
-	if (isset($_SESSION["paciente"])){
-		$paciente["ID_PAC"]=$_REQUEST["ID_PAC"];		
-		$paciente["nombre"] = $_REQUEST["nombre"];
-		$paciente["apellidos"] = $_REQUEST["apellidos"];
-		$paciente["nuhsa"] = $_REQUEST["nuhsa"];
-		$paciente["nhc"]=$_REQUEST["nhc"];
-		$paciente["diagnostico"]=$_REQUEST["diagnostico"];
-		$paciente["medicacion"]=$_REQUEST["medicacion"];
-		$paciente["fechaInclusion"]=$_REQUEST["fechaInclusion"];
-		$paciente["idEnsayoClinico"]=$_REQUEST["idEnsayoClinico"];
-		$paciente["accion"]=$_REQUEST["accion"];
-		$_SESSION["paciente"]=$paciente;
-
-		
-		$erroresPacientes = validar($paciente);
-		
-		if(!isset($_REQUEST["accion"])) {
+	
+if(!isset($_REQUEST["accion"])) {
 			$erroresCreaPacientes[]="Acción indefinida";
 			$_SESSION["erroresCreaPacientes"]=$erroresCreaPacientes;
 			Header("Location: FormPacientes.php");
-		}
-		elseif($_REQUEST["accion"]=="insert"){
+}else{
+			$paciente["ID_PAC"]=$_REQUEST["ID_PAC"];		
+			$paciente["nombre"] = $_REQUEST["nombre"];
+			$paciente["apellidos"] = $_REQUEST["apellidos"];
+			$paciente["nuhsa"] = $_REQUEST["nuhsa"];
+			$paciente["nhc"]=$_REQUEST["nhc"];
+			$paciente["diagnostico"]=$_REQUEST["diagnostico"];
+			$paciente["medicacion"]=$_REQUEST["medicacion"];
+			$paciente["fechaInclusion"]=$_REQUEST["fechaInclusion"];
+			$paciente["idEnsayoClinico"]=$_REQUEST["idEnsayoClinico"];
+			$paciente["accion"]=$_REQUEST["accion"];
+			$_SESSION["paciente"]=$paciente;	
+		
+
+		if($_REQUEST["accion"]=="insert"){	
+			$erroresPacientes = validar($paciente);
 			if(count ($erroresPacientes) > 0){
-				$_SESSION["erroresCreaPacientes"]=$erroresCreaPacientes;
+				$_SESSION["erroresCreaPacientes"]=$erroresPacientes;
 				Header("Location: FormPacientes.php");
 			}else{
-			Header("Location: ExitoPacientes.php");}
+				Header("Location: ExitoPacientes.php");}
 		}
 		elseif($_REQUEST["accion"]=="update"){
+			$erroresPacientes = validar($paciente);
 			if(count ($erroresPacientes) > 0){
-				$_SESSION["erroresCreaPacientes"]=$erroresCreaPacientes;
+				$_SESSION["erroresCreaPacientes"]=$erroresPacientes;
 				$paciente["accion"]="pre-update";
 				$_SESSION["paciente"]=$paciente;
 				Header("Location: FormPacientes.php");
@@ -39,24 +39,20 @@
 		}
 		elseif($_REQUEST["accion"]=="pre-update"){
 			header("Location: FormPacientes.php");
-			$_SESSION["paciente"]=$paciente;			
 		}
 		elseif($_REQUEST["accion"]=="more"){
 			header("Location: MuestraUnPaciente.php");
-			$_SESSION["paciente"]=$paciente;			
 		}
 		elseif($_REQUEST["accion"]=="calendar"){
-			header("Location: MuestraCitas.php");
-			$_SESSION["paciente"]=$paciente;
+			$citaPac["accion"]="view";
+			$_SESSION["citaPac"]=$citaPac;
+			header("Location: citas/ProcesaCita.php");
+			
 		}elseif($_REQUEST["accion"]=="remove"){
-			$_SESSION["paciente"]=$paciente;			
 			header("Location: ExitoPacientes.php");			
 		}
-	}else{
-		$erroresCreaPacientes[]="La sesión no ha sido iniciada";
-		Header("Location: FormPacientes.php");
-		unset($_SESSION["paciente"]);
-		$_SESSION["erroresCreaPacientes"]=$erroresCreaPacientes;}
+}
+
 
 	function validar($paciente) {
 		if (empty($paciente["nombre"])) {

@@ -1,6 +1,5 @@
 <?php session_start();
 require_once ("../GestionarDB.php");
-//include_once('gestionUsuarios.php');
 $conexion = conectarBD();
 include_once 'GestionPacientes.php';
 if (isset($_SESSION["paciente"])) {
@@ -21,26 +20,6 @@ if (isset($_SESSION["paciente"])) {
 		include_once ("../CabeceraGenerica.php");
 	?>
 	<h3>Muestra Paciente</h3>
-		<!--<?php 
-		if(isset($_SESSION['exitoModPacientes'])){
-		 	$exitoPacientes = $_SESSION['exitoModPacientes'];
-			echo "<div id='muestraExitos'>";
-				print("<div class='error'>");
-				print ("$exitoPacientes");
-				print("</div>");
-			echo "</div>";
-		unset($_SESSION["exitoModPacientes"]);
-		}
-		if(isset($_SESSION['errorModPacientes'])){
-		 	$errorPacientes = $_SESSION['errorModPacientes'];
-			echo "<div id='muestraErrores'>";
-				print("<div class='error'>");
-				print ("$errorPacientes");
-				print("</div>");
-			echo "</div>";
-		unset($_SESSION["errorModPacientes"]);
-		}
-	?>-->
 <body>	
 	<h3>Detalles paciente</h3>
 	<a href="MuestraPacientes.php"><img src="/images/volver.bmp" /></a>
@@ -74,17 +53,11 @@ if (isset($_SESSION["paciente"])) {
 					<img src="/images/editFila.bmp" class="editar_fila" width="25px"></button>
 				<button id="accion" name="accion" type="submit" value="remove" class="editar_fila">
 					<img src="/images/remFila.bmp" class="editar_fila" width="25px"></button>
-				<!--<button id="accion" name="accion" type="submit" value="more" class="editar_fila">
-					<img src="/images/masFila.bmp" class="editar_fila" width="25px"></button>-->
 				<button id="accion" name="accion" type="submit" value="calendar" class="editar_fila">
 					<img src="/images/calendarFila.bmp" class="editar_fila" width="25px"></button>
 					
 				</div>
 			</td>	
-				<!--<?php	
-			
-				echo $paciente["nombre"]." ".$paciente["apellidos"]." ". "<div class='titulo'>" .$paciente["diagnostico"] . "</div>"; 
-						?></td>-->
 		</form></div></tr>
 <?php  ?>
 		</table>

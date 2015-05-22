@@ -2,11 +2,10 @@
 
 session_start();
 require_once ("../GestionarDB.php");
-//include_once('gestionUsuarios.php');
 $conexion = conectarBD();
 include_once 'GestionPacientes.php';
 unset($_SESSION["paciente"]);
-$_SESSION["paciente"]=" ";
+#$_SESSION["paciente"]=" ";
 ?>
 <!DOCTYPE html>
 <html>
@@ -44,27 +43,6 @@ $_SESSION["paciente"]=" ";
 		}
 	?>
 <body>	
-	<!--<div id='tablamuestra'>
-	<?php $stmp = seleccionarPacientes($conexion);
-	echo "<table>";
-	echo "<tr>";
-	echo "<th class='nombre'>Nombre</th>";
-	echo "<th class='apellidos'>Apellidos</th>";
-	echo "<th class='diagnostico'>Diagnostico</th>";
-	echo "<th class='medicacion'>Medicación auxiliar</th>";
-	echo "</tr>";
-	foreach ($stmp as $fila) {
-		echo "<tr>";
-		echo "<td class='nombre'>" . $fila["NOMBRE"] . "</td>";
-		echo "<td class='apellidos'>" . $fila["APELLIDOS"] . "</td>";
-		echo "<td class='diagnostico'>" . $fila["DIAGNOSTICO"] . "</td>";
-		echo "<td class='medicacion'>" . $fila["MEDICACION_AUX"] . "</td>";
-		echo "</tr>";
-	}
-	echo "</table>";
-	?>
-	</div>
-	<h3>Muestra pacientes modificado</h3>-->
 	<div id='tablamuestra'>
 		<table>
 			<tr><th>ID</th><th>Nombre</th><th>Apellidos</th><th>Controles</th></tr>
@@ -101,10 +79,6 @@ $_SESSION["paciente"]=" ";
 					
 				</div>
 			</td>	
-				<!--<?php	
-			
-				echo $fila["NOMBRE"]." ".$fila["APELLIDOS"]." ". "<div class='titulo'>" .$fila["DIAGNOSTICO"] . "</div>"; 
-						?></td>-->
 		</form></div></tr>
 <?php } ?>
 		</table>
