@@ -5,7 +5,8 @@ require_once ("../../GestionarDB.php");
 $conexion = conectarBD();
 include_once 'GestionTrabajaEn.php';
 unset($_SESSION["trabajaEn"]);
-#$_SESSION["paciente"]=" ";
+$trabajaEn["accionTraEn"]="lee";
+$_SESSION["trabajaEn"]=$trabajaEn;
 ?>
 <!DOCTYPE html>
 <html>
@@ -35,14 +36,49 @@ unset($_SESSION["trabajaEn"]);
 			foreach($errorTrabajaEn as $status){
 				print("<div class='error'>");
 				print("$status");
-				#print ("$errorPacientes");
 				print("</div>");
 			}
 			echo "</div>";
 		unset($_SESSION["errorModTrabajaEn"]);
 		}
 	?>
-<body>	
+<body>
+<form method="post" action="
+	<?php 
+		if (isset($_REQUEST["clean"])){
+			unset($_SESSION["empleado"]);
+			header("Location: MuestraTrabajaEn.php");
+		}?>">
+	<button id="clean" name="clean" type="submit" class="Limpiar formulario">Todas los TrabajaEN</button>
+</form>
+<form method="post" action="
+	<?php 
+		if (isset($_REQUEST["new"])){
+			#$citaPac["accionCitaPac"]="insert";
+			#$_SESSION["citaPac"]=$citaPac;
+			#$_SESSION["paciente"]=$paciente;
+			unset($_SESSION["trabajaEn"]);
+			$trabajaEn["accionTraEn"]="pre-insert";
+			$_SESSION["trabajaEn"]=$trabajaEn;
+			header("Location:ProcesaTrabajaEn.php");
+		}?>">
+	<button id="new" name="new" type="submit" class="Limpiar formulario">Inserta trabajaEn</button>
+</form>	
+<?php
+if (isset($_SESSION["empleado"])) {
+	$empleado = $_SESSION["empleado"];
+
+?>
+<h4>Trabaja en del empleado: <?php echo $empleado["nombre"]." ".$empleado["apellidos"]?></h4>
+
+		<?php 
+	$stmp = seleccionarTrabajaEnUno($conexion, $empleado);
+}else{
+	echo "Muestra todos los trabajaEn";
+	$stmp = seleccionarTrabajaEn($conexion);
+	}
+?>
+		
 	<div id='tablamuestra'>
 		<table>
 			<tr><th>ID_EC</th><th>ID_EMP</th><th>Cargo</th><th>Controles</th></tr>

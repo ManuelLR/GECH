@@ -28,7 +28,7 @@ function seleccionarTrabajaEn($conexion) {
 	return $stmt;
 }
 
-function seleccionarTrabajaEnUno($conexion, $trabajaEn) {
+function seleccionarTrabajaEnUno($conexion, $empleado) {
 	$erroresCreaPacCitas[]="El método seleccionarTrabajaEnUno no está implementado";
  	$_SESSION['errorModPacCita']=$erroresCreaPacCitas;
 	return seleccionarTrabajaEn($conexion);
@@ -50,5 +50,11 @@ function modificarTrabajaEn($conexion, $ID_EC, $ID_EMP, $cargo) {
 		echo "</div>";
 		return false;		
 	}
+}
+
+function eliminaTrabajaEn($conexion,$idEc, $idEmp){
+	$erroresCreaPacCitas[]="El método eliminaTrabajaEn no está implementado";
+ 	$_SESSION['errorModTrabajaEn']=$erroresCreaPacCitas;
+	return true;
 }
 ?>

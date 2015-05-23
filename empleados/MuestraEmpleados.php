@@ -45,7 +45,7 @@ unset($_SESSION["empleado"]);
 <body>	
 	<div id='tablamuestra'>
 		<table>
-			<tr><th>ID</th><th>Nombre</th><th>Apellidos</th><th>Controles</th></tr>
+			<tr><th>ID</th><th>Nombre</th><th>Apellidos</th><th>Controles</th><th>Trabaja en</th></tr>
 		<?php 
 			$stmp = seleccionarEmpleados($conexion);
 			foreach($stmp as $fila) {
@@ -72,10 +72,16 @@ unset($_SESSION["empleado"]);
 					<img src="/images/remFila.bmp" class="editar_fila" width="25px"></button>
 				<button id="accionEmp" name="accionEmp" type="submit" value="more" class="editar_fila">
 					<img src="/images/masFila.bmp" class="editar_fila" width="25px"></button>
+				</div>
+			</td>
+			<td>
+				<div id="botones_fila">						
+					<button id="accionEmp" name="accionEmp" type="submit" value="trabajaEn" class="editar_fila">
+					<img src="/images/masFila.bmp" class="editar_fila" width="25px"></button>
 				
 					
 				</div>
-			</td>	
+			</td>				
 		</form></div></tr>
 <?php } ?>
 		</table>

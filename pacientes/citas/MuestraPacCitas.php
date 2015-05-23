@@ -111,6 +111,7 @@ if (isset($_SESSION["paciente"])) {
 <?php 
 	
 include_once("../../Pie.php"); 
+desconectarDB($conexion);
 ?>
 </body>
 </html>

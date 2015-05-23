@@ -4,8 +4,9 @@ include_once ("../../GestionarDB.php");
 include_once ('GestionTrabajaEn.php');
 if (isset($_SESSION["trabajaEn"])) {
 	$trabajaEn = $_SESSION["trabajaEn"];
+	$empleado = $_SESSION["empleado"];
 	unset($_SESSION["trabajaEn"]);
-	unset($_SESSION["erroresCreaTrabajaEn"]);
+	unset($_SESSION["erroresTrabajaEn"]);
 } else {
 	$_SESSION["erroresCreaTrabajaEn"] = "No se ha recibido ningun dato, por favor vuelve a introducirlos";
 	Header("Location: FormTrabajaEn.php");
@@ -39,7 +40,7 @@ if($trabajaEn["accionTraEn"]=="insert"){
 			Lo sentimos, el Trabaja En <b>NO</b> ha sido insertado.-
 		</div>
 		<?php
-		$_SESSION["trabajaEn"] = $trabajaEn;
+		#$_SESSION["trabajaEn"] = $trabajaEn;
 	}
 		?> <div id="div_volver"> Para volver al formulario pulsa <a href="FormTrabajaEn.php">aquí</a>.</div>
 <?php
@@ -55,9 +56,14 @@ if($trabajaEn["accionTraEn"]=="insert"){
 		}
 }
  elseif($trabajaEn["accionTraEn"]=="remove"){
- 		$errores[]="El Trabaja En no se puede borrar debido a políticas del sistema";
-		$_SESSION["errorModTrabajaEn"]=$errores;
-		header("Location: MuestraTrabajaEn.php");	
+ 		if(eliminaTrabajaEn($conexion,$trabajaEn["ID_EC"], $trabajaEn["ID_EMP"])){
+			$_SESSION["exitoModTrabajaEn"]="El Trabaja En ha sido eliminado correctamente.";
+			header("Location: MuestraTrabajaEn.php"); 			
+ 		}else{	
+ 			$errores[]="El Trabaja En <b>NO</b> ha sido eliminado correctamente.";
+			$_SESSION["errorModTrabajaEn"]=$errores;
+			header("Location: MuestraTrabajaEn.php");
+		}	
  }
 		 
 	desconectarDB($conexion);

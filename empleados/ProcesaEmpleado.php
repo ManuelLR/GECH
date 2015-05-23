@@ -40,6 +40,11 @@ if(!isset($_REQUEST["accionEmp"])) {
 		elseif($_REQUEST["accionEmp"]=="more"){
 			header("Location: MuestraUnempleado.php");
 		}
+		elseif($_REQUEST["accionEmp"]=="trabajaEn"){
+			$trabajaEn["accionTraEn"]="view";
+			$_SESSION["trabajaEn"]=$trabajaEn;
+			header("Location: trabajaEn/ProcesaTrabajaEn.php");
+		}		
 		elseif($_REQUEST["accionEmp"]=="remove"){
 			header("Location: ExitoEmpleados.php");			
 		}

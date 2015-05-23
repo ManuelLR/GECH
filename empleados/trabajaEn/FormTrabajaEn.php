@@ -1,8 +1,11 @@
 <?php
 	session_start();
-	//require_once("../GestionarDB.php"); 
-	//include_once('gestionUsuarios.php');
-	//$conexion = conectarDB(); 
+	if(!isset($_SESSION["empleado"])){
+		$errores[]="Debes seleccionar un empleado antes de añadirle un trabajaEn";
+		$_SESSION["errorModEmpleado"]=$errores;		
+		header("Location: ../MuestraEmpleado.php");
+	}else{
+		$empleado=$_SESSION["empleado"];	
 ?>
 <!DOCTYPE html>
 <html>
@@ -13,7 +16,7 @@
 		<link type="text/css" rel="stylesheet" href="/css/Formularios.css">  
 		<script src="validacionTrabajaEn.js"></script>
 	</head><body>
-	<?php include_once("../CabeceraGenerica.php");?>
+	<?php include_once("../../CabeceraGenerica.php");?>
 	<h3>Formulario Trabaja En</h3>
 	<?php 
 		if(isset($_SESSION['erroresCreaTrabajaEn'])){
@@ -34,18 +37,18 @@
 <button id="unset" name="unset" type="submit" class="Limpiar formulario">
 Limpia contenido</button>
 </form>
-	</br>	
+	</br>
+	<h4>TrabajaEn para <?php $empleado["nombre"]." ".$empleado["apellidos"];?></h4>	
 	<div name ="formulario" id="formulario">
 	<?php	 
 	if(!isset($_SESSION["trabajaEn"])){
 		$trabajaEn["ID_EC"]="";
-		$trabajaEn["ID_EMP"]="";
+		$trabajaEn["ID_EMP"]=$empleado["ID_EMP"];
 		$trabajaEn["cargo"]="";
 		$trabajaEn["accionTraEn"]="insert";
 		$_SESSION["trabajaEn"]=$trabajaEn;
 	}else{
 		$trabajaEn=$_SESSION["trabajaEn"];		
-		$_SESSION["trabajaEn"]=$trabajaEn;
 	}
 	?>
 
@@ -82,17 +85,18 @@ Limpia contenido</button>
 			<input type="submit" value="Insertar"></input>
 		</div>
 		<?php }elseif($trabajaEn["accionTraEn"]=="pre-update"){ 
-				$trabajaEn["accionTraEn"]="update";?>
+				$trabajaEn["accionTraEn"]="update";
+				$_SESSION["citaPac"]=$citaPac;?>
 		<input id="accionTraEn" name="accionTraEn" type="hidden" value="update"/>
 		
 		<div id="div_submit">
 			<input type="submit" value="Actualizar"></input>
 		</div>			
 		<?php }?>
-		<input id="accionTraEn" name="accionTraEn" type="hidden" value="<?php echo $trabajaEn["accionTraEn"]; ?>"/>
+
 
 	</form>
 	</div>
-<?php 	include_once("../Pie.php"); ?>
+<?php 	}include_once("../../Pie.php"); ?>
 </body>
 </html>
