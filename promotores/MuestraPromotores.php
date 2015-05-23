@@ -45,7 +45,7 @@ unset($_SESSION["promotor"]);
 <body>	
 	<div id='tablamuestra'>
 		<table>
-			<tr><th>ID</th><th>Nombre de la Empresa</th><th>CIF</th><th>Controles</th></tr>
+			<tr><th>ID</th><th>Nombre de la Empresa</th><th>CIF</th><th>Controles</th><th>Monitores</th></tr>
 		<?php 
 			$stmp = seleccionarPromotores($conexion);
 			foreach($stmp as $fila) {
@@ -67,8 +67,14 @@ unset($_SESSION["promotor"]);
 					<img src="/images/editFila.bmp" class="editar_fila" width="25px"></button>
 				<button id="accionPro" name="accionPro" type="submit" value="remove" class="editar_fila">
 					<img src="/images/remFila.bmp" class="editar_fila" width="25px"></button>
-				
-					
+				</div>
+				<button id="accionPro" name="accionPro" type="submit" value="calendar" class="editar_fila">
+					<img src="/images/calendarFila.bmp" class="editar_fila" width="25px"></button>
+			</td>
+			<td>
+				<div id="botones_fila">						
+				<button id="accionPro" name="accionPro" type="submit" value="monitores" class="editar_fila">
+					<img src="/images/masFila.bmp" class="editar_fila" width="25px"></button>
 				</div>
 			</td>	
 		</form></div></tr>

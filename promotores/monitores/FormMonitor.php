@@ -67,6 +67,7 @@ Limpia contenido</button>
 	}else{
 		$monitor=$_SESSION["monitor"];		
 	}
+
 	?>
 	<div name ="formulario" id="formulario">
 
@@ -76,7 +77,7 @@ Limpia contenido</button>
 		<input id="ID_MON" name="ID_MON" type="hidden" value="<?php echo $monitor["ID_MON"]; ?>"/>
 		<div id="div_nombre">
 			<label for="nombre" id="label_nombre">Nombre:</label>
-			<input id="nombre" name="nombre" type="text" value="<?php $monitor["nombre"]; ?>"/>
+			<input id="nombre" name="nombre" type="text" value="<?php echo $monitor["nombre"]; ?>"/>
 		</div>		
 		<div id="div_apellidos">
 			<label for="apellidos" id="label_apellidos">Apellidos:</label>

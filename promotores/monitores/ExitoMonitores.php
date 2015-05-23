@@ -1,15 +1,19 @@
 <?php 
 session_start();
 include_once ("../../GestionarDB.php");
-include_once ('GestionMonitor.php');
+include_once ('GestionMonitores.php');
 if (isset($_SESSION["monitor"])) {
 	$monitor = $_SESSION["monitor"];
-	$promotor = $_SESSION["paciente"];
 	unset($_SESSION["monitor"]);
 	unset($_SESSION["erroresmonitor"]);
 } else {
 	$_SESSION["erroresCreaMonitor"] = "No se ha recibido ningun dato, por favor vuelve a introducirlos";
 	Header("Location: FormMonitor.php");
+}
+if(isset($_SESSION["promotor"])){
+	$promotor = $_SESSION["promotor"];
+}else{
+	$promotor["nombre"] = "";
 }
 ?>
 <!DOCTYPE html>
@@ -37,30 +41,30 @@ if($monitor["accionMonitor"]=="insert"){
 	<?php 
 	}else{ ?>
 		<div id="div_errorRegistro">
-			Lo sentimos, el monitor <?php echo $monitor["nombre"]. " ".$monitor["apellidos"];?> para el promotor<?php echo $promotor["nombre"]; ?> <b>NO</b> ha sido insertado.-
+			Lo sentimos, el monitor <?php echo $monitor["nombre"]. " ".$monitor["apellidos"];?> para el promotor<?php echo $promotor["nombre"]; ?> <b>NO</b> ha sido insertado.
 		</div>
 		<?php
-		#$_SESSION["paciente"] = $promotor;
+		#$_SESSION["promotor"] = $promotor;
 	}
 		?>
 <?php
 }elseif($monitor["accionMonitor"]=="update"){
-		if(modificarMonitor($conexion,$monitor["ID_FECHA"],$monitor["fecha"], $monitor["tipo"], $monitor["idPac"])){
-			$_SESSION["exitoModPacCita"]="El monitor ". $monitor["nombre"]. " ".$monitor["apellidos"]." para el promotor".$promotor["nombre"]." ha sido actualizado correctamente.";
+		if(modificarMonitor($conexion,$monitor["ID_MON"], $monitor["nombre"], $monitor["apellidos"], $monitor["telefono"], $monitor["email"], $monitor["idEc"], $monitor["idPro"])){
+			$_SESSION["exitoModMonitor"]="El monitor ". $monitor["nombre"]. " ".$monitor["apellidos"]." para el promotor ".$promotor["nombre"]." ha sido actualizado correctamente.";
 			header("Location: MuestraMonitor.php");
 		 }else{ 
 			$errores[]="El monitor ". $monitor["nombre"]. " ".$monitor["apellidos"]." para el promotor".$promotor["nombre"]." <b>NO</b> ha sido actualizado correctamente.";
-			$_SESSION["errorModPacCita"]=$errores;
-			header("Location: MuestraMonitor.php");
+			$_SESSION["errorModMonitor"]=$errores;
+			#header("Location: MuestraMonitor.php");
 		}
 }
  elseif($monitor["accionMonitor"]=="remove"){
- 		if(eliminaMonitor($conexion, $monitor["ID_FECHA"])){
- 			$_SESSION["exitoModPacCita"]="La cita del paciente ". $promotor["nombre"] . " " . $promotor["apellidos"]." ha sido eliminada.";
+ 		if(eliminaMonitor($conexion, $monitor["ID_MON"])){
+ 			$_SESSION["exitoModMonitor"]="El monitor ". $monitor["nombre"]. " ".$monitor["apellidos"]." para el promotor ".$promotor["nombre"]." ha sido eliminado correctamente.";
 			header("Location: MuestraMonitor.php");	
  		}else{
- 	 		$errores[]="La cita del paciente ". $promotor["nombre"] . " " . $promotor["apellidos"]." no se ha podido borrar.";
-			$_SESSION["errorModPacCita"]=$errores;
+ 	 		$errores[]="El monitor ". $monitor["nombre"]. " ".$monitor["apellidos"]." para el promotor ".$promotor["nombre"]." <b>NO</b> ha sido eliminado.";
+			$_SESSION["errorModMonitor"]=$errores;
 			header("Location: MuestraMonitor.php");		
  		}
 	

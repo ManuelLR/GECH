@@ -68,7 +68,7 @@ if (isset($_SESSION["promotor"])) {
 <h4>Monitores para el promotor: <?php echo $promotor["nombre"];?></h4>
 
 		<?php 
-	$stmp = seleccionarMonitoresUno($conexion, $promotor);
+	$stmp = seleccionarMonitorUno($conexion, $promotor);
 }else{
 	echo "Muestra todos los monitores";
 	$stmp = seleccionarMonitores($conexion);
@@ -76,7 +76,7 @@ if (isset($_SESSION["promotor"])) {
 ?>
 	<div id='tablamuestra'>
 		<table>
-			<tr><th>ID Monitor</th><th>Nombre</th><th>Apellidos</th><th>Telefono</th><th>Email</th><th>Id ensayo</th><th>Id promotor</th></tr>
+			<tr><th>ID Monitor</th><th>Nombre</th><th>Apellidos</th><th>Telefono</th><th>Email</th><th>Id ensayo</th><th>Id promotor</th><th>Controles</th></tr>
 <?php	
 	foreach($stmp as $fila) {
 		?>

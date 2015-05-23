@@ -30,7 +30,7 @@ if (#!isset($_REQUEST["accionMonitor"])){#&&
 		$monitor["accionMonitor"]=$_REQUEST["accionMonitor"];
 		
 		$_SESSION["monitor"]=$monitor;
-		header("Location: ExitoMonitor.php");
+		header("Location: ExitoMonitores.php");
 	}elseif($monitor["accionMonitor"]=="lee"){
 		$monitor["ID_MON"]=$_REQUEST["ID_MON"];
 		$monitor["nombre"]=$_REQUEST["nombre"];
@@ -41,7 +41,7 @@ if (#!isset($_REQUEST["accionMonitor"])){#&&
 		$monitor["idPro"]=$_REQUEST["idPro"];
 		$monitor["accionMonitor"]=$_REQUEST["accionMonitor"];
 		$_SESSION["monitor"]=$monitor;
-		header("Location: ProcesaPacCita.php");	
+		header("Location: ProcesaMonitor.php");	
 	}
 	elseif($monitor["accionMonitor"]=="pre-update"){
 		header("Location: FormMonitor.php");		
@@ -49,7 +49,7 @@ if (#!isset($_REQUEST["accionMonitor"])){#&&
 		unset($_SESSION["monitor"]);
 		header("Location: FormMonitor.php");
 	}elseif($monitor["accionMonitor"]=="remove"){
-		header("Location: ExitoMonitor.php");
+		header("Location: ExitoMonitores.php");
 	}
 
 	else{
@@ -67,7 +67,7 @@ if (#!isset($_REQUEST["accionMonitor"])){#&&
 	if($_REQUEST["accionMonitor"]=="view"){
 		header("Location: MuestraMonitor.php");
 	}elseif($_REQUEST["accionMonitor"]=="insert"){
-		header("Location: ExitoMonitor.php");
+		header("Location: ExitoMonitores.php");
 	}elseif($_REQUEST["accionMonitor"]=="pre-insert"){
 		header("Location: FormMonitor.php");
 	}	

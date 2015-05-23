@@ -1,9 +1,9 @@
 <?php
 //basarse en la práctica 6 -> GestionarEntradas.php
-function insertarMonitores($conexion, $nombre, $apellidos, $telefono, $email, $idec, $idpro) {
+function insertarMonitor($conexion, $nombre, $apellidos, $telefono, $email, $idec, $idpro) {
 	$result = true;
 	try {
-		$stmt = $conexion -> prepare("CALL CREA_MONITOR(:NOMBRE,
+		$stmt = $conexion -> prepare("CALL CREA_MONITOR_ENSAYO(:NOMBRE,
 			 :APELLIDOS, :TELEFONO, :EMAIL, :ID_EC, :ID_PRO)");
 		$stmt -> bindParam(':NOMBRE', $nombre);
 		$stmt -> bindParam(':APELLIDOS', $apellidos);
@@ -33,7 +33,7 @@ function seleccionarMonitores($conexion) {
 
 	return seleccionarMonitores($conexion);
 }
-function modificarMonitores($conexion, $IDMON, $nombre, $apellidos, $telefono, $email, $idec, $idpro) {
+function modificarMonitor($conexion, $IDMON, $nombre, $apellidos, $telefono, $email, $idec, $idpro) {
 	try{
 		$stmt=$conexion->prepare("CALL MODIFICAR_MONITOR_ENSAYO(:OID_MON, :NOMBRE,
 			 :APELLIDOS, :TELEFONO, :EMAIL, :ID_EC, :ID_PRO)");
@@ -56,9 +56,9 @@ function modificarMonitores($conexion, $IDMON, $nombre, $apellidos, $telefono, $
 	}
 }
 
-function eliminaMonitores($conexion,$oidfecha){
+function eliminaMonitor($conexion,$oidfecha){
 	$erroresCreaPacCitas[]="El método eliminaPacCitas no está implementado";
- 	$_SESSION['errorModPacCita']=$erroresCreaPacCitas;
+ 	$_SESSION['errorModMonitor']=$erroresCreaPacCitas;
 	return true;
 }
 ?>
