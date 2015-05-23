@@ -55,7 +55,7 @@ unset($_SESSION["promotor"]);
 		<form method="post" action="ProcesaPromotor.php">
 			<input id="ID_PRO" name="ID_PRO" type="hidden" value="<?php echo $fila["ID_PRO"]?>"/>
 			<input id="nombre" name="nombre" type="hidden" value="<?php echo $fila["NOMBRE_EMPRESA"]?>"/>
-			<input id="CIF" name="CIF" type="hidden" value="<?php echo $fila["CIF"]?>"/>
+			<input id="cif" name="cif" type="hidden" value="<?php echo $fila["CIF"]?>"/>
 			
 			<td><?php echo $fila["ID_PRO"]?></td>
 			<td><?php echo $fila["NOMBRE_EMPRESA"]?></td>

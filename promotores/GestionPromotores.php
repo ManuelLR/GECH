@@ -32,7 +32,7 @@ function modificarPromotor($conexion, $OidPromotor, $nombre, $cif) {
 		$stmt=$conexion->prepare('CALL MODIFICAR_PROMOTOR(:OidPromotor,:nombre, :cif)');
 		$stmt->bindParam(':OidPromotor', $OidPromotor);
 		$stmt->bindParam(':nombre',$nombre);
-		$stmt->bindParam(':apellidos',$cif);
+		$stmt->bindParam(':cif',$cif);
 		$stmt->execute();
 		return true;
 	}catch(PDOException $e){
