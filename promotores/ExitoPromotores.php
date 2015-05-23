@@ -20,7 +20,7 @@ if (isset($_SESSION["promotor"])) {
 		<link type="text/css" rel="stylesheet" href="/css/Formularios.css">
 	</head>
 	<?php
-		include_once ("../../CabeceraGenerica.php");
+		include_once ("../CabeceraGenerica.php");
 	?>
 	<body>
 		<h3>Estado Registro del Promotor</h3>
@@ -64,7 +64,7 @@ if($promotor["accionPro"]=="insert"){
 		 
 	desconectarDB($conexion);
 		?>
-		<?php 	include_once("../../Pie.php");
+		<?php 	include_once("../Pie.php");
 		?>
 	</body>
 </html>

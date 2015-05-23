@@ -13,7 +13,7 @@
 		<link type="text/css" rel="stylesheet" href="/css/Formularios.css">  
 		<script src="validacionPromotor.js"></script>
 	</head><body>
-	<?php include_once("../../CabeceraGenerica.php");?>
+	<?php include_once("../CabeceraGenerica.php");?>
 	<h3>Formulario Promotores</h3>
 	<?php 
 		if(isset($_SESSION['erroresCreaPromotores'])){
@@ -83,6 +83,6 @@ Limpia contenido</button>
 
 	</form>
 	</div>
-<?php 	include_once("../../Pie.php"); ?>
+<?php 	include_once("../Pie.php"); ?>
 </body>
 </html>
