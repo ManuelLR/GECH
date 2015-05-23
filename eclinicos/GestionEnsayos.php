@@ -3,14 +3,15 @@
 function insertarEnsayo($situacion_actual, $criterio_inc, $criterio_exc, $inicio_rec, $fin_rec, $farmaco, $conexion) {
 	$result = true;
 	try {
-		$stmt = $conexion -> prepare("CALL CREA_ENSAYO(:situacion_actual,
-			 :criterio_inc, :criterio_exc, to_date(:inicio_rec, 'yyyy-mm-dd'), to_date(:fin_rec, 'yyyy-mm-dd'), :farmaco)");
-		$stmt -> bindParam(':situacion_actual', $situacion_actual);
-		$stmt -> bindParam(':criterio_inc', $criterio_inc);
-		$stmt -> bindParam(':criterio_exc', $criterio_exc);
-		$stmt -> bindParam(':inicio_rec', $inicio_rec);
-		$stmt -> bindParam(':fin_rec', $fin_rec);
-		$stmt -> bindParam(':farmaco', $farmaco);
+		$stmt = $conexion -> prepare("CALL CREA_ENSAYO(:SITUACION_ACTUAL,
+			 :CRITERIO_INC, :CRITERIO_EXC, to_date(:INICIO_REC, 'yyyy-mm-dd'), to_date(:FIN_REC, 'yyyy-mm-dd'), :FARMACO)");
+		$stmt -> bindParam(':SITUACION_ACTUAL', $situacion_actual);
+		$stmt -> bindParam(':CRITERIO_INC', $criterio_inc);
+		$stmt -> bindParam(':CRITERIO_EXC', $criterio_exc);
+		$stmt -> bindParam(':INICIO_REC', $inicio_rec);
+		$stmt -> bindParam(':FIN_REC', $fin_rec);
+		$stmt -> bindParam(':FARMACO', $farmaco);
+
 
 		$stmt -> execute();
 	} catch(PDOException $e) {
@@ -31,18 +32,17 @@ function seleccionarEnsayos($conexion) {
 	return $stmt;
 }
 
-function modificarPaciente($conexion, $OidPaciente, $nombre, $apellidos, $nuhsa, $nhc, $diagnostico, $medicacion, $fechaInclusion, $idEnsayoClinico) {
+/*function modificarEnsayo($conexion, $OidEnsayo, $situacion_actual, $criterio_inc, $criterio_exc, $inicio_rec, $fin_rec, $farmaco, $fechaInclusion, $idEnsayoClinico) {
 	try{
-		$stmt=$conexion->prepare('CALL MODIFICAR_PACIENTE(:OidPaciente,:nombre, :apellidos, :nuhsa, :nhc, :diagnostco, :medicacion, :fechaInclusion, :idEnsayoClinico)');
-		$stmt->bindParam(':OidPaciente', $OidPaciente);
-		$stmt->bindParam(':nombre',$nombre);
-		$stmt->bindParam(':apellidos',$apellidos);
-		$stmt->bindParam(':nuhsa',$nuhsa);
-		$stmt->bindParam(':nhc',$nhc);
-		$stmt->bindParam(':diagnostco',$diagnostico);
-		$stmt->bindParam(':medicacion',$medicacion);
-		$stmt->bindParam(':fechaInclusion',$fechaInclusion);
-		$stmt->bindParam(':idEnsayoClinico',$idEnsayoClinico);
+		$stmt=$conexion->prepare('CALL MODIFICAR_ENSAYO(:OidEnsayo,:SITUACION_ACTUAL, :CRITERIO_INC, :CRITERIO_EXC, :INICIO_REC, :FIN_REC, :FARMACO)');
+		$stmt->bindParam(':OidEnsayo', $OidEnsayo);
+		$stmt->bindParam(':SITUACION_ACTUAL',$situacion_actual);
+		$stmt->bindParam(':CRITERIO_INC',$criterio_inc);
+		$stmt->bindParam(':CRITERIO_EXC',$criterio_exc);
+		$stmt->bindParam(':INICIO_REC',$inicio_rec);
+		$stmt->bindParam(':FIN_REC',$fin_rec);
+		$stmt->bindParam(':FARMACO',$farmaco);
+
 		$stmt->execute();
 		return true;
 	}catch(PDOException $e){
@@ -53,5 +53,5 @@ function modificarPaciente($conexion, $OidPaciente, $nombre, $apellidos, $nuhsa,
 		echo "</div>";
 		return false;		
 	}
-}
+}*/
 ?>
