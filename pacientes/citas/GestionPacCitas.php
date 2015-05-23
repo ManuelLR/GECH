@@ -26,7 +26,7 @@ function seleccionarPacCitas($conexion) {
 	return $stmt;
 }function seleccionarPacCitasUno($conexion, $paciente) {
 	$erroresCreaPacCitas[]="El método seleccionarPacCitasUno no está implementado";
- 	$_SESSION['errorModPacCita']=$erroresCreaPacCitas;
+ 	$_SESSION['errorModTrabajaEn']=$erroresCreaPacCitas;
 
 	return seleccionarPacCitas($conexion);
 }

@@ -18,7 +18,7 @@ unset($_SESSION["paciente"]);
 	<?php
 		include_once ("../CabeceraGenerica.php");
 	?>
-	<h3>Muestra Paciente</h3>
+	<h3>Muestra Todos los Pacientes</h3>
 		<?php 
 		if(isset($_SESSION['exitoModPacientes'])){
 		 	$exitoPacientes = $_SESSION['exitoModPacientes'];
@@ -45,7 +45,7 @@ unset($_SESSION["paciente"]);
 <body>	
 	<div id='tablamuestra'>
 		<table>
-			<tr><th>ID</th><th>Nombre</th><th>Apellidos</th><th>Controles</th></tr>
+			<tr><th>ID</th><th>Nombre</th><th>Apellidos</th><th>Id ensayo clínico</th><th>Controles</th></tr>
 		<?php 
 			$stmp = seleccionarPacientes($conexion);
 			foreach($stmp as $fila) {
@@ -65,6 +65,7 @@ unset($_SESSION["paciente"]);
 			<td><?php echo $fila["ID_PAC"]?></td>
 			<td><?php echo $fila["NOMBRE"]?></td>
 			<td><?php echo $fila["APELLIDOS"]?></td>
+			<td><?php echo $fila["ID_EC"]?></td>
 				
 			<td>
 				<div id="botones_fila">						

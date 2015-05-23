@@ -1,6 +1,7 @@
 <?php 
 session_start(); 
 unset($_SESSION["empleado"]);
+unset($_SESSION["trabajaEn"]);
 ?>
 <!DOCTYPE html>
 <html>

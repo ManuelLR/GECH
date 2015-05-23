@@ -1,6 +1,8 @@
 <?php 
 session_start(); 
 unset($_SESSION["promotor"]);
+unset($_SESSION["monitor"]);
+unset($_SESSION["fecMon"]);
 ?>
 <!DOCTYPE html>
 <html>

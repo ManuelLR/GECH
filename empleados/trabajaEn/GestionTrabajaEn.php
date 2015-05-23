@@ -28,6 +28,12 @@ function seleccionarTrabajaEn($conexion) {
 	return $stmt;
 }
 
+function seleccionarTrabajaEnUno($conexion, $trabajaEn) {
+	$erroresCreaPacCitas[]="El método seleccionarTrabajaEnUno no está implementado";
+ 	$_SESSION['errorModPacCita']=$erroresCreaPacCitas;
+	return seleccionarTrabajaEn($conexion);
+}
+
 function modificarTrabajaEn($conexion, $ID_EC, $ID_EMP, $cargo) {
 	try{
 		$stmt=$conexion->prepare('CALL MODIFICAR_TRABAJA_EN(:ID_EC, :ID_EMP, :CARGO)');

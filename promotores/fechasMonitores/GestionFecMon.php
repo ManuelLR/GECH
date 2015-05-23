@@ -31,8 +31,11 @@ function seleccionarFecMon($conexion) {
 }
 
 function eliminaFecMon($conexion,$fecha, $idMon){
-	$erroresCreaFecMon[]="El método eliminaFecMon no está implementado";
- 	$_SESSION['errorModFecMon']=$erroresCreaFecMon;
-	return true;
+	$result=true;
+		$erroresCreaFecMon[]="El método eliminaFecMon no está implementado";
+ 		$_SESSION['errorModFecMon']=$erroresCreaFecMon;
+ 		$result=false;
+
+	return $result;
 }
 ?>
