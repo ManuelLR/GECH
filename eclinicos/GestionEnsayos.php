@@ -32,16 +32,17 @@ function seleccionarEnsayos($conexion) {
 	return $stmt;
 }
 
-/*function modificarEnsayo($conexion, $OidEnsayo, $situacion_actual, $criterio_inc, $criterio_exc, $inicio_rec, $fin_rec, $farmaco, $fechaInclusion, $idEnsayoClinico) {
+function modificarEnsayo($conexion, $OidEnsayo, $situacion_actual, $criterio_inc, $criterio_exc, $inicio_rec, $fin_rec, $farmaco) {
 	try{
-		$stmt=$conexion->prepare('CALL MODIFICAR_ENSAYO(:OidEnsayo,:SITUACION_ACTUAL, :CRITERIO_INC, :CRITERIO_EXC, :INICIO_REC, :FIN_REC, :FARMACO)');
-		$stmt->bindParam(':OidEnsayo', $OidEnsayo);
-		$stmt->bindParam(':SITUACION_ACTUAL',$situacion_actual);
-		$stmt->bindParam(':CRITERIO_INC',$criterio_inc);
-		$stmt->bindParam(':CRITERIO_EXC',$criterio_exc);
-		$stmt->bindParam(':INICIO_REC',$inicio_rec);
-		$stmt->bindParam(':FIN_REC',$fin_rec);
-		$stmt->bindParam(':FARMACO',$farmaco);
+		$stmt=$conexion->prepare("CALL MODIFICAR_ENSAYO(:ID_EC, :SITUACION_ACTUAL,
+			 :CRITERIO_INC, :CRITERIO_EXC, to_date(:INICIO_REC, 'yyyy-mm-dd'), to_date(:FIN_REC, 'yyyy-mm-dd'), :FARMACO)");
+		$stmt->bindParam(':ID_EC', $OidEnsayo);
+		$stmt -> bindParam(':SITUACION_ACTUAL', $situacion_actual);
+		$stmt -> bindParam(':CRITERIO_INC', $criterio_inc);
+		$stmt -> bindParam(':CRITERIO_EXC', $criterio_exc);
+		$stmt -> bindParam(':INICIO_REC', $inicio_rec);
+		$stmt -> bindParam(':FIN_REC', $fin_rec);
+		$stmt -> bindParam(':FARMACO', $farmaco);
 
 		$stmt->execute();
 		return true;
@@ -53,5 +54,5 @@ function seleccionarEnsayos($conexion) {
 		echo "</div>";
 		return false;		
 	}
-}*/
+}
 ?>
