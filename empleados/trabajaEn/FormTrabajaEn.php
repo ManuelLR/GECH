@@ -2,8 +2,8 @@
 	session_start();
 	if(!isset($_SESSION["empleado"])){
 		$errores[]="Debes seleccionar un empleado antes de añadirle un trabajaEn";
-		$_SESSION["errorModEmpleado"]=$errores;		
-		header("Location: ../MuestraEmpleado.php");
+		$_SESSION["errorModEmpleados"]=$errores;		
+		header("Location: ../MuestraEmpleados.php");
 	}else{
 		$empleado=$_SESSION["empleado"];	
 ?>
