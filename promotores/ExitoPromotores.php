@@ -16,11 +16,11 @@ if (isset($_SESSION["promotor"])) {
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Resultado del Registro del Promotor</title>
-		<link type="text/css" rel="stylesheet" href="/css/BaseDiseno.css">
-		<link type="text/css" rel="stylesheet" href="/css/Formularios.css">
+		<link type="text/css" rel="stylesheet" href="../css/BaseDiseno.css">
+		<link type="text/css" rel="stylesheet" href="../css/Formularios.css">
 	</head>
 	<?php
-		include_once ("../../CabeceraGenerica.php");
+		include_once ("../CabeceraGenerica.php");
 	?>
 	<body>
 		<h3>Estado Registro del Promotor</h3>
@@ -64,7 +64,7 @@ if($promotor["accionPro"]=="insert"){
 		 
 	desconectarDB($conexion);
 		?>
-		<?php 	include_once("../../Pie.php");
+		<?php 	include_once("../Pie.php");
 		?>
 	</body>
 </html>
