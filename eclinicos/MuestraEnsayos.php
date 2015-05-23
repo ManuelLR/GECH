@@ -72,8 +72,7 @@ unset($_SESSION["ensayo"]);
 					<img src="/images/remFila.bmp" class="editar_fila" width="25px"></button>
 				<button id="accionEc" name="accionEc" type="submit" value="more" class="editar_fila">
 					<img src="/images/masFila.bmp" class="editar_fila" width="25px"></button>
-				<button id="accionEc" name="accionEc" type="submit" value="calendar" class="editar_fila">
-					<img src="/images/calendarFila.bmp" class="editar_fila" width="25px"></button>
+
 					
 				</div>
 			</td>	
