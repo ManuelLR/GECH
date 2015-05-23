@@ -12,7 +12,7 @@
 			 	<li class="pestanaNav"><a title="Pacientes" href="/pacientes/index.php">Pacientes</a></li>
 			 	<li class="pestanaNav"><a title="EnsayosClinicos" href="/eclinicos/index.php">Ensayos Clínicos</a></li>
 			 	<li class="pestanaNav"><a title="Promotores" href="/promotores/index.php">Promotores y Monitores</a></li>
-			 	<li class="pestanaNav"><a title="Empleados" href="empleados/index.php">Empleados</a></li>
+			 	<li class="pestanaNav"><a title="Empleados" href="/empleados/index.php">Empleados</a></li>
 			 	</ul>
 			 </div>
 		</header>
