@@ -1,7 +1,7 @@
 <?php 
 
 session_start();
-require_once ("../GestionarDB.php");
+require_once ("../../GestionarDB.php");
 $conexion = conectarBD();
 include_once 'GestionTrabajaEn.php';
 unset($_SESSION["trabajaEn"]);
@@ -16,7 +16,7 @@ unset($_SESSION["trabajaEn"]);
 		<link type="text/css" rel="stylesheet" href="/css/Tablas.css">  
 	</head>
 	<?php
-		include_once ("../CabeceraGenerica.php");
+		include_once ("../../CabeceraGenerica.php");
 	?>
 	<h3>Muestra Trabaja En</h3>
 		<?php 
@@ -77,7 +77,7 @@ unset($_SESSION["trabajaEn"]);
 		
 	</div>
 <?php
-		include_once ("../Pie.php");
+		include_once ("../../Pie.php");
 desconectarDB($conexion);
  ?>
 </body>

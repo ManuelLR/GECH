@@ -11,7 +11,7 @@ unset($_SESSION["trabajaEn"]);
 	</head>
 	<body>
 		<?php
-		include_once ("../CabeceraGenerica.php");
+		include_once ("../../CabeceraGenerica.php");
 		?>
 		<div id="indiceInterno">
 			<?php
@@ -19,7 +19,7 @@ unset($_SESSION["trabajaEn"]);
 			?>
 		</div>
 		<?php
-			include_once ("../Pie.php");
+			include_once ("../../Pie.php");
 		?>
 	</body>
 </html>

@@ -1,6 +1,6 @@
 <?php 
 session_start();
-include_once ("../GestionarDB.php");
+include_once ("../../GestionarDB.php");
 include_once ('GestionTrabajaEn.php');
 if (isset($_SESSION["trabajaEn"])) {
 	$trabajaEn = $_SESSION["trabajaEn"];
@@ -20,7 +20,7 @@ if (isset($_SESSION["trabajaEn"])) {
 		<link type="text/css" rel="stylesheet" href="/css/Formularios.css">
 	</head>
 	<?php
-		include_once ("../CabeceraGenerica.php");
+		include_once ("../../CabeceraGenerica.php");
 	?>
 	<body>
 		<h3>Estado Registro del Trabaja En</h3>
@@ -62,7 +62,7 @@ if($trabajaEn["accionTraEn"]=="insert"){
 		 
 	desconectarDB($conexion);
 		?>
-		<?php 	include_once("../Pie.php");
+		<?php 	include_once("../../Pie.php");
 		?>
 	</body>
 </html>

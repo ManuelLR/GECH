@@ -16,6 +16,7 @@ unset($_SESSION["empleado"]);
 		<div id="indiceInterno">
 			<?php
 			include_once ("empleados.html");
+			include_once ("trabajaEn/trabajaEn.html");
 			?>
 		</div>
 		<?php
