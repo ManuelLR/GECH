@@ -107,6 +107,8 @@ if (isset($_SESSION["promotor"])) {
 					<img src="/images/editFila.bmp" class="editar_fila" width="25px"></button>
 				<button id="accionMonitor" name="accionMonitor" type="submit" value="remove" class="editar_fila">
 					<img src="/images/remFila.bmp" class="editar_fila" width="25px"></button>
+				<button id="accionMonitor" name="accionMonitor" type="submit" value="calendar" class="editar_fila">
+					<img src="/images/calendarFila.bmp" class="editar_fila" width="25px"></button>
 				</div>
 			</td>	
 		</form></div></tr>

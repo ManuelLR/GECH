@@ -50,6 +50,10 @@ if (#!isset($_REQUEST["accionMonitor"])){#&&
 		header("Location: FormMonitor.php");
 	}elseif($monitor["accionMonitor"]=="remove"){
 		header("Location: ExitoMonitores.php");
+	}elseif($monitor["accionMonitor"]=="calendar"){
+		$fecMon["accionFecMon"]="view";
+		$_SESSION["fecMon"]=$fecMon;
+		header("Location: ../fechasMonitores/ProcesaFecMon.php");
 	}
 
 	else{

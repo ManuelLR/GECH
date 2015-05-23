@@ -39,7 +39,7 @@ if($citaPac["accionCitaPac"]=="insert"){
 	}else{ ?>
 		<div id="div_errorRegistro">
 			Lo sentimos, la cita para el paciente <?php echo $paciente["nombre"] . " " . $paciente["apellidos"]; ?>
-			el día <?php echo $citaPac["fecha"]?> <b>NO</b> ha sido insertado.-
+			el día <?php echo $citaPac["fecha"]?> <b>NO</b> ha sido insertado.
 		</div>
 		<?php
 		#$_SESSION["paciente"] = $paciente;
