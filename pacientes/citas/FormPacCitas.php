@@ -14,7 +14,7 @@
 		<title>Formulario Citas</title>
 		<link type="text/css" rel="stylesheet" href="/css/BaseDiseno.css">
 		<link type="text/css" rel="stylesheet" href="/css/Formularios.css">  
-		<script src="validacionPaciente.js"></script>
+		<script src="ValidacionPacCita.js"></script>
 	</head><body>
 	<?php include_once("../../CabeceraGenerica.php");?>
 	<h3>Formulario Citas</h3>
@@ -56,7 +56,7 @@ Limpia contenido</button>
 	?>
 	<div id="errores"></div>
 
-<form action="ProcesaPacCita.php"> <!--onsubmit="return validaForm()">-->
+<form action="ProcesaPacCita.php" onsubmit="return validaForm()">
 		<input id="ID_FECHA" name="ID_FECHA" type="hidden" value="<?php echo $citaPac["ID_FECHA"]; ?>"/>
 		<input id="idPac" name="idPac" type="hidden" value="<?php echo $citaPac["idPac"]; ?>"/>
 		<div id="div_fecha">
