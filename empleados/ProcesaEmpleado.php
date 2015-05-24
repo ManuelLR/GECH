@@ -52,16 +52,26 @@ if(!isset($_REQUEST["accionEmp"])) {
 
 
 	function validar($empleado) {
+		
+		$letra = substr($empleado["dni"], -1);
+		$numeros = substr($empleado["dni"], 0, -1);
+		
 		if (empty($empleado["nombre"])) {
 			$errores[] = "El nombre no puede estar vacio";}
 		if (empty($empleado["apellidos"])) {
 			$errores[] = "Los apellidos no pueden estar vacios";}
 		if (empty($empleado["dni"])) {
-			$errores[] = "El DNI no pueden estar vacio";}
+			$errores[] = "El DNI no pueden estar vacio";
+		}else if (substr("TRWAGMYFPDXBNJZSQVHLCKE", $numeros%23, 1) != $letra || strlen($letra) != 1 || strlen ($numeros) != 8) {
+			$errores[] = "DNI invalido";}
 		if (empty($empleado["telefono"])) {
 			$errores[] = "El teléfono no puede estar vacio";}
 		if (empty($empleado["email"])) {
-			$errores[] = "El email no pueden estar vacio";}
+			$errores[] = "El email no pueden estar vacio";
+			}else if (!filter_var($empleado["email"], FILTER_VALIDATE_EMAIL)) {
+				$errores[] = "El email es invalido";
+			}
+			
 				
 		return $errores;
 	}
