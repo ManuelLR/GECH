@@ -10,18 +10,12 @@
 		<?php
 		include_once ("CabeceraGenerica.php");
 		?>
-		<h1>Codigo SQL</h1>
-		PARA EJECUTAR TODO EL CODIGO JUNTO IR <a href="TodoSQL.php">AQUI</a>
+		<h1>Todo Código SQL</h1>
 		<div id="indiceInterno">
-<h2>ordenar ! ! !</h2>
-			<h2>Pacientes</h2>
-			<?php
-				include_once ("/pacientes/CodigoSQLPaciente.html");
-			?>
-			<h2>Fecha Pacientes</h2>
-			<?php
-				include_once ("/pacientes/citas/CodigoSQLPacCitas.html");
-			?>
+<textarea name="code" class="sql:nogutter"rows="50" cols="100">
+
+Te toco ponerlo y lo sabes
+</textarea>
 			
 		</div>
 

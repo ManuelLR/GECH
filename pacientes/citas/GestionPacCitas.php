@@ -21,14 +21,15 @@ function insertarPacCitas($conexion, $fecha, $tipo, $idPac) {
 	return $result;
 }
 function seleccionarPacCitas($conexion) {
-	$SQL = "SELECT * FROM FECHA_PACIENTE";
+	$SQL = "SELECT * FROM PACIENTE P,FECHA_PACIENTE FP WHERE FP.ID_PAC=P.ID_PAC";
 	$stmt = $conexion -> query($SQL);
 	return $stmt;
 }function seleccionarPacCitasUno($conexion, $paciente) {
-	$erroresCreaPacCitas[]="El método seleccionarPacCitasUno no está implementado";
+	$erroresCreaPacCitas[]="El método seleccionarPacCitasUno está en pruebas";
  	$_SESSION['errorModTrabajaEn']=$erroresCreaPacCitas;
-
-	return seleccionarPacCitas($conexion);
+	$SQL ="SELECT * FROM PACIENTE P,FECHA_PACIENTE FP WHERE FP.ID_PAC=P.ID_PAC AND P.ID_PAC=".$paciente["ID_PAC"];
+	$stmt = $conexion -> query($SQL);
+	return $stmt;
 }
 function modificarPacCitas($conexion,$oidfecha, $fecha, $tipo, $idPac) {
 	try{
