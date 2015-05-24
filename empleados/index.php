@@ -14,12 +14,14 @@ unset($_SESSION["trabajaEn"]);
 		<?php
 		include_once ("../CabeceraGenerica.php");
 		?>
+<div id="contenidoPag">
 		<div id="indiceInterno">
 			<?php
 			include_once ("empleados.html");
 			include_once ("trabajaEn/trabajaEn.html");
 			?>
 		</div>
+</div>
 		<?php
 			include_once ("../Pie.php");
 		?>

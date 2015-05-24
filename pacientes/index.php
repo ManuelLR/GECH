@@ -14,11 +14,13 @@ unset($_SESSION["citaPac"]);
 		<?php
 		include_once ("../CabeceraGenerica.php");
 		?>
+<div id="contenidoPag">
 		<div id="indiceInterno">
 			<?php
 			include_once ("pacientes.html");
 			?>
 		</div>
+</div>
 		<?php
 			include_once ("../Pie.php");
 		?>

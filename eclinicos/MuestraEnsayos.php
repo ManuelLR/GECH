@@ -12,12 +12,13 @@ unset($_SESSION["ensayo"]);
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Crear nueva entrada</title>
-		<link type="text/css" rel="stylesheet" href="../css/BaseDiseno.css">
-		<link type="text/css" rel="stylesheet" href="../css/Tablas.css">  
+		<link type="text/css" rel="stylesheet" href="/css/BaseDiseno.css">
+		<link type="text/css" rel="stylesheet" href="/css/Tablas.css">  
 	</head>
 	<?php
 		include_once ("../CabeceraGenerica.php");
 	?>
+<div id="contenidoPag">
 	<h3>Muestra Ensayo</h3>
 		<?php 
 		if(isset($_SESSION['exitoModEnsayos'])){
@@ -42,7 +43,20 @@ unset($_SESSION["ensayo"]);
 		unset($_SESSION["errorModEnsayos"]);
 		}
 	?>
-<body>	
+<body>
+	<form method="post" action="
+		<?php 
+		if (isset($_REQUEST["new"])){
+			#$citaPac["accionCitaPac"]="insert";
+			#$_SESSION["citaPac"]=$citaPac;
+			#$_SESSION["paciente"]=$paciente;
+			unset($_SESSION["ensayo"]);
+			header("Location:FormEnsayos.php");
+		}?>">
+		<button id="new" name="new" type="submit" class="Limpiar formulario">
+		Inserta ensayo</button>
+	</form>
+	</br>	
 	<div id='tablamuestra'>
 		<table>
 			<tr><th>ID</th><th>Situación actual</th><th>Fármaco</th><th>Controles</th></tr>
@@ -81,6 +95,7 @@ unset($_SESSION["ensayo"]);
 		</table>
 		
 	</div>
+</div>
 <?php
 		include_once ("../Pie.php");
 desconectarDB($conexion);

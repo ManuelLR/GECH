@@ -23,6 +23,7 @@ if (isset($_SESSION["paciente"])) {
 		include_once ("../CabeceraGenerica.php");
 	?>
 	<body>
+<div id="contenidoPag">
 		<h3>Estado Registro del Paciente</h3>
 <?php
 $conexion=conectarBD();
@@ -77,8 +78,10 @@ if($paciente["accionPac"]=="insert"){
 		 
 	desconectarDB($conexion);
 		?>
+</div>
 		<?php 	include_once("../Pie.php");
 		?>
+		
 	</body>
 </html>
 

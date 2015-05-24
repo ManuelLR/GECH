@@ -10,6 +10,7 @@
 		<?php
 		include_once ("CabeceraGenerica.php");
 		?>
+<div id="contenidoPag">
 		<h1>Codigo SQL</h1>
 		PARA EJECUTAR TODO EL CODIGO JUNTO IR <a href="TodoSQL.php">AQUI</a>
 		<div id="indiceInterno">
@@ -24,6 +25,7 @@
 			?>
 			
 		</div>
+</div>
 
 		<?php 	include_once("Pie.php");
 		?>

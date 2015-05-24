@@ -14,6 +14,7 @@
 		<script src="validacionEmpleado.js"></script>
 	</head><body>
 	<?php include_once("../CabeceraGenerica.php");?>
+<div id="contenidoPag">
 	<h3>Formulario Empleados</h3>
 	<?php 
 		if(isset($_SESSION['erroresCreaEmpleados'])){
@@ -99,6 +100,7 @@ Limpia contenido</button>
 
 	</form>
 	</div>
+</div>
 <?php 	include_once("../Pie.php"); ?>
 </body>
 </html>

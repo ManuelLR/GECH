@@ -10,6 +10,7 @@
 		<?php
 		include_once ("CabeceraGenerica.php");
 		?>
+<div id="contenidoPag">
 		<h1>Todo Código SQL</h1>
 		<div id="indiceInterno">
 <textarea name="code" class="sql:nogutter"rows="50" cols="100">
@@ -425,6 +426,7 @@ END MODIFICAR_TRABAJA_EN;
 </textarea>
 			
 		</div>
+</div>
 
 		<?php 	include_once("Pie.php");
 		?>

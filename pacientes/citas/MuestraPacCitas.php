@@ -16,6 +16,7 @@ $_SESSION["citaPac"]=$citaPac;
 		<link type="text/css" rel="stylesheet" href="/css/Tablas.css">  
 	</head><body>
 	<?php include_once("../../CabeceraGenerica.php");?>
+<div id="contenidoPag">
 	<h3>Muestra Citas</h3>
 <?php 
 		if(isset($_SESSION['exitoModPacCita'])){
@@ -110,6 +111,7 @@ if (isset($_SESSION["paciente"])) {
 		</table>
 		
 	</div>
+</div>
 <?php 
 	
 include_once("../../Pie.php"); 

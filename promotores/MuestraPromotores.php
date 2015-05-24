@@ -18,6 +18,7 @@ unset($_SESSION["promotor"]);
 	<?php
 		include_once ("../CabeceraGenerica.php");
 	?>
+<div id="contenidoPag">
 	<h3>Muestra Promotor</h3>
 		<?php 
 		if(isset($_SESSION['exitoModPromotores'])){
@@ -42,7 +43,20 @@ unset($_SESSION["promotor"]);
 		unset($_SESSION["errorModPromotores"]);
 		}
 	?>
-<body>	
+<body>
+	<form method="post" action="
+		<?php 
+		if (isset($_REQUEST["new"])){
+			#$citaPac["accionCitaPac"]="insert";
+			#$_SESSION["citaPac"]=$citaPac;
+			#$_SESSION["paciente"]=$paciente;
+			unset($_SESSION["promotor"]);
+			header("Location:FormPromotores.php");
+		}?>">
+		<button id="new" name="new" type="submit" class="Limpiar formulario">
+		Inserta promotor</button>
+	</form>
+	</br>		
 	<div id='tablamuestra'>
 		<table>
 			<tr><th>ID</th><th>Nombre de la Empresa</th><th>CIF</th><th>Controles</th><th>Monitores</th></tr>
@@ -82,6 +96,7 @@ unset($_SESSION["promotor"]);
 		</table>
 		
 	</div>
+</div>
 <?php
 		include_once ("../Pie.php");
 desconectarDB($conexion);

@@ -20,6 +20,13 @@ body{
     border-radius: 9px;
 	
 }
+#contenidoPag{
+	width:90%;
+	margin-left:auto;
+	margin-right: auto;
+	margin-top: 70px;/*El elemento anterior ocupa 50px*/
+    margin-bottom: 20px;
+}
 h3{
 	padding: 0.5em 5% 2em
 }
@@ -157,6 +164,18 @@ h3{
 }
 #pie{
 	text-align:center;
+}
+#indiceInterno ul{
+	margin: 0px 0px 0px;
+}
+#indiceInterno li{
+	list-style: outside none none;
+}
+#indiceInterno li:hover{
+	background-color: #4169E1;
+}
+#indiceInterno li:hover a{
+	color:#000000;
 }
 
 .cabecera1 {

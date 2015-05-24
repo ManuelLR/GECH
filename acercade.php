@@ -7,6 +7,7 @@
 	</head>
 	<body>
 	<?php include_once("CabeceraGenerica.php");?>
+<div id="contenidoPag">
 	<?php 
 		if(isset($_SESSION['erroresIndex'])){
 		 	$erroresIndex = $_SESSION['erroresIndex'];
@@ -27,6 +28,7 @@
 		<br />
 		Email de Manuel Francisco López Ruiz: manloprui1@alum.us.es
 	</div>
+</div>
 <?php 	include_once("Pie.php"); ?>
 </body>
 </html>

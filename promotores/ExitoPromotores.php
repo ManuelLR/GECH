@@ -23,6 +23,7 @@ if (isset($_SESSION["promotor"])) {
 		include_once ("../CabeceraGenerica.php");
 	?>
 	<body>
+<div id="contenidoPag">
 		<h3>Estado Registro del Promotor</h3>
 <?php
 $conexion=conectarBD();
@@ -75,6 +76,7 @@ if($promotor["accionPro"]=="insert"){
 		 
 	desconectarDB($conexion);
 		?>
+</div>
 		<?php 	include_once("../Pie.php");
 		?>
 	</body>

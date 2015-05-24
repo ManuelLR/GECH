@@ -10,6 +10,7 @@
 		<?php
 		include_once ("CabeceraGenerica.php");
 		?>
+<div id="contenidoPag">
 		<h1>Mapa de la web</h1>
 		<div id="indiceInterno">
 
@@ -30,7 +31,7 @@
 				include_once ("/empleados/empleados.html");
 			?>
 		</div>
-
+</div>
 		<?php 	include_once("Pie.php");
 		?>
 	</body>

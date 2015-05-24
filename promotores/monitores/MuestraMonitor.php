@@ -16,6 +16,7 @@ $_SESSION["monitor"]=$monitor;
 		<link type="text/css" rel="stylesheet" href="/css/Tablas.css">  
 	</head><body>
 	<?php include_once("../../CabeceraGenerica.php");?>
+<div id="contenidoPag">
 	<h3>Muestra Monitores</h3>
 <?php 
 		if(isset($_SESSION['exitoModMonitor'])){
@@ -45,7 +46,8 @@ $_SESSION["monitor"]=$monitor;
 			unset($_SESSION["promotor"]);
 			header("Location: MuestraMonitores.php");
 		}?>">
-	<button id="clean" name="clean" type="submit" class="Limpiar formulario">Todas las citas</button>
+	<button id="clean" name="clean" type="submit" class="Limpiar formulario">
+		Todas los monitores</button>
 </form>
 <form method="post" action="
 	<?php 
@@ -58,7 +60,8 @@ $_SESSION["monitor"]=$monitor;
 			$_SESSION["monitor"]=$monitor;
 			header("Location:ProcesaMonitor.php");
 		}?>">
-	<button id="new" name="new" type="submit" class="Limpiar formulario">Inserta Monitor</button>
+	<button id="new" name="new" type="submit" class="Limpiar formulario">
+		Inserta Monitor</button>
 </form>
 <?php
 if (isset($_SESSION["promotor"])) {
@@ -117,6 +120,7 @@ if (isset($_SESSION["promotor"])) {
 		</table>
 		
 	</div>
+</div>
 <?php 
 	
 include_once("../../Pie.php"); 

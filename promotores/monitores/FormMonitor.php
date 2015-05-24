@@ -17,6 +17,7 @@
 		<script src="validacionMonitor.js"></script>
 	</head><body>
 	<?php include_once("../../CabeceraGenerica.php");?>
+<div id="contenidoPag">
 	<h3>Formulario Monitores</h3>
 	<?php 
 		if(isset($_SESSION['erroresCreaMonitor'])){
@@ -119,7 +120,7 @@ Limpia contenido</button>
 		<?php }?>
 	</form>
 	</div>
-
+</div>
 
 
 

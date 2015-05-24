@@ -19,8 +19,9 @@ if (isset($_SESSION["paciente"])) {
 	<?php
 		include_once ("../CabeceraGenerica.php");
 	?>
-	<h3>Muestra Paciente</h3>
-<body>	
+<body>
+<div id="contenidoPag">
+	
 	<h3>Detalles paciente</h3>
 	<a href="MuestraPacientes.php"><img src="/images/volver.bmp" /></a>
 	<div id='tablamuestra'>
@@ -62,6 +63,7 @@ if (isset($_SESSION["paciente"])) {
 <?php  ?>
 		</table>
 		
+	</div>
 	</div>
 <?php
 		include_once ("../Pie.php");

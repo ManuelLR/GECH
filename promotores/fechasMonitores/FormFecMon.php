@@ -17,6 +17,7 @@
 		<script src="validacionmonitor.js"></script>
 	</head><body>
 	<?php include_once("../../CabeceraGenerica.php");?>
+<div id="contenidoPag">
 	<h3>Formulario Fecha Monitores</h3>
 	<?php 
 		if(isset($_SESSION['erroresCreaFecMon'])){
@@ -81,6 +82,7 @@ Limpia contenido</button>
 		<?php }?>
 	</form>
 	</div>
+</div>
 
 
 <?php

@@ -23,6 +23,7 @@ if (isset($_SESSION["empleado"])) {
 		include_once ("../CabeceraGenerica.php");
 	?>
 	<body>
+<div id="contenidoPag">
 		<h3>Estado Registro del Empleado</h3>
 <?php
 $conexion=conectarBD();
@@ -78,6 +79,7 @@ if($empleado["accionEmp"]=="insert"){
 		 
 	desconectarDB($conexion);
 		?>
+</div>
 		<?php 	include_once("../Pie.php");
 		?>
 	</body>

@@ -12,6 +12,7 @@ session_start();
 		<?php
 		include_once ("CabeceraGenerica.php");
 		?>
+<div id="contenidoPag">
 		<h1>Cosas que nos faltan</h1>
 		Puesto así para evitar concurrencia <b>NO</b> porque debamos hacerlo cada uno.
 		<div id="indiceInterno">
@@ -24,6 +25,7 @@ session_start();
 		include_once ("PendienteMigue.html");
 		?>			
 		</div>
+</div>
 		<?php
 			include_once ("Pie.php");
 		?>

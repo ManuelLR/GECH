@@ -14,6 +14,7 @@
 		<script src="validacionPaciente.js"></script>
 	</head><body>
 	<?php include_once("../CabeceraGenerica.php");?>
+<div id="contenidoPag">
 	<h3>Formulario Pacientes</h3>
 	<?php 
 		if(isset($_SESSION['erroresCreaPacientes'])){
@@ -113,6 +114,7 @@ Limpia contenido</button>
 
 	</form>
 	</div>
+</div>
 <?php 	include_once("../Pie.php"); ?>
 </body>
 </html>

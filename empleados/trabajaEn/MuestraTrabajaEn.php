@@ -19,6 +19,7 @@ $_SESSION["trabajaEn"]=$trabajaEn;
 	<?php
 		include_once ("../../CabeceraGenerica.php");
 	?>
+<div id="contenidoPag">
 	<h3>Muestra Trabaja En</h3>
 		<?php 
 		if(isset($_SESSION['exitoModTrabajaEn'])){
@@ -114,6 +115,8 @@ if (isset($_SESSION["empleado"])) {
 		</table>
 		
 	</div>
+	
+</div>
 <?php
 		include_once ("../../Pie.php");
 desconectarDB($conexion);

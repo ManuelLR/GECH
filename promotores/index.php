@@ -15,11 +15,13 @@ unset($_SESSION["fecMon"]);
 		<?php
 		include_once ("../CabeceraGenerica.php");
 		?>
+<div id="contenidoPag">
 		<div id="indiceInterno">
 			<?php
 			include_once ("promotores.html");
 			?>
 		</div>
+</div>
 		<?php
 			include_once ("../Pie.php");
 		?>

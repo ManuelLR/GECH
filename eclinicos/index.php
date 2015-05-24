@@ -13,11 +13,13 @@ unset($_SESSION["ensayo"]);
 		<?php
 		include_once ("../CabeceraGenerica.php");
 		?>
+<div id="contenidoPag">
 		<div id="indiceInterno">
 			<?php
 			include_once ("ensayosclinicos.html");
 			?>
 		</div>
+</div>
 		<?php
 			include_once ("../Pie.php");
 		?>

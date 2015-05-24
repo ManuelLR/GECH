@@ -16,6 +16,7 @@ $_SESSION["fecMon"]=$fecMon;
 		<link type="text/css" rel="stylesheet" href="/css/Tablas.css">  
 	</head><body>
 	<?php include_once("../../CabeceraGenerica.php");?>
+<div id="contenidoPag">
 	<h3>Muestra Fechas Monitores</h3>
 <?php 
 		if(isset($_SESSION['exitoModFecMon'])){
@@ -107,6 +108,7 @@ if (isset($_SESSION["monitor"])) {
 		</table>
 		
 	</div>
+</div>
 <?php 
 	
 include_once("../../Pie.php"); 

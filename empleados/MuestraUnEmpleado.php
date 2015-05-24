@@ -19,8 +19,8 @@ if (isset($_SESSION["empleado"])) {
 	<?php
 		include_once ("../CabeceraGenerica.php");
 	?>
-	<h3>Muestra Empleado</h3>
-<body>	
+	<body>
+<div id="contenidoPag">
 	<h3>Detalles Empleado</h3>
 	<a href="MuestraEmpleados.php"><img src="/images/volver.bmp" /></a>
 	<div id='tablamuestra'>
@@ -58,6 +58,7 @@ if (isset($_SESSION["empleado"])) {
 		</table>
 		
 	</div>
+</div>
 <?php
 		include_once ("../Pie.php");
 desconectarDB($conexion);

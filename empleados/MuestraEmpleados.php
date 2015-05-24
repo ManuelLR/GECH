@@ -18,6 +18,7 @@ unset($_SESSION["empleado"]);
 	<?php
 		include_once ("../CabeceraGenerica.php");
 	?>
+<div id="contenidoPag">
 	<h3>Muestra Empleado</h3>
 		<?php 
 		if(isset($_SESSION['exitoModEmpleados'])){
@@ -42,7 +43,20 @@ unset($_SESSION["empleado"]);
 		unset($_SESSION["errorModEmpleados"]);
 		}
 	?>
-<body>	
+<body>
+	<form method="post" action="
+		<?php 
+		if (isset($_REQUEST["new"])){
+			#$citaPac["accionCitaPac"]="insert";
+			#$_SESSION["citaPac"]=$citaPac;
+			#$_SESSION["paciente"]=$paciente;
+			unset($_SESSION["empleado"]);
+			header("Location:FormEmpleados.php");
+		}?>">
+		<button id="new" name="new" type="submit" class="Limpiar formulario">
+		Inserta empleado</button>
+	</form>
+	</br>		
 	<div id='tablamuestra'>
 		<table>
 			<tr><th>ID</th><th>Nombre</th><th>Apellidos</th><th>Controles</th><th>Trabaja en</th></tr>
@@ -87,6 +101,7 @@ unset($_SESSION["empleado"]);
 		</table>
 		
 	</div>
+</div>
 <?php
 		include_once ("../Pie.php");
 desconectarDB($conexion);

@@ -14,6 +14,7 @@
 		<script src="validacionPromotor.js"></script>
 	</head><body>
 	<?php include_once("../CabeceraGenerica.php");?>
+<div id="contenidoPag">
 	<h3>Formulario Promotores</h3>
 	<?php 
 		if(isset($_SESSION['erroresCreaPromotores'])){
@@ -82,6 +83,7 @@ Limpia contenido</button>
 		<input id="accionPro" name="accionPro" type="hidden" value="<?php echo $promotor["accionPro"]; ?>"/>
 
 	</form>
+	</div>
 	</div>
 <?php 	include_once("../Pie.php"); ?>
 </body>
