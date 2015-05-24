@@ -56,6 +56,9 @@ if(!isset($_REQUEST["accionEmp"])) {
 		$letra = strtoupper(substr($empleado["dni"], -1));
 		$numeros = substr($empleado["dni"], 0, -1);
 		$empleado["dni"]=$numeros.$letra;
+		
+		$expresion = '/^[9|6|7][0-9]{8}$/';
+		
 		$_SESSION["empleado"]=$empleado;
 		
 		if (empty($empleado["nombre"])) {
@@ -67,7 +70,9 @@ if(!isset($_REQUEST["accionEmp"])) {
 		}else if (substr("TRWAGMYFPDXBNJZSQVHLCKE", $numeros%23, 1) != $letra || strlen($letra) != 1 || strlen ($numeros) != 8) {
 			$errores[] = "DNI invalido";}
 		if (empty($empleado["telefono"])) {
-			$errores[] = "El teléfono no puede estar vacio";}
+			$errores[] = "El teléfono no puede estar vacio";
+			}else if(!preg_match($expresion, $empleado["telefono"])){
+				$errores[] = "El teléfono es invalido";}
 		if (empty($empleado["email"])) {
 			$errores[] = "El email no pueden estar vacio";
 			}else if (!filter_var($empleado["email"], FILTER_VALIDATE_EMAIL)) {

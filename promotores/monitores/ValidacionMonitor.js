@@ -5,17 +5,12 @@ function validaForm() {
 	var res = true;
 	document.getElementById("errores").innerHTML="";
 	
-	if(compruebaVacio("nombre") || compruebaVacio("apellidos") || 
-	compruebaVacio("dni") || compruebaVacio("telefono") || compruebaVacio("email") || !valida_DNI("dni") || !validar_email("email")) {
+	if(compruebaVacio("nombre") || compruebaVacio("apellidos") || compruebaVacio("telefono") || compruebaVacio("email")
+	 || compruebaVacio("idEc") || compruebaVacio("idPro")) {
 		document.getElementById("errores").innerHTML+="<div id ='muestraErrores'><\div>";
 		res = false;
 	}
 
-
-  	/*if(compruebaVacio("dni") || compruebaVacio("letra")) {
-  		document.getElementById("label_dni").style.color = "red";
-  		document.getElementById("errores").innerHTML+="<p>Falta dni<\p>";
-  	}*/
 
   	if(compruebaVacio("nombre")) {
   		document.getElementById("label_nombre").style.color = "red";
@@ -30,15 +25,6 @@ function validaForm() {
   		document.getElementById("muestraErrores").innerHTML+="Los apellidos no pueden estar vacíos<br/>";
   	} else {
   		document.getElementById("label_apellidos").style.color	= "black";
-  	}
-  	if(compruebaVacio("dni")){
-  		document.getElementById("label_dni").style.color = "red";
-  		document.getElementById("muestraErrores").innerHTML+="El DNI no puede estar vacío<br/>";
-  	} else if (!valida_DNI("dni")) {
-  		document.getElementById("label_dni").style.color = "red";
-  		document.getElementById("muestraErrores").innerHTML+="El DNI es inválido<br/>";
-  	} else {
-  		document.getElementById("label_dni").style.color	= "black";
   	}
   	if(compruebaVacio("telefono")){
   		document.getElementById("label_telefono").style.color = "red";
@@ -55,7 +41,18 @@ function validaForm() {
   	} else {
   		document.getElementById("label_email").style.color	= "black";
   	}
-  	
+  	if(compruebaVacio("idEc")){
+  		document.getElementById("label_idEc").style.color = "red";
+  		document.getElementById("muestraErrores").innerHTML+="El identificador del Ensayo Clínico no puede estar vacío<br/>";
+  	} else {
+  		document.getElementById("label_idEc").style.color	= "black";
+  	}
+  	if(compruebaVacio("idPro")){
+  		document.getElementById("label_idPro").style.color = "red";
+  		document.getElementById("muestraErrores").innerHTML+="El identificador del Promotor no puede estar vacío<br/>";
+  	} else {
+  		document.getElementById("label_idPro").style.color	= "black";
+  	}
   	
   	return res;
 }
@@ -73,33 +70,7 @@ function compruebaVacio(element) {
 }
 
 
-function valida_DNI(dni) {
-	var numero, letra, letDNI;
-	var expresion_regular_dni = /^[XYZ]?\d{5,8}[A-Z]$/;
- 
-	dni = dni.toUpperCase();
- 
-	if(expresion_regular_dni.test(dni) === true){
-		numero = dni.substr(0,dni.length-1);
-		numero = numero.replace('X', 0);
-		numero = numero.replace('Y', 1);
-		numero = numero.replace('Z', 2);
-		letDNI = dni.substr(dni.length-1, 1);
-		numero = numero % 23;
-		letra = 'TRWAGMYFPDXBNJZSQVHLCKET';
-		letra = letra.substring(numero, numero+1);
-		if (letra != letDNI) {
-			//alert('Dni erroneo, la letra del NIF no se corresponde');
-			return false;
-		}else{
-			//alert('Dni correcto');
-			return true;
-		}
-	}else{
-		//alert('Dni erroneo, formato no válido');
-		return false;
-	}
-}
+
 
 
 function validar_email( email ) {

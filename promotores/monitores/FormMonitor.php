@@ -14,7 +14,7 @@
 		<title>Formulario Monitores</title>
 		<link type="text/css" rel="stylesheet" href="/css/BaseDiseno.css">
 		<link type="text/css" rel="stylesheet" href="/css/Formularios.css">  
-		<script src="validacionMonitor.js"></script>
+		<script src="ValidacionMonitor.js"></script>
 	</head><body>
 	<?php include_once("../../CabeceraGenerica.php");?>
 	<h3>Formulario Monitores</h3>
@@ -73,7 +73,7 @@ Limpia contenido</button>
 
 	<div id="errores"></div>
 
-<form action="ProcesaMonitor.php"> <!--onsubmit="return validaForm()">-->
+<form action="ProcesaMonitor.php" onsubmit="return validaForm()">
 		<input id="ID_MON" name="ID_MON" type="hidden" value="<?php echo $monitor["ID_MON"]; ?>"/>
 		<div id="div_nombre">
 			<label for="nombre" id="label_nombre">Nombre:</label>
