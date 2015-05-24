@@ -14,7 +14,7 @@
 		<title>Formulario Fecha Monitores</title>
 		<link type="text/css" rel="stylesheet" href="/css/BaseDiseno.css">
 		<link type="text/css" rel="stylesheet" href="/css/Formularios.css">  
-		<script src="validacionmonitor.js"></script>
+		<script src="ValidacionFechaMonitor.js"></script>
 	</head><body>
 	<?php include_once("../../CabeceraGenerica.php");?>
 	<h3>Formulario Fecha Monitores</h3>
@@ -54,13 +54,13 @@ Limpia contenido</button>
 	?>
 	<div id="errores"></div>
 
-<form action="ProcesaFecMon.php"> <!--onsubmit="return validaForm()">-->
+<form action="ProcesaFecMon.php"onsubmit="return validaForm()">
 		<div id="div_fecha">
 			<label for="fecha" id="label_fechaInclusion">Fecha Cita (yyyy-mm-dd):</label>
 			<input id="fecha" name="fecha" type="date" value="<?php if($fecMon["fecha"]==""){echo date("Y-m-d");}else{echo $fecMon["fecha"];} ?>"/>
 		</div>
 		<div id="div_idMon">
-			<label for="idMon" id="label_fechaInclusion">ID Monitor:</label>
+			<label for="idMon" id="label_idMon">ID Monitor:</label>
 			<input id="idMon" name="idMon" type="text" value="<?php echo $fecMon["idMon"];?>"/>
 		</div>
 		<?php if($fecMon["accionFecMon"]!="pre-update"){
