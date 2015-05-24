@@ -34,17 +34,16 @@ $conexion=conectarBD();
 if($monitor["accionMonitor"]=="insert"){
 	
 	if (insertarMonitor($conexion, $monitor["nombre"], $monitor["apellidos"], $monitor["telefono"], $monitor["email"], $monitor["idEc"], $monitor["idPro"])){
-	?>
-		<div id="div_exito">
-			Se ha creado el monitor <?php echo $monitor["nombre"]. " ".$monitor["apellidos"];?> para el promotor<?php echo $promotor["nombre"]; ?>
-		</div>
-	<?php 
+			$_SESSION["exitoModMonitor"]="El monitor ". $monitor["nombre"]. " ".$monitor["apellidos"]." para el promotor ".$promotor["nombre"]." ha sido insertado correctamente.";
+			header("Location: MuestraMonitor.php"); 
 	}else{ ?>
 		<div id="div_errorRegistro">
-			Lo sentimos, el monitor <?php echo $monitor["nombre"]. " ".$monitor["apellidos"];?> para el promotor<?php echo $promotor["nombre"]; ?> <b>NO</b> ha sido insertado.
+			Lo sentimos, el monitor <?php echo $monitor["nombre"]. " ".$monitor["apellidos"];?> para el promotor<?php echo $promotor["nombre"]; ?>
+			<b>NO</b> ha sido insertado.
 		</div>
-		<?php
-		#$_SESSION["promotor"] = $promotor;
+		</br> Para volver al formulario pincha <a href="FormMonitor.php">AQUÍ</a>
+		</br> Para volver a la tabla pincha <a href="MuestraMonitor.php">AQUÍ</a><?php
+		$_SESSION["monitor"] = $monitor;
 	}
 		?>
 <?php
@@ -52,9 +51,18 @@ if($monitor["accionMonitor"]=="insert"){
 		if(modificarMonitor($conexion,$monitor["ID_MON"], $monitor["nombre"], $monitor["apellidos"], $monitor["telefono"], $monitor["email"], $monitor["idEc"], $monitor["idPro"])){
 			$_SESSION["exitoModMonitor"]="El monitor ". $monitor["nombre"]. " ".$monitor["apellidos"]." para el promotor ".$promotor["nombre"]." ha sido actualizado correctamente.";
 			header("Location: MuestraMonitor.php");
-		 }else{ 
+		 }else{
+		 	$monitor["accionMonitor"]="pre-update";
+		 	$_SESSION["monitor"] = $monitor;
+			?> <div id="div_errorRegistro">
+				Lo sentimos, el monitor <?php echo $monitor["nombre"]. " ".$monitor["apellidos"];?> para el promotor<?php echo $promotor["nombre"]; ?> 
+				<b>NO</b> ha sido actualizado.
+			</div><?php 		 	
 			$errores[]="El monitor ". $monitor["nombre"]. " ".$monitor["apellidos"]." para el promotor".$promotor["nombre"]." <b>NO</b> ha sido actualizado correctamente.";
 			$_SESSION["errorModMonitor"]=$errores;
+			
+			?></br> Para volver al formulario pincha <a href="FormMonitor.php">AQUÍ</a>
+			</br> Para volver a la tabla pincha <a href="MuestraMonitor.php">AQUÍ</a><?php			
 			#header("Location: MuestraMonitor.php");
 		}
 }
@@ -63,9 +71,16 @@ if($monitor["accionMonitor"]=="insert"){
  			$_SESSION["exitoModMonitor"]="El monitor ". $monitor["nombre"]. " ".$monitor["apellidos"]." para el promotor ".$promotor["nombre"]." ha sido eliminado correctamente.";
 			header("Location: MuestraMonitor.php");	
  		}else{
+ 		 	$_SESSION["monitor"] = $monitor;
+			?> <div id="div_errorRegistro">
+				Lo sentimos,  el monitor <?php echo $monitor["nombre"]. " ".$monitor["apellidos"];?> para el promotor<?php echo $promotor["nombre"]; ?>
+				<b>NO</b> ha sido eliminado correctamente.
+			</div><?php  			
  	 		$errores[]="El monitor ". $monitor["nombre"]. " ".$monitor["apellidos"]." para el promotor ".$promotor["nombre"]." <b>NO</b> ha sido eliminado.";
 			$_SESSION["errorModMonitor"]=$errores;
-			header("Location: MuestraMonitor.php");		
+		?></br> Para volver a la tabla pincha <a href="MuestraMonitor.php">AQUÍ</a><?php
+		
+			#header("Location: MuestraMonitor.php");		
  		}
 	
  }

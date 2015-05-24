@@ -30,37 +30,52 @@ if($ensayo["accionEc"]=="insert"){
 	
 	if (insertarEnsayo($ensayo["situacion_actual"], $ensayo["criterio_inc"], $ensayo["criterio_exc"], $ensayo["inicio_rec"],
        $ensayo["fin_rec"], $ensayo["farmaco"], $conexion)){
-	?>
-		<div id="div_exito">
-			El ensayo ha sido insertado correctamente.
-		</div>
-	<?php 
+	
+			$_SESSION["exitoModEnsayos"]="El ensayo ha sido insertado correctamente.";
+			header("Location: MuestraEnsayos.php");
+	
 	}else{ ?>
 		<div id="div_errorRegistro">
 			Lo sentimos, el ensayo 
-			<b>NO</b> ha sido insertado.-
+			<b>NO</b> ha sido insertado.
 		</div>
-		<?php
+		</br> Para volver al formulario pincha <a href="FormEnsayos.php">AQUÍ</a>
+		</br> Para volver a la tabla pincha <a href="MuestraEnsayos.php">AQUÍ</a><?php
 		$_SESSION["ensayo"] = $ensayo;
 	}
-		?> <div id="div_volver"> Para volver al formulario pulsa <a href="FormEnsayos.php">aquí</a>.</div>
-<?php
+
 }elseif($ensayo["accionEc"]=="update"){
 		if(modificarEnsayo($conexion,$ensayo["ID_EC"], $ensayo["situacion_actual"], $ensayo["criterio_inc"], $ensayo["criterio_exc"], $ensayo["inicio_rec"],
 			$ensayo["fin_rec"], $ensayo["farmaco"])){
 
 			$_SESSION["exitoModEnsayos"]="El ensayo ha sido actualizado correctamente.";
 			header("Location: MuestraEnsayos.php");
-		 }else{ 
+		 }else{
+		 	$ensayo["accionEc"]="pre-update";
+		 	$_SESSION["ensayo"] = $ensayo;
+			?> <div id="div_errorRegistro">
+				Lo sentimos, el ensayo 
+				<b>NO</b> ha sido actualizado.
+			</div><?php 
 			$errores[]="El ensayo <b>NO</b> ha sido actualizado correctamente.";
 			$_SESSION["errorModEnsayos"]=$errores;
-			header("Location: MuestraEnsayos.php");
+			
+			?></br> Para volver al formulario pincha <a href="FormEnsayos.php">AQUÍ</a>
+			</br> Para volver a la tabla pincha <a href="MuestraEnsayos.php">AQUÍ</a><?php
+			#header("Location: MuestraEnsayos.php");
 		}
 }
  elseif($ensayo["accionEc"]=="remove"){
+		 $_SESSION["ensayo"] = $ensayo;
+		?> <div id="div_errorRegistro">
+			Lo sentimos, el ensayo 
+			<b>NO</b> ha sido eliminado debido a políticas del sistema.
+		</div><?php 
  		$errores[]="El ensayo no se puede borrar debido a políticas del sistema";
 		$_SESSION["errorModEnsayos"]=$errores;
-		header("Location: MuestraEnsayos.php");	
+
+		?></br> Para volver a la tabla pincha <a href="MuestraEnsayos.php">AQUÍ</a><?php
+		#header("Location: MuestraEnsayos.php");	
  }
 		 
 	desconectarDB($conexion);

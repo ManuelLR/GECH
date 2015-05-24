@@ -30,12 +30,6 @@ $conexion=conectarBD();
 if($fecMon["accionFecMon"]=="insert"){
 	
 	if (insertarFecMon($conexion, $fecMon["fecha"], $fecMon["idMon"])){
-	?>
-		<div id="div_exito">
-			La cita para el monitor <?php echo $monitor["nombre"]; ?>
-			ha sido creada para el día <?php echo $fecMon["fecha"]?>.
-		</div>
-	<?php 
 			$_SESSION["exitoModFecMon"]="La cita del monitor ". $monitor["nombre"] . " " . $monitor["apellidos"]." ha sido insertada.";
 			header("Location: MuestraFecMon.php");	
 	}else{ ?>
@@ -44,10 +38,13 @@ if($fecMon["accionFecMon"]=="insert"){
 			el día <?php echo $fecMon["fecha"]?> <b>NO</b> ha sido insertado.
 		</div>
 		<?php
-		#$_SESSION["monitor"] = $monitor;
-		 	$errores[]="La cita del monitor ". $monitor["nombre"] . " " . $monitor["apellidos"]." <b>no</b> se ha podido insertar.";
-			$_SESSION["errorModFecMon"]=$errores;
-			header("Location: MuestraFecMon.php");	
+		$_SESSION["fecMon"] = $fecMon;
+		#$errores[]="La cita del monitor ". $monitor["nombre"] . " " . $monitor["apellidos"]." <b>no</b> se ha podido insertar.";
+		#$_SESSION["errorModFecMon"]=$errores;
+		
+?></br> Para volver al formulario pincha <a href="FormFecMon.php">AQUÍ</a>
+	</br> Para volver a la tabla pincha <a href="MuestraFecMon.php">AQUÍ</a><?php		
+		#header("Location: MuestraFecMon.php");	
 	}
 		?>
 <?php
@@ -62,9 +59,16 @@ if($fecMon["accionFecMon"]=="insert"){
  			$_SESSION["exitoModFecMon"]="La cita del monitor ". $monitor["nombre"] ." ha sido eliminada.";
 			header("Location: MuestraFecMon.php");	
  		}else{
+		 	$_SESSION["fecMon"] = $fecMon;
+			?> <div id="div_errorRegistro">
+				Lo sentimos, la cita para el monitor <?php echo $monitor["nombre"]; ?> el día <?php echo $fecMon["fecha"]?> 
+				<b>NO</b> ha sido eliminada.
+			</div><?php  			
  	 		$errores[]="La cita del monitor ". $monitor["nombre"] ." no se ha podido borrar.";
 			$_SESSION["errorModFecMon"]=$errores;
-			header("Location: MuestraFecMon.php");		
+			
+			?></br> Para volver a la tabla pincha <a href="MuestraFecMon.php">AQUÍ</a><?php
+			#header("Location: MuestraFecMon.php");		
  		}
 	
  }

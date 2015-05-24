@@ -29,37 +29,48 @@ $conexion=conectarBD();
 if($promotor["accionPro"]=="insert"){
 	
 	if (insertarPromotor($promotor["nombre"], $promotor["cif"], $conexion)){
-	?>
-		<div id="div_exito">
-			El Promotor <?php echo $promotor["nombre"]?>
-			ha sido insertado correctamente.
-		</div>
-	<?php 
+			$_SESSION["exitoModPromotores"]="El Promotor ". $promotor["nombre"] ." ha sido insertado correctamente.";
+			header("Location: MuestraPromotores.php"); 
 	}else{ ?>
 		<div id="div_errorRegistro">
 			Lo sentimos, el Promotor <?php echo $promotor["nombre"]; ?>
-			<b>NO</b> ha sido insertado.-
+			<b>NO</b> ha sido insertado.
 		</div>
-		<?php
+		</br> Para volver al formulario pincha <a href="FormPromotores.php">AQUÍ</a>
+		</br> Para volver a la tabla pincha <a href="MuestraPromotores.php">AQUÍ</a><?php
 		$_SESSION["promotor"] = $promotor;
 	}
-		?> <div id="div_volver"> Para volver al formulario pulsa <a href="FormPromotores.php">aquí</a>.</div>
-<?php
 }elseif($promotor["accionPro"]=="update"){
 		if(modificarPromotor($conexion, $promotor["ID_PRO"], $promotor["nombre"], $promotor["cif"])){
 
 			$_SESSION["exitoModPromotores"]="El Promotor ". $promotor["nombre"] ." ha sido actualizado correctamente.";
 			header("Location: MuestraPromotores.php");
-		 }else{ 
+		 }else{
+		 	$promotor["accionPro"]="pre-update";
+		 	$_SESSION["promotor"] = $promotor;
+			?> <div id="div_errorRegistro">
+				Lo sentimos, el Promotor <?php echo $promotor["nombre"]; ?>
+				<b>NO</b> ha sido actualizado.
+			</div><?php 		 	
 			$errores[]="El Promotor ". $promotor["nombre"] ." <b>NO</b> ha sido actualizado correctamente.";
 			$_SESSION["errorModPromotores"]=$errores;
-			header("Location: MuestraPromotores.php");
+			
+			?></br> Para volver al formulario pincha <a href="FormPromotores.php">AQUÍ</a>
+			</br> Para volver a la tabla pincha <a href="MuestraPromotores.php">AQUÍ</a><?php			
+			#header("Location: MuestraPromotores.php");
 		}
 }
  elseif($promotor["accionPro"]=="remove"){
+		 $_SESSION["promotor"] = $promotor;
+		?> <div id="div_errorRegistro">
+			Lo sentimos, el Promotor <?php echo $promotor["nombre"]; ?>
+			<b>NO</b> ha sido eliminado debido a políticas del sistema.
+		</div><?php  	
  		$errores[]="El Promotor ". $promotor["nombre"] ." no se puede borrar debido a políticas del sistema";
 		$_SESSION["errorModPromotores"]=$errores;
-		header("Location: MuestraPromotores.php");	
+		
+		?></br> Para volver a la tabla pincha <a href="MuestraPromotores.php">AQUÍ</a><?php		
+		#header("Location: MuestraPromotores.php");	
  }
 		 
 	desconectarDB($conexion);

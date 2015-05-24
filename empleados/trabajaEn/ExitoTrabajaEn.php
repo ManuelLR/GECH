@@ -30,39 +30,53 @@ $conexion=conectarBD();
 if($trabajaEn["accionTraEn"]=="insert"){
 	
 	if (insertarTrabajaEn($trabajaEn["ID_EC"], $trabajaEn["ID_EMP"], $trabajaEn["cargo"], $conexion)){
-	?>
-		<div id="div_exito">
-			El Trabaja En ha sido insertado correctamente.
-		</div>
-	<?php 
+		$_SESSION["exitoModTrabajaEn"]="El Trabaja En ha sido actualizado correctamente.";
+		header("Location: MuestraTrabajaEn.php");
+
 	}else{ ?>
 		<div id="div_errorRegistro">
-			Lo sentimos, el Trabaja En <b>NO</b> ha sido insertado.-
+			Lo sentimos, el Trabaja En <b>NO</b> ha sido insertado.
 		</div>
-		<?php
-		#$_SESSION["trabajaEn"] = $trabajaEn;
+		</br> Para volver al formulario pincha <a href="FormTrabajaEn.php">AQUÍ</a>
+		</br> Para volver a la tabla pincha <a href="MuestraTrabajaEn.php">AQUÍ</a><?php
+		$_SESSION["trabajaEn"] = $trabajaEn;
 	}
-		?> <div id="div_volver"> Para volver al formulario pulsa <a href="FormTrabajaEn.php">aquí</a>.</div>
-<?php
+
 }elseif($trabajaEn["accionTraEn"]=="update"){
 		if(modificarTrabajaEn($conexion, $trabajaEn["ID_EC"], $trabajaEn["ID_EMP"], $trabajaEn["cargo"])){
 
 			$_SESSION["exitoModTrabajaEn"]="El Trabaja En ha sido actualizado correctamente.";
 			header("Location: MuestraTrabajaEn.php");
-		 }else{ 
+		 }else{
+		 	$trabajaEn["accionTraEn"]="pre-update";
+		 	$_SESSION["trabajaEn"] = $trabajaEn;
+			?> <div id="div_errorRegistro">
+				Lo sentimos, el ensayo 
+				<b>NO</b> ha sido actualizado.
+			</div><?php 		 	 
 			$errores[]="El Trabaja En <b>NO</b> ha sido actualizado correctamente.";
 			$_SESSION["errorModTrabajaEn"]=$errores;
-			header("Location: MuestraTrabajaEn.php");
+			?></br> Para volver al formulario pincha <a href="FormTrabajaEn.php">AQUÍ</a>
+			</br> Para volver a la tabla pincha <a href="MuestraTrabajaEn.php">AQUÍ</a><?php
+			#header("Location: MuestraTrabajaEn.php");
 		}
 }
  elseif($trabajaEn["accionTraEn"]=="remove"){
  		if(eliminaTrabajaEn($conexion,$trabajaEn["ID_EC"], $trabajaEn["ID_EMP"])){
 			$_SESSION["exitoModTrabajaEn"]="El Trabaja En ha sido eliminado correctamente.";
 			header("Location: MuestraTrabajaEn.php"); 			
- 		}else{	
+ 		}else{
+ 		 	$_SESSION["trabajaEn"] = $trabajaEn;
+			?> <div id="div_errorRegistro">
+				Lo sentimos, el Trabaja En 
+			<b>NO</b> ha sido eliminado correctamente.
+			</div><?php 
  			$errores[]="El Trabaja En <b>NO</b> ha sido eliminado correctamente.";
 			$_SESSION["errorModTrabajaEn"]=$errores;
-			header("Location: MuestraTrabajaEn.php");
+			
+			?></br> Para volver a la tabla pincha <a href="MuestraTrabajaEn.php">AQUÍ</a><?php
+			
+			#header("Location: MuestraTrabajaEn.php");
 		}	
  }
 		 

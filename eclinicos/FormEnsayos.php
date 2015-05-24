@@ -76,11 +76,11 @@ Limpia contenido</button>
 		</div>
 		<div id="div_inicio_rec">
 			<label for="inicio_rec" id="label_inicio_rec">Fecha inicio del Ensayo (yyyy-mm-dd):</label>
-			<input id="inicio_rec" name="inicio_rec" type="date" max="<?php echo date("Y-m-d");?>" value="<?php echo date("Y-m-d");?>"/>
+			<input id="inicio_rec" name="inicio_rec" type="date" value="<?php if($ensayo["inicio_rec"]==""){echo date("Y-m-d");}else{echo $ensayo["inicio_rec"];};?>"/>
 		</div>
 		<div id="div_fin_rec">
 			<label for="fin_rec" id="label_fin_rec">Fecha fin del Ensayo (yyyy-mm-dd):</label>
-			<input id="fin_rec" name="fin_rec" type="date" max="<?php echo date("Y-m-d");?>" value="<?php echo date("Y-m-d");?>"/>
+			<input id="fin_rec" name="fin_rec" type="date" value="<?php if($ensayo["fin_rec"]==""){echo date("Y-m-d");}else{echo $ensayo["fin_rec"];};?>"/>
 		</div>
 		<div id="div_farmaco">
 			<label for="farmaco" id="label_farmaco">Farmaco del Ensayo Clínico:</label>

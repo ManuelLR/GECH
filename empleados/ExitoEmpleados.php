@@ -30,38 +30,50 @@ if($empleado["accionEmp"]=="insert"){
 	
 	if (insertarEmpleado($empleado["nombre"], $empleado["apellidos"], $empleado["dni"], $empleado["telefono"],
        $empleado["email"], $conexion)){
-	?>
-		<div id="div_exito">
-			El Empleado <?php echo $empleado["nombre"] . " " . $empleado["apellidos"]; ?>
-			ha sido insertado correctamente.
-		</div>
-	<?php 
+			$_SESSION["exitoModEmpleados"]="El empleado ". $empleado["nombre"] . " " . $empleado["apellidos"]." ha sido insertado correctamente.";
+			header("Location: MuestraEmpleados.php");
 	}else{ ?>
 		<div id="div_errorRegistro">
 			Lo sentimos, el empleado <?php echo $empleado["nombre"] . " " . $empleado["apellidos"]; ?>
-			<b>NO</b> ha sido insertado.-
+			<b>NO</b> ha sido insertado.
 		</div>
-		<?php
+		</br> Para volver al formulario pincha <a href="FormEmpleados.php">AQUÍ</a>
+		</br> Para volver a la tabla pincha <a href="MuestraEmpleados.php">AQUÍ</a><?php
+
 		$_SESSION["empleado"] = $empleado;
 	}
-		?> <div id="div_volver"> Para volver al formulario pulsa <a href="FormEmpleados.php">aquí</a>.</div>
-<?php
+
 }elseif($empleado["accionEmp"]=="update"){
 		if(modificarEmpleado($conexion,$empleado["ID_EMP"], $empleado["nombre"], $empleado["apellidos"], $empleado["dni"], $empleado["telefono"],
 			$empleado["email"])){
 
 			$_SESSION["exitoModEmpleados"]="El empleado ". $empleado["nombre"] . " " . $empleado["apellidos"]." ha sido actualizado correctamente.";
 			header("Location: MuestraEmpleados.php");
-		 }else{ 
+		 }else{
+		 	$empleado["accionEmp"]="pre-update";
+		 	$_SESSION["empleado"] = $empleado;
+			?> <div id="div_errorRegistro">
+				Lo sentimos, el empleado 
+				<b>NO</b> ha sido actualizado.
+			</div><?php 
 			$errores[]="El empleado ". $empleado["nombre"] . " " . $empleado["apellidos"]." <b>NO</b> ha sido actualizado correctamente.";
 			$_SESSION["errorModEmpleados"]=$errores;
-			header("Location: MuestraEmpleados.php");
+			?></br> Para volver al formulario pincha <a href="FormEmpleados.php">AQUÍ</a>
+			</br> Para volver a la tabla pincha <a href="MuestraEmpleados.php">AQUÍ</a><?php			
+			#header("Location: MuestraEmpleados.php");
 		}
 }
  elseif($empleado["accionEmp"]=="remove"){
+ 		$_SESSION["empleado"] = $empleado;
+		?> <div id="div_errorRegistro">
+			Lo sentimos, el empleado 
+			<b>NO</b> ha sido eliminado debido a políticas del sistema.
+		</div><?php
  		$errores[]="El empleado ". $empleado["nombre"] . " " . $empleado["apellidos"]." no se puede borrar debido a políticas del sistema";
 		$_SESSION["errorModEmpleados"]=$errores;
-		header("Location: MuestraEmpleados.php");	
+		?></br> Para volver a la tabla pincha <a href="MuestraEmpleados.php">AQUÍ</a><?php
+		
+		#header("Location: MuestraEmpleados.php");	
  }
 		 
 	desconectarDB($conexion);
