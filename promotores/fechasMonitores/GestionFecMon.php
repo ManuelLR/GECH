@@ -20,11 +20,13 @@ function insertarFecMon($conexion, $fecha, $idMon) {
 	return $result;
 }
 function seleccionarFecMon($conexion) {
-	$SQL = "SELECT * FROM FECHA_MONITOR FM, MONITOR M, PROMOTOR P WHERE FM.ID_MON=M.ID_MON";
+#	$SQL = "SELECT * FROM FECHA_MONITOR FM, MONITOR_ENSAYO M, PROMOTOR P WHERE FM.ID_MON=M.ID_MON";
+	$SQL = "SELECT * FROM FECHA_MONITOR FM, MONITOR_ENSAYO M WHERE FM.ID_MON=M.ID_MON";
 	$stmt = $conexion -> query($SQL);
 	return $stmt;
 }function seleccionarFecMonUno($conexion, $monitor) {
-	$SQL = "SELECT * FROM FECHA_MONITOR FM, MONITOR M, PROMOTOR P WHERE FM.ID_MON=M.ID_MON AND M.ID_MON=".$monitor["ID_MON"];
+#	$SQL = "SELECT * FROM FECHA_MONITOR FM, MONITOR_ENSAYO M, PROMOTOR P WHERE FM.ID_MON=M.ID_MON AND M.ID_MON=".$monitor["ID_MON"];
+	$SQL = "SELECT * FROM FECHA_MONITOR FM, MONITOR_ENSAYO M WHERE FM.ID_MON=M.ID_MON AND M.ID_MON=".$monitor["ID_MON"];
 	$stmt = $conexion -> query($SQL);
 	return $stmt;
 }

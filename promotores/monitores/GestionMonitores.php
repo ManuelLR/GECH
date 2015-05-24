@@ -27,7 +27,10 @@ function seleccionarMonitores($conexion) {
 	$SQL = "SELECT * FROM MONITOR_ENSAYO";
 	$stmt = $conexion -> query($SQL);
 	return $stmt;
-}function seleccionarMonitorUno($conexion, $paciente) {
+}function seleccionarMonitorUno($conexion, $promotor) {
+	$SQL = "SELECT * FROM MONITOR_ENSAYO ME, PROMOTOR P WHERE ME.ID_PRO=P.ID_PRO AND ME.ID_PRO=".$promotor["ID_PRO"];
+	$stmt = $conexion -> query($SQL);
+	return $stmt;
 	$erroresCreaPacCitas[]="El método seleccionarMonitorUno no está implementado";
  	$_SESSION['errorModMonitor']=$erroresCreaPacCitas;
 

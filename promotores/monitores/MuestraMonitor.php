@@ -44,7 +44,7 @@ $_SESSION["monitor"]=$monitor;
 	<?php 
 		if (isset($_REQUEST["clean"])){
 			unset($_SESSION["promotor"]);
-			header("Location: MuestraMonitores.php");
+			header("Location: MuestraMonitor.php");
 		}?>">
 	<button id="clean" name="clean" type="submit" class="Limpiar formulario">
 		Todas los monitores</button>

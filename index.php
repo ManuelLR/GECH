@@ -1,5 +1,13 @@
 <?php
 	session_start();
+unset($_SESSION["ensayo"]);
+unset($_SESSION["empleado"]);
+unset($_SESSION["trabajaEn"]);
+unset($_SESSION["paciente"]);
+unset($_SESSION["citaPac"]);
+unset($_SESSION["promotor"]);
+unset($_SESSION["monitor"]);
+unset($_SESSION["fecMon"]);
 ?>
 <!DOCTYPE html>
 <html>
@@ -23,7 +31,7 @@
 	?>
 		<div id="presentacion">
 		<h1>Breve Resumen</h1>
-		?¿?¿?¿?¿
+		GECH es una aplicación cuyo fin es el de gestionar los ensayos clínicos de un hospital (de ahí sus siglas) los cuales, hasta la fecha, se hacen de manera muy desordenada.
 		Para más información consultar: <a href="/acercade.php"> acerca de</a>.
 		<h2>Otra info interesante</h2>
 		<a href="/mapa.php">Mapa de la web</a>		
