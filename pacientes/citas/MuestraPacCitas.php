@@ -76,7 +76,7 @@ if (isset($_SESSION["paciente"])) {
 ?>
 	<div id='tablamuestra'>
 		<table>
-			<tr><th>ID</th><th>Fecha</th><th>Tipo</th><th>ID_PAC</th><th>Controles</th></tr>
+			<tr><th>ID</th><th>Fecha</th><th>Tipo</th><th>ID_PAC</th><th>Nombre</th><th>Apellidos</th><th>Controles</th></tr>
 <?php	
 	foreach($stmp as $fila) {
 		?>
@@ -93,6 +93,8 @@ if (isset($_SESSION["paciente"])) {
 			<td><?php echo $fila["FECHA"]?></td>
 			<td><?php echo $fila["TIPO"]?></td>
 			<td><?php echo $fila["ID_PAC"]?></td>
+			<td><?php echo $fila["NOMBRE"]?></td>
+			<td><?php echo $fila["APELLIDOS"]?></td>
 				
 			<td>
 				<div id="botones_fila">						
