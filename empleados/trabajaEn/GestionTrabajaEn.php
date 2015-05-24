@@ -23,15 +23,15 @@ function insertarTrabajaEn($ID_EC, $ID_EMP, $cargo, $conexion) {
 }
 
 function seleccionarTrabajaEn($conexion) {
-	$SQL = "SELECT * FROM TRABAJA_EN";
+	$SQL = "SELECT * FROM TRABAJA_EN TE, EMPLEADO E WHERE TE.ID_EMP=E.ID_EMP";
 	$stmt = $conexion -> query($SQL);
 	return $stmt;
 }
 
 function seleccionarTrabajaEnUno($conexion, $empleado) {
-	$erroresCreaPacCitas[]="El método seleccionarTrabajaEnUno no está implementado";
- 	$_SESSION['errorModPacCita']=$erroresCreaPacCitas;
-	return seleccionarTrabajaEn($conexion);
+	$SQL = "SELECT * FROM TRABAJA_EN TE, EMPLEADO E WHERE TE.ID_EMP=E.ID_EMP AND E.ID_EMP=".$empleado["ID_EMP"];
+	$stmt = $conexion -> query($SQL);
+	return $stmt;
 }
 
 function modificarTrabajaEn($conexion, $ID_EC, $ID_EMP, $cargo) {

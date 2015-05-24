@@ -81,7 +81,7 @@ if (isset($_SESSION["empleado"])) {
 		
 	<div id='tablamuestra'>
 		<table>
-			<tr><th>ID_EC</th><th>ID_EMP</th><th>Cargo</th><th>Controles</th></tr>
+			<tr><th>ID_EC</th><th>ID_EMP</th><th>Nombre</th><th>Apellidos</th><th>Cargo</th><th>Controles</th></tr>
 		<?php 
 			$stmp = seleccionarTrabajaEn($conexion);
 			foreach($stmp as $fila) {
@@ -95,6 +95,8 @@ if (isset($_SESSION["empleado"])) {
 			
 			<td><?php echo $fila["ID_EC"]?></td>
 			<td><?php echo $fila["ID_EMP"]?></td>
+			<td><?php echo $fila["NOMBRE"]?></td>
+			<td><?php echo $fila["APELLIDOS"]?></td>
 			<td><?php echo $fila["CARGO"]?></td>
 				
 			<td>

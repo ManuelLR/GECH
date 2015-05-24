@@ -53,8 +53,10 @@ if(!isset($_REQUEST["accionEmp"])) {
 
 	function validar($empleado) {
 		
-		$letra = substr($empleado["dni"], -1);
+		$letra = strtoupper(substr($empleado["dni"], -1));
 		$numeros = substr($empleado["dni"], 0, -1);
+		$empleado["dni"]=$numeros.$letra;
+		$_SESSION["empleado"]=$empleado;
 		
 		if (empty($empleado["nombre"])) {
 			$errores[] = "El nombre no puede estar vacio";}
