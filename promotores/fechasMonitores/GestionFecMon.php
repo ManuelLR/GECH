@@ -20,14 +20,13 @@ function insertarFecMon($conexion, $fecha, $idMon) {
 	return $result;
 }
 function seleccionarFecMon($conexion) {
-	$SQL = "SELECT * FROM FECHA_MONITOR";
+	$SQL = "SELECT * FROM FECHA_MONITOR FM, MONITOR M, PROMOTOR P WHERE FM.ID_MON=M.ID_MON";
 	$stmt = $conexion -> query($SQL);
 	return $stmt;
-}function seleccionarFecMonUno($conexion, $idMon) {
-	$erroresCreaFecMon[]="El método seleccionarFecMonUno no está implementado";
- 	$_SESSION['errorModFecMon']=$erroresCreaFecMon;
-
-	return seleccionarFecMon($conexion);
+}function seleccionarFecMonUno($conexion, $monitor) {
+	$SQL = "SELECT * FROM FECHA_MONITOR FM, MONITOR M, PROMOTOR P WHERE FM.ID_MON=M.ID_MON AND M.ID_MON=".$monitor["ID_MON"];
+	$stmt = $conexion -> query($SQL);
+	return $stmt;
 }
 
 function eliminaFecMon($conexion,$fecha, $idMon){
