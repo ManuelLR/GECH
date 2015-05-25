@@ -28,7 +28,7 @@ if(!isset($_SESSION["trabajaEn"])) {
 		$trabajaEn["ID_EMP"] = $_REQUEST["ID_EMP"];
 		$trabajaEn["cargo"] = $_REQUEST["cargo"];
 		$trabajaEn["accionTraEn"]=$_REQUEST["accionTraEn"];
-		$_SESSION["trabajaEn"]=$trabajaEn;
+		#$_SESSION["trabajaEn"]=$trabajaEn;
 		$erroresTrabajaEn = validar($trabajaEn);
 		if(count ($erroresTrabajaEn) > 0){
 			$_SESSION["erroresCreaTrabajaEn"]=$erroresTrabajaEn;

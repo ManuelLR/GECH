@@ -45,7 +45,7 @@ if($trabajaEn["accionTraEn"]=="insert"){
 
 }elseif($trabajaEn["accionTraEn"]=="update"){
 	 	$trabajaEnNew=$_SESSION["trabajaEnNew"];
-		if(modificarTrabajaEn($conexion,$trabajaEnNew, $trabajaEnNew["ID_EC"], $trabajaEnNew["ID_EMP"], $trabajaEnNew["cargo"])){
+		if(modificarTrabajaEn($conexion,$trabajaEn, $trabajaEnNew["ID_EC"], $trabajaEnNew["ID_EMP"], $trabajaEnNew["cargo"])){
 
 			$_SESSION["exitoModTrabajaEn"]="El Trabaja En ha sido actualizado correctamente.";
 			header("Location: MuestraTrabajaEn.php");
