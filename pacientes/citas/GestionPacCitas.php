@@ -50,7 +50,7 @@ function modificarPacCitas($conexion,$oidfecha, $fecha, $tipo, $idPac) {
 
 function eliminaPacCitas($conexion,$oidfecha){
 	$result=false;
-	$sql="DELETE FROM FECHA_PACIENTE WHERE ID_PAC=".$oidfecha."";
+	$sql="DELETE FROM FECHA_PACIENTE WHERE ID_FECHA=".$oidfecha."";
 	try{
 		$conexion -> query($sql);
 		$conexion -> query("COMMIT WORK");
@@ -58,7 +58,6 @@ function eliminaPacCitas($conexion,$oidfecha){
 		# DELETE FROM FECHA_MONITOR WHERE FECHA=to_date(".$fecha.",yyyy-mm-dd') AND ID_MON=".$idMon
 		$result=true;	
 	}catch (PDOException $e){
-		$insertar=false;
 		echo "<div id='muestraErrores'>";
 		echo "<div class='error'>";
 		echo "<b>ERROR: </b>" . $e -> GetMessage();

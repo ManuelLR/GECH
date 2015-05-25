@@ -67,22 +67,20 @@ if($monitor["accionMonitor"]=="insert"){
 			#header("Location: MuestraMonitor.php");
 		}
 }
- elseif($monitor["accionMonitor"]=="remove"){
- 		if(eliminaMonitor($conexion, $monitor["ID_MON"])){
- 			$_SESSION["exitoModMonitor"]="El monitor ". $monitor["nombre"]. " ".$monitor["apellidos"]." para el promotor ".$promotor["nombre"]." ha sido eliminado correctamente.";
-			header("Location: MuestraMonitor.php");	
- 		}else{
- 		 	$_SESSION["monitor"] = $monitor;
-			?> <div id="div_errorRegistro">
-				Lo sentimos,  el monitor <?php echo $monitor["nombre"]. " ".$monitor["apellidos"];?> para el promotor<?php echo $promotor["nombre"]; ?>
-				<b>NO</b> ha sido eliminado correctamente.
-			</div><?php  			
- 	 		$errores[]="El monitor ". $monitor["nombre"]. " ".$monitor["apellidos"]." para el promotor ".$promotor["nombre"]." <b>NO</b> ha sido eliminado.";
+ elseif($monitor["accionMonitor"]=="remove"){?>
+		<?php
+		$_SESSION["monitor"] = $monitor;
+		?> <div id="div_errorRegistro">
+				Lo sentimos, el monitor <?php echo $monitor["nombre"]. " ".$monitor["apellidos"];?> 
+				<b>NO</b> ha sido eliminado por políticas del sistema.
+		</div><?php  	
+			$errores[]="El monitor ". $monitor["nombre"]. " ".$monitor["apellidos"]." <b>NO</b> ha sido eliminado por políticas del sistema.";
 			$_SESSION["errorModMonitor"]=$errores;
+		
 		?></br> Para volver a la tabla pincha <a href="MuestraMonitor.php">AQUÍ</a><?php
 		
 			#header("Location: MuestraMonitor.php");		
- 		}
+ 		
 	
  }
 		 
