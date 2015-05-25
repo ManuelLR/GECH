@@ -18,15 +18,15 @@
 			<?php
 				include_once ("/pacientes/pacientes.html");
 			?>
-			<h2>Promotores</h2> <b>(Pendiente)</b>
+			<h2>Promotores</h2>
 			<?php
 				include_once ("/promotores/promotores.html");
 			?>
-			<h2>Ensayos Clínicos</h2>  <b>(Pendiente)</b>
+			<h2>Ensayos Clínicos</h2>
 			<?php
 				include_once ("/eclinicos/ensayosclinicos.html");
 			?>
-			<h2>Empleados</h2> <b>(Pendiente)</b>
+			<h2>Empleados</h2>
 			<?php
 				include_once ("/empleados/empleados.html");
 			?>
