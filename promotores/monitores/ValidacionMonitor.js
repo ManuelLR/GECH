@@ -35,9 +35,6 @@ function validaForm() {
   	if(compruebaVacio("email")){
   		document.getElementById("label_email").style.color = "red";
   		document.getElementById("muestraErrores").innerHTML+="El email no puede estar vacío<br/>";
-  	} else if (!validar_email("email")) {
-  		document.getElementById("label_email").style.color = "red";
-  		document.getElementById("muestraErrores").innerHTML+="El email es inválido<br/>";
   	} else {
   		document.getElementById("label_email").style.color	= "black";
   	}
@@ -69,15 +66,3 @@ function compruebaVacio(element) {
 	return res;
 }
 
-
-
-
-
-function validar_email( email ) {
-    expr = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-    if ( !expr.test(email) ) {
-        return false;
-     } else {
-     	return true;
-     }
-}
