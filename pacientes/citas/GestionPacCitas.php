@@ -49,8 +49,22 @@ function modificarPacCitas($conexion,$oidfecha, $fecha, $tipo, $idPac) {
 }
 
 function eliminaPacCitas($conexion,$oidfecha){
-	$erroresCreaPacCitas[]="El método eliminaPacCitas no está implementado";
- 	$_SESSION['errorModPacCita']=$erroresCreaPacCitas;
-	return true;
+	$result=false;
+	$sql="DELETE FROM FECHA_PACIENTE WHERE ID_PAC=".$oidfecha."";
+	try{
+		$conexion -> query($sql);
+		$conexion -> query("COMMIT WORK");
+		#$stmt -> execute();
+		# DELETE FROM FECHA_MONITOR WHERE FECHA=to_date(".$fecha.",yyyy-mm-dd') AND ID_MON=".$idMon
+		$result=true;	
+	}catch (PDOException $e){
+		$insertar=false;
+		echo "<div id='muestraErrores'>";
+		echo "<div class='error'>";
+		echo "<b>ERROR: </b>" . $e -> GetMessage();
+		echo "</div>";
+		echo "</div>";		
+	}
+	return $result;
 }
 ?>
