@@ -67,9 +67,9 @@ CREATE TABLE ENSAYO_CLINICO
 END CREA_ENSAYO;
 /
 
- INSERT INTO ENSAYO_CLINICO VALUES ('1','Pre_Evaluacion','Enfermedad','Edad',to_date('01/01/2015','DD/MM/YYYY'),to_date('01/01/2016','DD/MM/YYYY'),'Pastillas');
-  INSERT INTO ENSAYO_CLINICO VALUES ('2','Cerrado','Enfermedad','Edad',to_date('01/01/2000','DD/MM/YYYY'),to_date('01/01/2005','DD/MM/YYYY'),'Pastillas');
-  INSERT INTO ENSAYO_CLINICO VALUES ('3','Abierto','Enfermedad','Edad',to_date('01/01/2000','DD/MM/YYYY'),to_date('01/01/2009','DD/MM/YYYY'),'Pastillas');
+ CALL CREA_ENSAYO('Pre_Evaluacion','Enfermedad','Edad',to_date('01/01/2015','DD/MM/YYYY'),to_date('01/01/2016','DD/MM/YYYY'),'Pastillas');
+  CALL CREA_ENSAYO('Cerrado','Enfermedad','Edad',to_date('01/01/2000','DD/MM/YYYY'),to_date('01/01/2005','DD/MM/YYYY'),'Pastillas');
+  CALL CREA_ENSAYO('Abierto','Enfermedad','Edad',to_date('01/01/2000','DD/MM/YYYY'),to_date('01/01/2009','DD/MM/YYYY'),'Pastillas');
 
 /
 
