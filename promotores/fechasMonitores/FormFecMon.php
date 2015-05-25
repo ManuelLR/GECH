@@ -62,7 +62,10 @@ Limpia contenido</button>
 <form action="ProcesaFecMon.php"onsubmit="return validaForm()">
 		<div id="div_fecha">
 			<label for="fecha" id="label_fechaInclusion">Fecha Cita (yyyy-mm-dd):</label>
-			<input id="fecha" name="fecha" type="date" value="<?php if($fecMon["fecha"]==""){echo date("Y-m-d");}else{echo $fecMon["fecha"];} ?>"/>
+			<input id="fecha" name="fecha" type="date" value="<?php if($fecMon["fecha"]==""){echo date("Y-m-d");}else{
+				$fecPreMod=split('/',$fecMon["fecha"]);
+	echo '20'.$fecPreMod[2].'-'.$fecPreMod[1].'-'.$fecPreMod[0];
+			} ?>"/>
 		</div>
 		<div id="div_idMon">
 			<label for="idMon" id="label_idMon">ID Monitor:</label>
