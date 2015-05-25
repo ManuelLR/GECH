@@ -90,7 +90,7 @@ Limpia contenido</button>
 		</div>
 		<?php }elseif($trabajaEn["accionTraEn"]=="pre-update"){ 
 				$trabajaEn["accionTraEn"]="update";
-				$_SESSION["citaPac"]=$citaPac;?>
+				$_SESSION["trabajaEn"]=$trabajaEn;?>
 		<input id="accionTraEn" name="accionTraEn" type="hidden" value="update"/>
 		
 		<div id="div_submit">

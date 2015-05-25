@@ -44,7 +44,8 @@ if($trabajaEn["accionTraEn"]=="insert"){
 	}
 
 }elseif($trabajaEn["accionTraEn"]=="update"){
-		if(modificarTrabajaEn($conexion, $trabajaEn["ID_EC"], $trabajaEn["ID_EMP"], $trabajaEn["cargo"])){
+	 	$trabajaEnNew=$_SESSION["trabajaEnNew"];
+		if(modificarTrabajaEn($conexion,$trabajaEn, $trabajaEnNew["ID_EC"], $trabajaEnNew["ID_EMP"], $trabajaEnNew["cargo"])){
 
 			$_SESSION["exitoModTrabajaEn"]="El Trabaja En ha sido actualizado correctamente.";
 			header("Location: MuestraTrabajaEn.php");
@@ -63,6 +64,7 @@ if($trabajaEn["accionTraEn"]=="insert"){
 		}
 }
  elseif($trabajaEn["accionTraEn"]=="remove"){
+
  		if(eliminaTrabajaEn($conexion,$trabajaEn["ID_EC"], $trabajaEn["ID_EMP"])){
 			$_SESSION["exitoModTrabajaEn"]="El Trabaja En ha sido eliminado correctamente.";
 			header("Location: MuestraTrabajaEn.php"); 			

@@ -33,7 +33,7 @@ if(!isset($_SESSION["trabajaEn"])) {
 		if(count ($erroresTrabajaEn) > 0){
 			$_SESSION["erroresCreaTrabajaEn"]=$erroresTrabajaEn;
 			$trabajaEn["accionTraEn"]="pre-update";
-			$_SESSION["trabajaEn"]=$trabajaEn;
+			$_SESSION["trabajaEnNew"]=$trabajaEn;
 			Header("Location: FormTrabajaEn.php");
 		}else{
 			header("Location: ExitoTrabajaEn.php");}
@@ -43,7 +43,7 @@ if(!isset($_SESSION["trabajaEn"])) {
 		$trabajaEn["cargo"] = $_REQUEST["cargo"];
 		$trabajaEn["accionTraEn"]=$_REQUEST["accionTraEn"];
 		$_SESSION["trabajaEn"]=$trabajaEn;
-		header("Location: ProcesaPacCita.php");			
+		header("Location: ProcesaTrabajaEn.php");			
 	}
 	elseif($trabajaEn["accionTraEn"]=="pre-update"){
 			header("Location: FormTrabajaEn.php");
