@@ -36,8 +36,8 @@ if(!isset($_SESSION["trabajaEn"])) {
 			$_SESSION["$trabajaEn"]=$trabajaEn;
 			Header("Location: FormTrabajaEn.php");
 		}else{
+			$_SESSION["trabajaEnNew"]=$trabajaEn;			
 			header("Location: ExitoTrabajaEn.php");
-			$_SESSION["$trabajaEnNew"]=$trabajaEn;
 		}
 			
 	}elseif($trabajaEn["accionTraEn"]=="lee"){

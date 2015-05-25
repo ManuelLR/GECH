@@ -4,7 +4,7 @@ include_once ("../../GestionarDB.php");
 include_once ('GestionTrabajaEn.php');
 if (isset($_SESSION["trabajaEn"])) {
 	$trabajaEn = $_SESSION["trabajaEn"];
-	$empleado = $_SESSION["empleado"];
+#	$empleado = $_SESSION["empleado"];
 	unset($_SESSION["trabajaEn"]);
 	unset($_SESSION["erroresTrabajaEn"]);
 } else {
