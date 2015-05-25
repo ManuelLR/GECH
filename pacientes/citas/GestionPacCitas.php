@@ -25,8 +25,6 @@ function seleccionarPacCitas($conexion) {
 	$stmt = $conexion -> query($SQL);
 	return $stmt;
 }function seleccionarPacCitasUno($conexion, $paciente) {
-	$erroresCreaPacCitas[]="El método seleccionarPacCitasUno está en pruebas";
- 	$_SESSION['errorModTrabajaEn']=$erroresCreaPacCitas;
 	$SQL ="SELECT * FROM PACIENTE P,FECHA_PACIENTE FP WHERE FP.ID_PAC=P.ID_PAC AND P.ID_PAC=".$paciente["ID_PAC"];
 	$stmt = $conexion -> query($SQL);
 	return $stmt;

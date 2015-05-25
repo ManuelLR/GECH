@@ -31,12 +31,48 @@ function seleccionarFecMon($conexion) {
 	return $stmt;
 }
 
-function eliminaFecMon($conexion,$fecha, $idMon){
-	$result=true;
-		$erroresCreaFecMon[]="El método eliminaFecMon no está implementado";
- 		$_SESSION['errorModFecMon']=$erroresCreaFecMon;
- 		$result=false;
+function eliminaFecMon($conexion, $antiguo){
+	$result=false;
+	#$fecTrans=date("Y-m-d", $antiguo["fecha"]);
+	$fecPreMod=split('/',$antiguo["fecha"]);
+	$fecMod=$fecPreMod[2].'-'.$fecPreMod[1].'-'.$fecPreMod[0];
+	$sql="DELETE FROM FECHA_MONITOR WHERE FECHA=to_date('".$fecMod."','yy-mm-dd') AND ID_MON=".$antiguo["idMon"]."";
+	try{
+		$conexion -> query($sql);
+		$conexion -> query("COMMIT WORK");
+		#$stmt -> execute();
+		# DELETE FROM FECHA_MONITOR WHERE FECHA=to_date(".$fecha.",yyyy-mm-dd') AND ID_MON=".$idMon
+		$result=true;	
+	}catch (PDOException $e){
+		$insertar=false;
+		echo "<div id='muestraErrores'>";
+		echo "<div class='error'>";
+		echo "<b>ERROR: </b>" . $e -> GetMessage();
+		echo "</div>";
+		echo "</div>";		
+	}
+	return $result;
+}
 
+
+function actualizaFecMon($conexion,$antiguo, $nuevo){
+	$result=false;
+	if(eliminaFecMon($conexion, $antiguo)){
+			if(insertarFecMon($conexion, $nuevo["fecha"],$nuevo["idMon"])){
+				$result=true;
+			}else{
+				if(insertarFecMon($conexion, $antiguo["fecha"],$antiguo["idMon"])){
+				
+				}else{
+				echo "<div id='muestraErrores'>";
+				echo "<div class='error'>";
+				echo "<b>Por lo que NO se ha realizado el cambio y, además, se ha eliminado la cita que existía anteriormente</b>";
+				echo "</div>";
+				echo "</div>";					
+				}
+			}
+
+	}
 	return $result;
 }
 ?>

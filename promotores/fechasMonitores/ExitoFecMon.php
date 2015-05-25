@@ -50,14 +50,25 @@ if($fecMon["accionFecMon"]=="insert"){
 		?>
 <?php
 }elseif($fecMon["accionFecMon"]=="update"){
-			$errores[]="La cita del monitor ". $monitor["nombre"] . " " . $monitor["apellidos"]." <b>NO</b> ha sido actualizado correctamente ya que la función no está implementada. </br> La modificación debe consistir en, primeramente, insertar la nueva cita y después eliminar la antigua";
+ 	$fecMonNew=$_SESSION["fecMonNew"];
+ 		if(actualizaFecMon($conexion, $fecMon, $fecMonNew)){
+ 			$_SESSION["exitoModFecMon"]="La cita del monitor ". $monitor["nombre"] ." ha sido actualizada correctamente.";
+			header("Location: MuestraFecMon.php");	
+ 		}else{
+		 	$_SESSION["fecMon"] = $fecMon;
+			?> <div id="div_errorRegistro">
+				Lo sentimos, la cita para el monitor <?php echo $monitor["nombre"]; ?> el día <?php echo $fecMon["fecha"]?> 
+				<b>NO</b> ha sido actualizada.
+			</div><?php  			
+ 	 		$errores[]="La cita del monitor ". $monitor["nombre"] ." no se ha podido actualizar.";
 			$_SESSION["errorModFecMon"]=$errores;
-			header("Location: MuestraFecMon.php");
+			
+			?></br> Para volver a la tabla pincha <a href="MuestraFecMon.php">AQUÍ</a><?php
 
-}
- elseif($fecMon["accionFecMon"]=="remove"){
- 		if(eliminaFecMon($conexion, $fecMon["ID_FECHA"])){
- 			$_SESSION["exitoModFecMon"]="La cita del monitor ". $monitor["nombre"] ." ha sido eliminada.";
+		}
+} elseif($fecMon["accionFecMon"]=="remove"){
+ 		if(eliminaFecMon($conexion, $fecMon)){
+ 			$_SESSION["exitoModFecMon"]="La cita del monitor ". $monitor["nombre"] ." ha sido eliminado.";
 			header("Location: MuestraFecMon.php");	
  		}else{
 		 	$_SESSION["fecMon"] = $fecMon;

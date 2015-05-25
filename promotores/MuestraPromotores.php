@@ -82,8 +82,6 @@ unset($_SESSION["promotor"]);
 				<button id="accionPro" name="accionPro" type="submit" value="remove" class="editar_fila">
 					<img src="/images/remFila.bmp" class="editar_fila" width="25px"></button>
 				</div>
-				<button id="accionPro" name="accionPro" type="submit" value="calendar" class="editar_fila">
-					<img src="/images/calendarFila.bmp" class="editar_fila" width="25px"></button>
 			</td>
 			<td>
 				<div id="botones_fila">						

@@ -1,11 +1,12 @@
 <?php
 	session_start();
-	if(!isset($_SESSION["monitor"])){
+	if(!isset($_SESSION["monitor"])and !isset($_SESSION["fecMon"])){
 		$errores[]="Debes seleccionar un monitor antes de añadirle una cita";
 		$_SESSION["errorModMonitores"]=$errores;		
 		header("Location: ../monitores/MuestraMonitor.php");
 	}else{
-		$monitor=$_SESSION["monitor"];
+		if(isset($_SESSION["monitor"])){
+		$monitor=$_SESSION["monitor"];}
 ?>
 <!DOCTYPE html>
 <html>
@@ -40,7 +41,10 @@
 <button id="unset" name="unset" type="submit" class="Limpiar formulario">
 Limpia contenido</button>
 </form>
+<?php	if(isset($_SESSION["monitor"])){?>
 	<h4>Cita con el monitor: <?php echo $monitor["nombre"];?></h4>
+<?php }?>
+
 	<div name ="formulario" id="formulario">
 	<?php	 
 	if(!isset($_SESSION["fecMon"])){

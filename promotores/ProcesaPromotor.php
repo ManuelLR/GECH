@@ -45,14 +45,7 @@ if(!isset($_REQUEST["accionPro"])) {
 			$_SESSION["monitor"]=$monitor;
 			header("Location: monitores/ProcesaMonitor.php");			
 		}
-		elseif($_REQUEST["accionPro"]=="calendar"){
-			#$monitor["accionMonitor"]="view";
-			#$_SESSION["monitor"]=$monitor;
-			#header("Location: monitores/ProcesaMonitor.php");
-			$erroresPromotores[]="Todavía no está linkado";
-			$_SESSION["erroresModPromotores"]=$erroresPromotores;
-			header("Location: MuestraPromotores.php");			
-		}
+
 }
 
 

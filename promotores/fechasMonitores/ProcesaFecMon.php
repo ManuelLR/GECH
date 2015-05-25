@@ -19,12 +19,19 @@ if (#!isset($_REQUEST["accionFecMon"])){#&&
 		#$_SESSION["fecMon"]=$fecMon;
 		#header("Location: FormFecMon.php");
 		
-	}elseif($fecMon["accionFecMon"]=="insert" or $fecMon["accionFecMon"]=="update"){
+	}elseif($fecMon["accionFecMon"]=="insert"){
 		$fecMon["fecha"] = $_REQUEST["fecha"];
 		$fecMon["idMon"] = $_REQUEST["idMon"];
 		$fecMon["accionFecMon"]=$_REQUEST["accionFecMon"];
 		$_SESSION["fecMon"]=$fecMon;
 		header("Location: ExitoFecMon.php");
+	}elseif($fecMon["accionFecMon"]=="update"){
+		$fecMon["fecha"] = $_REQUEST["fecha"];
+		$fecMon["idMon"] = $_REQUEST["idMon"];
+		$fecMon["accionFecMon"]=$_REQUEST["accionFecMon"];
+		$_SESSION["fecMonNew"]=$fecMon;
+		header("Location: ExitoFecMon.php");
+	
 	}elseif($fecMon["accionFecMon"]=="lee"){
 		$fecMon["fecha"] = $_REQUEST["fecha"];
 		$fecMon["idMon"] = $_REQUEST["idMon"];

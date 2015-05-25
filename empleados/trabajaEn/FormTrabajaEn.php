@@ -1,11 +1,12 @@
 <?php
 	session_start();
-	if(!isset($_SESSION["empleado"])){
+	if(!isset($_SESSION["empleado"])and !isset($_SESSION["trabajaEn"])){
 		$errores[]="Debes seleccionar un empleado antes de añadirle un trabajaEn";
 		$_SESSION["errorModEmpleados"]=$errores;		
 		header("Location: ../MuestraEmpleados.php");
 	}else{
-		$empleado=$_SESSION["empleado"];	
+		if(isset($_SESSION["empleado"])){
+		$empleado=$_SESSION["empleado"];}	
 ?>
 <!DOCTYPE html>
 <html>
@@ -39,7 +40,9 @@
 Limpia contenido</button>
 </form>
 	</br>
+<?php	if(isset($_SESSION["empleado"])){?>
 	<h4>TrabajaEn para <?php $empleado["nombre"]." ".$empleado["apellidos"];?></h4>	
+<?php }?>
 	<div name ="formulario" id="formulario">
 	<?php	 
 	if(!isset($_SESSION["trabajaEn"])){
