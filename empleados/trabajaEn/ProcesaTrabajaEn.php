@@ -33,10 +33,13 @@ if(!isset($_SESSION["trabajaEn"])) {
 		if(count ($erroresTrabajaEn) > 0){
 			$_SESSION["erroresCreaTrabajaEn"]=$erroresTrabajaEn;
 			$trabajaEn["accionTraEn"]="pre-update";
-			$_SESSION["trabajaEnNew"]=$trabajaEn;
+			$_SESSION["$trabajaEn"]=$trabajaEn;
 			Header("Location: FormTrabajaEn.php");
 		}else{
-			header("Location: ExitoTrabajaEn.php");}
+			header("Location: ExitoTrabajaEn.php");
+			$_SESSION["$trabajaEnNew"]=$trabajaEn;
+		}
+			
 	}elseif($trabajaEn["accionTraEn"]=="lee"){
 		$trabajaEn["ID_EC"]=$_REQUEST["ID_EC"];		
 		$trabajaEn["ID_EMP"] = $_REQUEST["ID_EMP"];
