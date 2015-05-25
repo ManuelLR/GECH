@@ -87,7 +87,10 @@ Limpia contenido</button>
 		</div>
 		<div id="div_fechaInclusion">
 			<label for="fechaInclusion" id="label_fechaInclusion">Fecha Inclusión del Paciente (yyyy-mm-dd):</label>
-			<input id="fechaInclusion" name="fechaInclusion" type="date" max="<?php echo date("Y-m-d");?>" value="<?php if($paciente["fechaInclusion"]==""){echo date("Y-m-d");}else{echo $paciente["fechaInclusion"];} ?>"/>
+			<input id="fechaInclusion" name="fechaInclusion" type="date" max="<?php echo date("Y-m-d");?>" value="<?php if($paciente["fechaInclusion"]==""){echo date("Y-m-d");}else{
+				$fecPreMod=split('/',$paciente["fechaInclusion"]);
+	echo '20'.$fecPreMod[2].'-'.$fecPreMod[1].'-'.$fecPreMod[0];
+			} ?>"/>
 		</div>
 		<div id="div_idEnsayoClinico">
 			<label for="idEnsayoClinico" id="label_idEnsayoClinico">ID Ensayo Clínico del Paciente:</label>
