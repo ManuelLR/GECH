@@ -1,11 +1,12 @@
 <?php
 	session_start();
-	if(!isset($_SESSION["paciente"])){
+	if(!isset($_SESSION["paciente"]) and !isset($_SESSION["citaPac"])){
 		$errores[]="Debes seleccionar un paciente antes de añadirle una cita";
 		$_SESSION["errorModPacientes"]=$errores;		
 		header("Location: ../MuestraPacientes.php");
 	}else{
-		$paciente=$_SESSION["paciente"];
+		if(isset($_SESSION["paciente"])){
+			$paciente=$_SESSION["paciente"];}
 ?>
 <!DOCTYPE html>
 <html>
@@ -40,7 +41,11 @@
 <button id="unset" name="unset" type="submit" class="Limpiar formulario">
 Limpia contenido</button>
 </form>
+</br>
+<?php	if(isset($_SESSION["paciente"])){?>
+
 	<h4>Cita para <?php echo $paciente["nombre"]." ".$paciente["apellidos"]. " (id:". $paciente["ID_PAC"].")";?></h4>
+	<?php }?>
 	<div name ="formulario" id="formulario">
 	<?php	 
 	if(!isset($_SESSION["citaPac"])){
@@ -74,7 +79,6 @@ Limpia contenido</button>
 			$citaPac["accionCitaPac"]="insert";
 			$_SESSION["citaPac"]=$citaPac;	?>
 		<input id="accionCitaPac" name="accionCitaPac" type="hidden" value="insert"/>
-
 		<div id="div_submit">
 			<input type="submit" value="Insertar"></input>
 		</div>
