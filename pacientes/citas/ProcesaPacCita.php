@@ -19,14 +19,42 @@ if (#!isset($_REQUEST["accionCitaPac"])){#&&
 		#$_SESSION["citaPac"]=$citaPac;
 		#header("Location: FormPacCitas.php");
 		
-	}elseif($citaPac["accionCitaPac"]=="insert" or $citaPac["accionCitaPac"]=="update"){
+	}elseif($citaPac["accionCitaPac"]=="insert"){
 		$citaPac["ID_FECHA"]=$_REQUEST["ID_FECHA"];		
 		$citaPac["fecha"] = $_REQUEST["fecha"];
 		$citaPac["tipo"] = $_REQUEST["tipo"];
 		$citaPac["idPac"] = $_REQUEST["idPac"];
 		$citaPac["accionCitaPac"]=$_REQUEST["accionCitaPac"];
 		$_SESSION["citaPac"]=$citaPac;
-		header("Location: ExitoPacCitas.php");
+		
+		
+		$erroresPacCitas = validar($citaPac);
+		if(count ($erroresPacCitas) > 0){
+				$_SESSION["erroresCreaPacCitas"]=$erroresPacCitas;
+				Header("Location: FormPacCitas.php");
+		}else{
+				Header("Location: ExitoPacCitas.php");
+		}	
+		
+	}elseif($citaPac["accionCitaPac"]=="update"){
+		$citaPac["ID_FECHA"]=$_REQUEST["ID_FECHA"];		
+		$citaPac["fecha"] = $_REQUEST["fecha"];
+		$citaPac["tipo"] = $_REQUEST["tipo"];
+		$citaPac["idPac"] = $_REQUEST["idPac"];
+		$citaPac["accionCitaPac"]=$_REQUEST["accionCitaPac"];
+		$_SESSION["citaPac"]=$citaPac;
+		
+		
+		$erroresPacCitas = validar($citaPac);
+		if(count ($erroresPacCitas) > 0){
+				$citaPac["accionCitaPac"]="pre-update";
+				$_SESSION["citaPac"]=$citaPac;
+				$_SESSION["erroresCreaPacCitas"]=$erroresPacCitas;
+				Header("Location: FormPacCitas.php");
+		}else{
+				Header("Location: ExitoPacCitas.php");
+		}	
+		
 	}elseif($citaPac["accionCitaPac"]=="lee"){
 		$citaPac["ID_FECHA"]=$_REQUEST["ID_FECHA"];		
 		$citaPac["fecha"] = $_REQUEST["fecha"];
@@ -62,4 +90,14 @@ if (#!isset($_REQUEST["accionCitaPac"])){#&&
 		header("Location: FormPacCitas.php");
 	}	
 }}
+
+function validar($citaPac) {
+		if (empty($citaPac["fecha"])) {
+			$errores[] = "La fecha no puede estar vacia";}
+		if (empty($citaPac["idPac"])) {
+			$errores[] = "El identificador del Paciente no puede estar vacio";}
+		return $errores;
+	}
+
+
 ?>
