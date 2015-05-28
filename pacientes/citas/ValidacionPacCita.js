@@ -5,7 +5,7 @@ function validaForm() {
 	var res = true;
 	document.getElementById("errores").innerHTML="";
 	
-	if(compruebaVacio("fecha")) {
+	if(compruebaVacio("fecha") || compruebaVacio("idPac")) {
 		document.getElementById("errores").innerHTML+="<div id ='muestraErrores'><\div>";
 		res = false;
 	}
