@@ -30,6 +30,10 @@
 			<?php
 				include_once ("/empleados/empleados.html");
 			?>
+			<h2>Consultas especiales</h2>
+			<?php
+				include_once ("/conEsp/consultasEspeciales.html");
+			?>
 		</div>
 </div>
 		<?php 	include_once("Pie.php");

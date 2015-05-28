@@ -8,6 +8,7 @@ unset($_SESSION["citaPac"]);
 unset($_SESSION["promotor"]);
 unset($_SESSION["monitor"]);
 unset($_SESSION["fecMon"]);
+unset($_SESSION["pacEnsEst"]);
 ?>
 <!DOCTYPE html>
 <html>
