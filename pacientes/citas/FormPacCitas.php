@@ -64,7 +64,6 @@ Limpia contenido</button>
 
 <form action="ProcesaPacCita.php" onsubmit="return validaForm()">
 		<input id="ID_FECHA" name="ID_FECHA" type="hidden" value="<?php echo $citaPac["ID_FECHA"]; ?>"/>
-		<input id="idPac" name="idPac" type="hidden" value="<?php echo $citaPac["idPac"]; ?>"/>
 		<div id="div_fecha">
 			<label for="fecha" id="label_fechaInclusion">Fecha Cita (yyyy-mm-dd):</label>
 			<input id="fecha" name="fecha" type="date" value="<?php if($citaPac["fecha"]==""){echo date("Y-m-d");}else{
@@ -78,14 +77,7 @@ Limpia contenido</button>
 				<option>Revision</option>
                 <option>Estudios_Complementarios</option>
 			</select>		</div>
-		<?php if($citaPac["accionCitaPac"]!="pre-update"){
-			$citaPac["accionCitaPac"]="insert";
-			$_SESSION["citaPac"]=$citaPac;	?>
-		<input id="accionCitaPac" name="accionCitaPac" type="hidden" value="insert"/>
-		<div id="div_submit">
-			<input type="submit" value="Insertar"></input>
-		</div>
-		<?php }elseif($citaPac["accionCitaPac"]=="pre-update"){ 
+		<?php if($citaPac["accionCitaPac"]=="pre-update"){ 
 				$citaPac["accionCitaPac"]="update";
 				$_SESSION["citaPac"]=$citaPac;?>
 		<input id="accionCitaPac" name="accionCitaPac" type="hidden" value="update"/>
@@ -96,6 +88,14 @@ Limpia contenido</button>
 		<div id="div_submit">
 			<input type="submit" value="Actualizar"></input>
 		</div>			
+		<?php }else{
+			$citaPac["accionCitaPac"]="insert";
+			$_SESSION["citaPac"]=$citaPac;	?>
+		<input id="idPac" name="idPac" type="hidden" value="<?php echo $citaPac["idPac"]; ?>"/>
+		<input id="accionCitaPac" name="accionCitaPac" type="hidden" value="insert"/>
+		<div id="div_submit">
+			<input type="submit" value="Insertar"></input>
+		</div>
 		<?php }?>
 	</form>
 	</div>
