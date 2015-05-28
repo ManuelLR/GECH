@@ -24,13 +24,30 @@ if (#!isset($_REQUEST["accionFecMon"])){#&&
 		$fecMon["idMon"] = $_REQUEST["idMon"];
 		$fecMon["accionFecMon"]=$_REQUEST["accionFecMon"];
 		$_SESSION["fecMon"]=$fecMon;
-		header("Location: ExitoFecMon.php");
+		
+		$erroresFecMon = validar($fecMon);
+		if(count ($erroresFecMon) > 0){
+				$_SESSION["erroresCreaFecMon"]=$erroresFecMon;
+				Header("Location: FormFecMon.php");
+		}else{
+				Header("Location: ExitoFecMon.php");
+		}
+		
+		
 	}elseif($fecMon["accionFecMon"]=="update"){
 		$fecMon["fecha"] = $_REQUEST["fecha"];
 		$fecMon["idMon"] = $_REQUEST["idMon"];
 		$fecMon["accionFecMon"]=$_REQUEST["accionFecMon"];
 		$_SESSION["fecMonNew"]=$fecMon;
-		header("Location: ExitoFecMon.php");
+		
+		$erroresFecMon = validar($fecMon);
+		if(count ($erroresFecMon) > 0){
+				$_SESSION["erroresCreaFecMon"]=$erroresFecMon;
+				Header("Location: FormFecMon.php");
+		}else{
+				Header("Location: ExitoFecMon.php");
+		}
+		
 	
 	}elseif($fecMon["accionFecMon"]=="lee"){
 		$fecMon["fecha"] = $_REQUEST["fecha"];
@@ -63,4 +80,16 @@ if (#!isset($_REQUEST["accionFecMon"])){#&&
 		header("Location: FormFecMon.php");
 	}	
 }}
+
+
+
+function validar($fecMon) {
+		if (empty($fecMon["fecha"])) {
+			$errores[] = "La fecha no puede estar vacia";}
+		if (empty($fecMon["idMon"])) {
+			$errores[] = "El identificador del monitor no puede estar vacio";}
+		return $errores;
+	}
+
+
 ?>
