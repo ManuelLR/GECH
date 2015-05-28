@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (#!isset($_REQUEST["accionMonitor"])){#&&
+if (
 	!isset($_SESSION["monitor"])){
 	$erroresCita[]="Acción indefinida";
 	$_SESSION["erroresCreaMonitor"]=$erroresCita;
@@ -11,13 +11,7 @@ if (#!isset($_REQUEST["accionMonitor"])){#&&
 	$monitor=$_SESSION["monitor"];
 	if($monitor["accionMonitor"]=="view"){
 		header("Location: MuestraMonitor.php");
-		#$monitor["ID_FECHA"]="";
-		#$monitor["fecha"]="";
-		#$monitor["tipo"]="";
-		#$monitor["idPac"]=$paciente["ID_PAC"];
-		#$monitor["accionMonitor"]="insert";
-		#$_SESSION["monitor"]=$monitor;
-		#header("Location: FormMonitor.php");
+
 		
 	}elseif($monitor["accionMonitor"]=="insert" or $monitor["accionMonitor"]=="update"){
 		$monitor["ID_MON"]=$_REQUEST["ID_MON"];
@@ -29,8 +23,16 @@ if (#!isset($_REQUEST["accionMonitor"])){#&&
 		$monitor["idPro"]=$_REQUEST["idPro"];
 		$monitor["accionMonitor"]=$_REQUEST["accionMonitor"];
 		
+		$erroresMonitor = validar($monitor);	
+	
 		$_SESSION["monitor"]=$monitor;
-		header("Location: ExitoMonitores.php");
+		if(count ($erroresMonitor) > 0){
+				$_SESSION["erroresCreaMonitor"]=$erroresMonitor;
+				Header("Location: FormMonitor.php");
+		}else{
+				Header("Location: ExitoMonitores.php");
+		}		
+
 	}elseif($monitor["accionMonitor"]=="lee"){
 		$monitor["ID_MON"]=$_REQUEST["ID_MON"];
 		$monitor["nombre"]=$_REQUEST["nombre"];
@@ -76,4 +78,40 @@ if (#!isset($_REQUEST["accionMonitor"])){#&&
 		header("Location: FormMonitor.php");
 	}	
 }}
+
+
+function validar($monitor) {
+		
+		
+		$expresion = '/^[9|6|7|8][0-9]{8}$/';
+		
+		$_SESSION["monitor"]=$monitor;
+		
+		if (empty($monitor["nombre"])) {
+			$errores[] = "El nombre no puede estar vacio";}
+		if (empty($monitor["apellidos"])) {
+			$errores[] = "Los apellidos no pueden estar vacios";}
+		if (empty($monitor["telefono"])) {
+			$errores[] = "El teléfono no puede estar vacio";
+			}else if(!preg_match($expresion, $monitor["telefono"])){
+				$errores[] = "El teléfono es invalido";}
+		if (empty($monitor["email"])) {
+			$errores[] = "El email no pueden estar vacio";
+			}else if (!filter_var($monitor["email"], FILTER_VALIDATE_EMAIL)) {
+				$errores[] = "El email es invalido";
+			}
+		if (empty($monitor["idEc"])) {
+			$errores[] = "El identificador del ensayo no puede estar vacio";}
+		if (empty($monitor["idPro"])) {
+			$errores[] = "El identificador del promotor no puede estar vacio";}
+			
+				
+		return $errores;
+	}
+
+
+
+
+
+
 ?>

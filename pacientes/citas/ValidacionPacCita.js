@@ -19,6 +19,12 @@ function validaForm() {
   	} else {
   		document.getElementById("label_fechaInclusion").style.color	= "black";
   	}
+  	if(compruebaVacio("idPac")) {
+  		document.getElementById("label_idPac").style.color = "red";
+  		document.getElementById("muestraErrores").innerHTML+="La idPac de la cita no pueden estar vacía<br/>";
+  	} else {
+  		document.getElementById("label_idPac").style.color	= "black";
+  	}
   	
   	return res;
 }

@@ -90,7 +90,7 @@ Limpia contenido</button>
 				$_SESSION["citaPac"]=$citaPac;?>
 		<input id="accionCitaPac" name="accionCitaPac" type="hidden" value="update"/>
 		<div id="div_idpac">
-			<label for="idPac" id="label_fechaInclusion">Identificador del paciente:</label>
+			<label for="idPac" id="label_idPac">Identificador del paciente:</label>
 			<input id="idPac" name="idPac" type="text" value="<?php echo $citaPac["idPac"]; ?>"/>
 		</div>
 		<div id="div_submit">
