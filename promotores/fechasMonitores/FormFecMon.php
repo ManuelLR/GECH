@@ -2,7 +2,7 @@
 	session_start();
 	if(!isset($_SESSION["monitor"])and !isset($_SESSION["fecMon"])){
 		$errores[]="Debes seleccionar un monitor antes de añadirle una cita";
-		$_SESSION["errorModMonitores"]=$errores;		
+		$_SESSION["errorModMonitor"]=$errores;		
 		header("Location: ../monitores/MuestraMonitor.php");
 	}else{
 		if(isset($_SESSION["monitor"])){
