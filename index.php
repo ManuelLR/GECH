@@ -15,6 +15,7 @@ unset($_SESSION["fecMon"]);
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>GECH</title>
 		<link type="text/css" rel="stylesheet" href="css/BaseDiseno.css">
+		<link rel="shortcut icon" href="/images/favicon.ico" />
 	</head>
 	<body>
 	<?php include_once("CabeceraGenerica.php");?>
