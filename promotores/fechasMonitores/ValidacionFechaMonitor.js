@@ -14,10 +14,10 @@ function validaForm() {
   	
 
   	if(compruebaVacio("fecha")) {
-  		document.getElementById("label_fechaInclusion").style.color = "red";
+  		document.getElementById("label_fecha").style.color = "red";
   		document.getElementById("muestraErrores").innerHTML+="La fecha de la cita no pueden estar vacía<br/>";
   	} else {
-  		document.getElementById("label_fechaInclusion").style.color	= "black";
+  		document.getElementById("label_fecha").style.color	= "black";
   	}
   	if(compruebaVacio("idMon")){
   		document.getElementById("label_idMon").style.color = "red";
