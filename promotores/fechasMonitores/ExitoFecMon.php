@@ -16,7 +16,7 @@ if (isset($_SESSION["fecMon"])) {
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>Resultado del Registro de la Fecha Monitor</title>
+		<title>Estado Registro de la Fecha del Monitor</title>
 		<link type="text/css" rel="stylesheet" href="/css/BaseDiseno.css">
 		<link type="text/css" rel="stylesheet" href="/css/Formularios.css">
 	</head>

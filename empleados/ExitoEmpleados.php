@@ -15,7 +15,7 @@ if (isset($_SESSION["empleado"])) {
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>Resultado del Registro del Empleado</title>
+		<title>Estado Registro del Empleado</title>
 		<link type="text/css" rel="stylesheet" href="../css/BaseDiseno.css">
 		<link type="text/css" rel="stylesheet" href="../css/Formularios.css">
 	</head>

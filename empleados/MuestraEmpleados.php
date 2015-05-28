@@ -11,7 +11,7 @@ unset($_SESSION["empleado"]);
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>Crear nueva entrada</title>
+		<title>Muestra Empleado</title>
 		<link type="text/css" rel="stylesheet" href="../css/BaseDiseno.css">
 		<link type="text/css" rel="stylesheet" href="../css/Tablas.css">  
 	</head>

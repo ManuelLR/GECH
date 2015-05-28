@@ -11,7 +11,7 @@ unset($_SESSION["ensayo"]);
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>Crear nueva entrada</title>
+		<title>Muestra Ensayos</title>
 		<link type="text/css" rel="stylesheet" href="/css/BaseDiseno.css">
 		<link type="text/css" rel="stylesheet" href="/css/Tablas.css">  
 	</head>
@@ -19,7 +19,7 @@ unset($_SESSION["ensayo"]);
 		include_once ("../CabeceraGenerica.php");
 	?>
 <div id="contenidoPag">
-	<h3>Muestra Ensayo</h3>
+	<h3>Muestra Ensayos</h3>
 		<?php 
 		if(isset($_SESSION['exitoModEnsayos'])){
 		 	$exitoEnsayos = $_SESSION['exitoModEnsayos'];

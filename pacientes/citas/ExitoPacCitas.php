@@ -16,7 +16,7 @@ if (isset($_SESSION["citaPac"])) {
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>Resultado del Registro de la Cita</title>
+		<title>Estado Registro de las citas</title>
 		<link type="text/css" rel="stylesheet" href="/css/BaseDiseno.css">
 		<link type="text/css" rel="stylesheet" href="/css/Formularios.css">
 	</head>
@@ -25,7 +25,7 @@ if (isset($_SESSION["citaPac"])) {
 	?>
 	<body>
 <div id="contenidoPag">
-		<h3>Estado Registro del Paciente</h3>
+		<h3>Estado Registro de las citas</h3>
 <?php
 $conexion=conectarBD();
 if($citaPac["accionCitaPac"]=="insert"){

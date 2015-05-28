@@ -12,7 +12,7 @@ if (isset($_SESSION["paciente"])) {
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>Crear nueva entrada</title>
+		<title>Detalles paciente</title>
 		<link type="text/css" rel="stylesheet" href="../css/BaseDiseno.css">
 		<link type="text/css" rel="stylesheet" href="../css/Tablas.css">  
 	</head>

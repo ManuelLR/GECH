@@ -20,7 +20,7 @@ if(isset($_SESSION["promotor"])){
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>Resultado del Registro del Monitor</title>
+		<title>Estado Registro del Monitor</title>
 		<link type="text/css" rel="stylesheet" href="/css/BaseDiseno.css">
 		<link type="text/css" rel="stylesheet" href="/css/Formularios.css">
 	</head>

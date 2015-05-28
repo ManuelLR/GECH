@@ -11,7 +11,7 @@ unset($_SESSION["paciente"]);
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>Crear nueva entrada</title>
+		<title>Muestra Todos los Pacientes</title>
 		<link type="text/css" rel="stylesheet" href="/css/BaseDiseno.css">
 		<link type="text/css" rel="stylesheet" href="/css/Tablas.css">  
 	</head>
@@ -44,8 +44,7 @@ unset($_SESSION["paciente"]);
 		}
 	?>
 <body>
-	<form method="post" action="
-		<?php 
+	<form method="post" action="<?php 
 		if (isset($_REQUEST["new"])){
 			#$citaPac["accionCitaPac"]="insert";
 			#$_SESSION["citaPac"]=$citaPac;
