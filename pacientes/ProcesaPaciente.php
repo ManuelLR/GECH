@@ -63,6 +63,8 @@ if(!isset($_REQUEST["accionPac"])) {
 			$errores[] = "El NUHSA no pueden estar vacio";}
 		if (empty($paciente["nhc"])) {
 			$errores[] = "El NHC no puede estar vacio";}
+		if (empty($paciente["fechaInclusion"])) {
+			$errores[] = "La fecha de inclusion no puede estar vacia";}
 		if (empty($paciente["idEnsayoClinico"])) {
 			$errores[] = "El ID Ensayo Clínico no puede estar vacio";}			
 		return $errores;

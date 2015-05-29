@@ -6,7 +6,7 @@ function validaForm() {
 	document.getElementById("errores").innerHTML="";
 	
 	if(compruebaVacio("nombre") || compruebaVacio("apellidos") || 
-	compruebaVacio("nuhsa") || compruebaVacio("nhc") || compruebaVacio("idEnsayoClinico")) {
+	compruebaVacio("nuhsa") || compruebaVacio("nhc") || compruebaVacio("fechaInclusion") || compruebaVacio("idEnsayoClinico")) {
 		document.getElementById("errores").innerHTML+="<div id ='muestraErrores'><\div>";
 		res = false;
 	}
@@ -42,6 +42,12 @@ function validaForm() {
   		document.getElementById("muestraErrores").innerHTML+="El NHC no puede estar vacío<br/>";
   	} else {
   		document.getElementById("label_nhc").style.color	= "black";
+  	}
+  	if(compruebaVacio("fechaInclusion")){
+  		document.getElementById("label_fechaInclusion").style.color = "red";
+  		document.getElementById("muestraErrores").innerHTML+="La fecha de inclusion no puede estar vacía<br/>";
+  	} else {
+  		document.getElementById("label_fechaInclusion").style.color	= "black";
   	}
   	if(compruebaVacio("idEnsayoClinico")){
   		document.getElementById("label_idEnsayoClinico").style.color = "red";
