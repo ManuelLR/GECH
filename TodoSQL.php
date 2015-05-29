@@ -460,6 +460,19 @@ BEGIN
 END MODIFICAR_TRABAJA_EN;
 /
 
+CREATE OR REPLACE TRIGGER SOLOUNIP
+  BEFORE INSERT OR UPDATE ON TRABAJA_EN
+    FOR EACH ROW WHEN (NEW.CARGO = 'Investigador_Principal')
+DECLARE
+	ipsensayo INTEGER;
+BEGIN
+  SELECT count(*) INTO ipsensayo 
+  FROM TRABAJA_EN WHERE ((:NEW.ID_EC=ID_EC) AND (CARGO = 'Investigador_Principal')); --¿Es necesario volver a comprobar que es investigador principal?
+  IF(ipsensayo>0) 
+    THEN raise_application_error(-20200,'Este ensayo clínico ya tiene un investigador');
+  END IF;
+END;
+/
 
 	
 -->
