@@ -10,7 +10,9 @@
 			//echo 'Conectados a la base de datos';
 			return $con;
 		}catch (PDOException $e){
-			echo 'Error durante la conexión a la base de datos: '. $e->GetMessage();
+			$error[]="Error durante la conexión a la base de datos: ". $e->GetMessage();
+			$_SESSION["errorConDB"]=$error;
+			header("Location: /ErrorConexionBD.php");
 		}
 	}
 	function desconectarDB($conexion){
