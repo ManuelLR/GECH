@@ -86,7 +86,7 @@ Limpia contenido</button>
 		<input id="accionTraEn" name="accionTraEn" type="hidden" value="insert"/>
 
 		<div id="div_submit">
-			<input type="submit" value="Insertar"></input>
+			<button type="submit" value="Insertar">Insertar</button>
 		</div>
 		<?php }elseif($trabajaEn["accionTraEn"]=="pre-update"){ 
 				$trabajaEn["accionTraEn"]="update";
@@ -94,7 +94,7 @@ Limpia contenido</button>
 		<input id="accionTraEn" name="accionTraEn" type="hidden" value="update"/>
 		
 		<div id="div_submit">
-			<input type="submit" value="Actualizar"></input>
+			<button type="submit" value="Actualizar">Actualizar</button>
 		</div>			
 		<?php }?>
 

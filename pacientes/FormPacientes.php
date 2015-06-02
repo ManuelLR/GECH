@@ -103,14 +103,14 @@ Limpia contenido</button>
 		<input id="accionPac" name="accionPac" type="hidden" value="insert"/>
 
 		<div id="div_submit">
-			<input type="submit" value="Insertar"></input>
+			<button type="submit" value="Insertar">Insertar</button>
 		</div>
 		<?php }elseif($paciente["accionPac"]=="pre-update"){ 
 				$paciente["accionPac"]="update";?>
 		<input id="accionPac" name="accionPac" type="hidden" value="update"/>
 		
 		<div id="div_submit">
-			<input type="submit" value="Actualizar"></input>
+			<button type="submit" value="Actualizar">Actualizar</button>
 		</div>			
 		<?php }?>
 		<input id="accionPac" name="accionPac" type="hidden" value="<?php echo $paciente["accionPac"]; ?>"/>

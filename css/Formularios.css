@@ -1,3 +1,22 @@
-form{
-	background-color: #4169E1;
+#formulario form{
+	background-color: #FFEBB3;
+	/*border-style: solid;
+    border-width: 1px;
+    border-color: black;*/
+    border-radius: 9px;
+    margin: 0px auto 2px;
+	/*padding: 8px 1.2125em;*/
+	padding: 15px;
+	
 }
+
+#formulario form button{
+	background-color: #BFFCBF;
+}
+
+
+/*#formulario{
+	width: 90%;
+	margin-left:auto;
+	margin-right: auto;
+}*/

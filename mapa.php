@@ -12,7 +12,7 @@
 		?>
 <div id="contenidoPag">
 		<h1>Mapa de la web</h1>
-		<div id="indiceInterno">
+		<div id="mapaWeb">
 
 			<h2>Pacientes</h2>
 			<?php

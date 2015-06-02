@@ -108,14 +108,14 @@ Limpia contenido</button>
 		<input id="accionMonitor" name="accionMonitor" type="hidden" value="insert"/>
 
 		<div id="div_submit">
-			<input type="submit" value="Insertar"></input>
+			<button type="submit" value="Insertar">Insertar</button>
 		</div>
 		<?php }elseif($monitor["accionMonitor"]=="pre-update"){ 
 				$monitor["accionMonitor"]="update";
 				$_SESSION["monitor"]=$monitor;?>
 		<input id="accionMonitor" name="accionMonitor" type="hidden" value="update"/>
 		<div id="div_submit">
-			<input type="submit" value="Actualizar"></input>
+			<button type="submit" value="Actualizar">Actualizar</button>
 		</div>			
 		<?php }?>
 	</form>

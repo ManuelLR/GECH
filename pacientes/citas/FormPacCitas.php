@@ -86,7 +86,7 @@ Limpia contenido</button>
 			<input id="idPac" name="idPac" type="text" value="<?php echo $citaPac["idPac"]; ?>"/>
 		</div>
 		<div id="div_submit">
-			<input type="submit" value="Actualizar"></input>
+			<button type="submit" value="Actualizar">Actualizar</button>
 		</div>			
 		<?php }else{
 			$citaPac["accionCitaPac"]="insert";
@@ -94,7 +94,7 @@ Limpia contenido</button>
 		<input id="idPac" name="idPac" type="hidden" value="<?php echo $citaPac["idPac"]; ?>"/>
 		<input id="accionCitaPac" name="accionCitaPac" type="hidden" value="insert"/>
 		<div id="div_submit">
-			<input type="submit" value="Insertar"></input>
+			<button type="submit" value="Insertar">Insertar</button>
 		</div>
 		<?php }?>
 	</form>

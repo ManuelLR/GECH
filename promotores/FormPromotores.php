@@ -70,14 +70,14 @@ Limpia contenido</button>
 		<input id="accionPro" name="accionPro" type="hidden" value="insert"/>
 
 		<div id="div_submit">
-			<input type="submit" value="Insertar"></input>
+			<button type="submit" value="Insertar">Insertar</button>
 		</div>
 		<?php }elseif($promotor["accionPro"]=="pre-update"){ 
 				$promotor["accionPro"]="update";?>
 		<input id="accionPro" name="accionPro" type="hidden" value="update"/>
 		
 		<div id="div_submit">
-			<input type="submit" value="Actualizar"></input>
+			<button type="submit" value="Actualizar">Actualizar</button>
 		</div>			
 		<?php }?>
 		<input id="accionPro" name="accionPro" type="hidden" value="<?php echo $promotor["accionPro"]; ?>"/>

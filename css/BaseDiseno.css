@@ -26,6 +26,7 @@ body{
 	margin-right: auto;
 	margin-top: 70px;/*El elemento anterior ocupa 50px*/
     margin-bottom: 20px;
+    min-height: 100px;
 }
 h3{
 	padding: 0.5em 5% 2em
@@ -44,6 +45,48 @@ h3{
     border-radius: 9px;
 	
 }
+#indiceInterno{
+	background: linear-gradient(#585858, #3D3D3D) repeat scroll 0% 0% transparent;
+	clear:both;
+	display:block;
+	float: left;
+	margin: -22px auto 2px;
+	width: 100%;
+	text-align:center;
+	/*border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    border-radius: 9px;*/
+   border-bottom-left-radius: 9px;
+   border-bottom-right-radius: 9px;
+}
+#indiceInterno ul{
+	margin: 0px 0px 0px;
+}
+#indiceInterno li{
+	list-style: outside none none;
+	/*background-color: #FF0000;*/
+	float: left;
+	position: relative;
+	border-right: 1px solid #D4D4D4;
+	font: 300 15px/1.5em "Helvetica Neue",Helvetica,Arial,sans-serif;
+	color: #FFFFFF;
+	line-height: 3em;
+	padding: 0px 1em;	
+}
+#indiceInterno a{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+#indiceInterno li:hover{
+	/*background-color: #4169E1;*/
+	/*background: linear-gradient(#585858, #4169E1) repeat scroll 0% 0% transparent;*/
+	background: linear-gradient(#D4D4D4, #FFA347) repeat scroll 0% 0% transparent;
+}
+#indiceInterno li:hover a{
+	color:#000000;
+}
+
 .navegacionPie{
 	background: linear-gradient(#AEAEAE, #E1E1E1) repeat scroll 0% 0% transparent;
 	clear:both;
@@ -105,6 +148,10 @@ h3{
 .pestanaNav:hover{
 	background: linear-gradient(#D4D4D4, #FFA347) repeat scroll 0% 0% transparent
 }
+.pestanaNav:hover a{
+	color: #000;
+	text-decoration: none;
+}
 /*.pestanaNav a:focus > li{ /* Cuando pinchas 
 	color:#FF0000;
 	background-color: #FF0000;
@@ -136,11 +183,6 @@ h3{
 	height: 135px;
 }
 
-#formulario{
-	width: 90%;
-	margin-left:auto;
-	margin-right: auto;
-}
 #muestraErrores{
 	width: 80%;
 	margin-left:auto;
@@ -152,7 +194,8 @@ h3{
     border-width: 1px;
     border-color: black;
     border-radius: 9px;
-}#muestraExitos{
+}
+#muestraExitos{
 	width: 80%;
 	margin-left:auto;
 	margin-right: auto;
@@ -167,16 +210,7 @@ h3{
 #pie{
 	text-align:center;
 }
-#indiceInterno ul{
-	margin: 0px 0px 0px;
+button{
+	border-radius: 8px;	
+	background-color: transparent;
 }
-#indiceInterno li{
-	list-style: outside none none;
-}
-#indiceInterno li:hover{
-	background-color: #4169E1;
-}
-#indiceInterno li:hover a{
-	color:#000000;
-}
-

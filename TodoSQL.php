@@ -12,7 +12,7 @@
 		?>
 <div id="contenidoPag">
 		<h1>Todo Código SQL</h1>
-		<div id="indiceInterno">
+		<div id="codSql">
 <textarea name="code" class="sql:nogutter"rows="50" cols="100">
 <!--
 	

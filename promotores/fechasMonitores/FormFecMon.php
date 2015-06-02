@@ -77,14 +77,14 @@ Limpia contenido</button>
 		<input id="accionFecMon" name="accionFecMon" type="hidden" value="insert"/>
 
 		<div id="div_submit">
-			<input type="submit" value="Insertar"></input>
+			<button type="submit" value="Insertar">Insertar</button>
 		</div>
 		<?php }elseif($fecMon["accionFecMon"]=="pre-update"){ 
 				$fecMon["accionFecMon"]="update";
 				$_SESSION["fecMon"]=$fecMon;?>
 		<input id="accionFecMon" name="accionFecMon" type="hidden" value="update"/>
 		<div id="div_submit">
-			<input type="submit" value="Actualizar"></input>
+			<button type="submit" value="Actualizar">Actualizar</button>
 		</div>			
 		<?php }?>
 	</form>
