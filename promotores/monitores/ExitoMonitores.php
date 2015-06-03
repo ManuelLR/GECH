@@ -35,7 +35,7 @@ $conexion=conectarBD();
 if($monitor["accionMonitor"]=="insert"){
 	
 	if (insertarMonitor($conexion, $monitor["nombre"], $monitor["apellidos"], $monitor["telefono"], $monitor["email"], $monitor["idEc"], $monitor["idPro"])){
-			$_SESSION["exitoModMonitor"]="El monitor ". $monitor["nombre"]. " ".$monitor["apellidos"]." para el promotor ".$promotor["nombre"]." ha sido insertado correctamente.";
+			$_SESSION["exitoModMonitor"]="El monitor ". $monitor["nombre"]. " ".$monitor["apellidos"]." ha sido insertado correctamente.";
 			header("Location: MuestraMonitor.php"); 
 	}else{ ?>
 		<div id="div_errorRegistro">
@@ -50,7 +50,7 @@ if($monitor["accionMonitor"]=="insert"){
 <?php
 }elseif($monitor["accionMonitor"]=="update"){
 		if(modificarMonitor($conexion,$monitor["ID_MON"], $monitor["nombre"], $monitor["apellidos"], $monitor["telefono"], $monitor["email"], $monitor["idEc"], $monitor["idPro"])){
-			$_SESSION["exitoModMonitor"]="El monitor ". $monitor["nombre"]. " ".$monitor["apellidos"]." para el promotor ".$promotor["nombre"]." ha sido actualizado correctamente.";
+			$_SESSION["exitoModMonitor"]="El monitor ". $monitor["nombre"]. " ".$monitor["apellidos"]." ha sido actualizado correctamente.";
 			header("Location: MuestraMonitor.php");
 		 }else{
 		 	$monitor["accionMonitor"]="pre-update";

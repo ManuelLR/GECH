@@ -79,13 +79,13 @@ if (isset($_SESSION["monitor"])) {
 		<table>
 			<tr><th>Fecha</th><th>ID_MON</th><th>Nombre Monitor</th><th>Apellido Monitor</th><th>Ensayo Clínico</th><th>Controles</th></tr>
 <?php
-	if(count($stmp)<0){
-		echo "vacio";
-		echo count($stmp);
-		#echo $stmp;
-		
-	}else{
-		echo count($stmp, COUNT_RECURSIVE);
+#	if(count($stmp)<0){
+#		echo "vacio";
+#		echo count($stmp);
+#		#echo $stmp;
+#		
+#	}else{
+#		echo count($stmp, COUNT_RECURSIVE);
 	foreach($stmp as $fila) {
 		?>
 		
@@ -111,7 +111,8 @@ if (isset($_SESSION["monitor"])) {
 			</td>	
 		</form></div></tr>
 <?php 
-	}} ?>
+#	}
+} ?>
 		</table>
 		
 	</div>

@@ -1,8 +1,9 @@
 <?php
 	session_start();
-	//require_once("../GestionarDB.php"); 
-	//include_once('gestionUsuarios.php');
-	//$conexion = conectarDB(); 
+	require_once("../GestionarDB.php"); 
+	include_once ('../eclinicos/GestionEnsayos.php');
+	require_once ("../FuncionesEsp.php");
+	$conexion = conectarBD(); 
 ?>
 <!DOCTYPE html>
 <html>
@@ -12,6 +13,7 @@
 		<link type="text/css" rel="stylesheet" href="../css/BaseDiseno.css">
 		<link type="text/css" rel="stylesheet" href="../css/Formularios.css">  
 		<script src="validacionPaciente.js"></script>
+		<!--<script src="../FuncionesEsp.php"></script>-->
 	</head><body>
 	<?php include_once("../CabeceraGenerica.php");?>
 <div id="contenidoPag">
@@ -97,9 +99,15 @@ Limpia contenido</button>
 			}
 			?>"/>
 		</div>
+		<?php 
+		$optd=seleccionarEnsayos($conexion);
+		?>
 		<div id="div_idEnsayoClinico">
 			<label for="idEnsayoClinico" id="label_idEnsayoClinico">ID Ensayo Clínico del Paciente:</label>
-			<input id="idEnsayoClinico" name="idEnsayoClinico" type="text" value="<?php echo $paciente["idEnsayoClinico"]; ?>"/>
+			<select id="idEnsayoClinico" name="idEnsayoClinico">
+		<?php
+		muestraOpciones($optd, "ID_EC", "ID_EC",$paciente["idEnsayoClinico"]);?>
+			</select>		
 		</div>
 		<?php if($paciente["accionPac"]!="pre-update"){
 			$paciente["accionPac"]="insert";

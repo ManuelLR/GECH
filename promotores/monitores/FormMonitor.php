@@ -6,6 +6,11 @@
 		header("Location: ../MuestraPromotores.php");
 	}else{
 		$promotor=$_SESSION["promotor"];*/
+	require_once("../../GestionarDB.php"); 
+	include_once ('../../eclinicos/GestionEnsayos.php');
+	include_once ('../GestionPromotores.php');	
+	require_once ("../../FuncionesEsp.php");
+	$conexion = conectarBD(); 
 ?>
 <!DOCTYPE html>
 <html>
@@ -50,7 +55,8 @@ Limpia contenido</button>
 		$promotor["ID_PRO"]="";
 	}
 	if(isset($_SESSION["ensayo"])){
-		$ensayo=$_SESSION["promotor"];
+		$ensayo=$_SESSION["ensayo"];
+#		$ensayo=$_SESSION["promotor"];
 	}else{
 		$ensayo["ID_EC"]="";
 	} 
@@ -93,13 +99,19 @@ Limpia contenido</button>
 			<label for="email" id="label_email">Email:</label>
 			<input id="email" name="email" type="text" value="<?php echo $monitor["email"]; ?>"/>
 		</div>
-				<div id="div_idEc">
+		<div id="div_idEc">
 			<label for="idEc" id="label_idEc">Id Ec:</label>
-			<input id="idEc" name="idEc" type="text" value="<?php echo trim($monitor["idEc"]); ?>"/>
+			<select id="idEc" name="idEc">
+	<?php
+		muestraOpciones(seleccionarEnsayos($conexion), "ID_EC", "ID_EC",$monitor["idEc"]);?>
+			</select>
 		</div>
-				<div id="div_idPro">
+		<div id="div_idPro">
 			<label for="idPro" id="label_idPro">IdPro:</label>
-			<input id="idPro" name="idPro" type="text" value="<?php echo trim($monitor["idPro"]); ?>"/>
+			<select id="idPro" name="idPro">
+	<?php
+		muestraOpciones(seleccionarPromotores($conexion), "NOMBRE_EMPRESA", "ID_PRO",$monitor["idPro"]);?>
+			</select>				
 		</div>
 
 		<?php if($monitor["accionMonitor"]!="pre-update"){

@@ -1,5 +1,9 @@
 <?php
 	session_start();
+	require_once("../../GestionarDB.php"); 
+	include_once ('../monitores/GestionMonitores.php');
+	require_once ("../../FuncionesEsp.php");
+	$conexion = conectarBD(); 
 	if(!isset($_SESSION["monitor"])and !isset($_SESSION["fecMon"])){
 		$errores[]="Debes seleccionar un monitor antes de añadirle una cita";
 		$_SESSION["errorModMonitor"]=$errores;		
@@ -72,8 +76,11 @@ Limpia contenido</button>
 			} ?>"/>
 		</div>
 		<div id="div_idMon">
-			<label for="idMon" id="label_idMon">ID Monitor:</label>
-			<input id="idMon" name="idMon" type="text" value="<?php echo trim($fecMon["idMon"]);?>"/>
+			<label for="idMon" id="label_idMon">Monitor:</label>
+			<select id="idMon" name="idMon">
+	<?php
+		muestraOpciones(seleccionarMonitores($conexion), "NOMBRE", "ID_MON",$fecMon["idMon"]);?>
+			</select>			
 		</div>
 		<?php if($fecMon["accionFecMon"]!="pre-update"){
 			$fecMon["accionFecMon"]="insert";
