@@ -71,11 +71,11 @@ Limpia contenido</button>
 		</div>
 		<div id="div_nuhsa">
 			<label for="nuhsa" id="label_nuhsa">NUHSA del Paciente:</label>
-			<input id="nuhsa" name="nuhsa" type="text" value="<?php echo $paciente["nuhsa"]; ?>"/>
+			<input id="nuhsa" name="nuhsa" type="text" value="<?php echo trim($paciente["nuhsa"]); ?>"/>
 		</div>
 		<div id="div_nhc">
 			<label for="nhc" id="label_nhc">NHC del Paciente:</label>
-			<input id="nhc" name="nhc" type="text" value="<?php echo $paciente["nhc"]; ?>"/>
+			<input id="nhc" name="nhc" type="text" value="<?php echo trim($paciente["nhc"]); ?>"/>
 		</div>
 		<div id="div_diagnostico">
 			<label for="diagnostico" id="label_diagnostico">Diagnóstico del Paciente:</label>
@@ -88,9 +88,14 @@ Limpia contenido</button>
 		<div id="div_fechaInclusion">
 			<label for="fechaInclusion" id="label_fechaInclusion">Fecha Inclusión del Paciente (yyyy-mm-dd):</label>
 			<input id="fechaInclusion" name="fechaInclusion" type="date" max="<?php echo date("Y-m-d");?>" value="<?php if($paciente["fechaInclusion"]==""){echo date("Y-m-d");}else{
+				if(strpos($paciente["fechaInclusion"], "/") !== FALSE){
 				$fecPreMod=split('/',$paciente["fechaInclusion"]);
 	echo '20'.$fecPreMod[2].'-'.$fecPreMod[1].'-'.$fecPreMod[0];
-			} ?>"/>
+			} else{
+				echo $paciente["fechaInclusion"];
+			}
+			}
+			?>"/>
 		</div>
 		<div id="div_idEnsayoClinico">
 			<label for="idEnsayoClinico" id="label_idEnsayoClinico">ID Ensayo Clínico del Paciente:</label>

@@ -67,8 +67,12 @@ Limpia contenido</button>
 		<div id="div_fecha">
 			<label for="fecha" id="label_fechaInclusion">Fecha Cita (yyyy-mm-dd):</label>
 			<input id="fecha" name="fecha" type="date" value="<?php if($citaPac["fecha"]==""){echo date("Y-m-d");}else{
+				if(strpos($citaPac["fecha"], "/") !== FALSE){
 				$fecPreMod=split('/',$citaPac["fecha"]);
 	echo '20'.$fecPreMod[2].'-'.$fecPreMod[1].'-'.$fecPreMod[0];
+			} else{
+				echo $citaPac["fecha"];
+			}
 			} ?>"/>
 		</div>
 		<div id="div_tipo">
@@ -83,7 +87,7 @@ Limpia contenido</button>
 		<input id="accionCitaPac" name="accionCitaPac" type="hidden" value="update"/>
 		<div id="div_idpac">
 			<label for="idPac" id="label_idPac">Identificador del paciente:</label>
-			<input id="idPac" name="idPac" type="text" value="<?php echo $citaPac["idPac"]; ?>"/>
+			<input id="idPac" name="idPac" type="text" value="<?php echo trim($citaPac["idPac"]); ?>"/>
 		</div>
 		<div id="div_submit">
 			<button type="submit" value="Actualizar">Actualizar</button>
@@ -91,7 +95,7 @@ Limpia contenido</button>
 		<?php }else{
 			$citaPac["accionCitaPac"]="insert";
 			$_SESSION["citaPac"]=$citaPac;	?>
-		<input id="idPac" name="idPac" type="hidden" value="<?php echo $citaPac["idPac"]; ?>"/>
+		<input id="idPac" name="idPac" type="hidden" value="<?php echo trim($citaPac["idPac"]); ?>"/>
 		<input id="accionCitaPac" name="accionCitaPac" type="hidden" value="insert"/>
 		<div id="div_submit">
 			<button type="submit" value="Insertar">Insertar</button>

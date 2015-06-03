@@ -63,13 +63,17 @@ Limpia contenido</button>
 		<div id="div_fecha">
 			<label for="fecha" id="label_fecha">Fecha Cita (yyyy-mm-dd):</label>
 			<input id="fecha" name="fecha" type="date" value="<?php if($fecMon["fecha"]==""){echo date("Y-m-d");}else{
+				if(strpos($fecMon["fecha"], "/") !== FALSE){					
 				$fecPreMod=split('/',$fecMon["fecha"]);
 	echo '20'.$fecPreMod[2].'-'.$fecPreMod[1].'-'.$fecPreMod[0];
+			} else{
+				echo $fecMon["fecha"];
+			}
 			} ?>"/>
 		</div>
 		<div id="div_idMon">
 			<label for="idMon" id="label_idMon">ID Monitor:</label>
-			<input id="idMon" name="idMon" type="text" value="<?php echo $fecMon["idMon"];?>"/>
+			<input id="idMon" name="idMon" type="text" value="<?php echo trim($fecMon["idMon"]);?>"/>
 		</div>
 		<?php if($fecMon["accionFecMon"]!="pre-update"){
 			$fecMon["accionFecMon"]="insert";

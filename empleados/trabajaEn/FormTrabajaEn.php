@@ -61,13 +61,13 @@ Limpia contenido</button>
 	<form action="ProcesaTrabajaEn.php" onsubmit="return validaForm()">
 		<div id="div_ID_EC">
 			<label for="ID_EC" id="label_ID_EC">Numero del Ensayo Clínico:</label>
-			<input id="ID_EC" name="ID_EC" type="text" value="<?php echo $trabajaEn["ID_EC"]; ?>"/>
+			<input id="ID_EC" name="ID_EC" type="text" value="<?php echo trim($trabajaEn["ID_EC"]); ?>"/>
 		</div>
 		
 
 		<div id="div_ID_EMP">
 			<label for="ID_EMP" id="label_ID_EMP">Identificado del empleado:</label>
-			<input id="ID_EMP" name="ID_EMP" type="text" value="<?php echo $trabajaEn["ID_EMP"]; ?>"/>
+			<input id="ID_EMP" name="ID_EMP" type="text" value="<?php echo trim($trabajaEn["ID_EMP"]); ?>"/>
 		</div>
 		<div id="div_cargo">
 			<label for="cargo" id="label_cargo">Cargo del empleado en el Ensayo:</label>

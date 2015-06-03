@@ -95,11 +95,11 @@ Limpia contenido</button>
 		</div>
 				<div id="div_idEc">
 			<label for="idEc" id="label_idEc">Id Ec:</label>
-			<input id="idEc" name="idEc" type="text" value="<?php echo $monitor["idEc"]; ?>"/>
+			<input id="idEc" name="idEc" type="text" value="<?php echo trim($monitor["idEc"]); ?>"/>
 		</div>
 				<div id="div_idPro">
 			<label for="idPro" id="label_idPro">IdPro:</label>
-			<input id="idPro" name="idPro" type="text" value="<?php echo $monitor["idPro"]; ?>"/>
+			<input id="idPro" name="idPro" type="text" value="<?php echo trim($monitor["idPro"]); ?>"/>
 		</div>
 
 		<?php if($monitor["accionMonitor"]!="pre-update"){
