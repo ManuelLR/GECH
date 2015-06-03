@@ -79,7 +79,7 @@ if (isset($_SESSION["promotor"])) {
 ?>
 	<div id='tablamuestra'>
 		<table>
-			<tr><th>ID Monitor</th><th>Nombre</th><th>Apellidos</th><th>Telefono</th><th>Email</th><th>Id ensayo</th><th>Id promotor</th><th>Controles</th></tr>
+			<tr><th>ID Monitor</th><th>Nombre</th><th>Apellidos</th><th>Telefono</th><th>Email</th><th>Id ensayo</th><th>Id promotor</th><th>Nombre Promotor</th><th>Controles</th></tr>
 <?php	
 	foreach($stmp as $fila) {
 		?>
@@ -94,6 +94,8 @@ if (isset($_SESSION["promotor"])) {
 			<input id="email" name="email" type="hidden" value="<?php echo $fila["EMAIL"]?>"/>
 			<input id="idEc" name="idEc" type="hidden" value="<?php echo $fila["ID_EC"]?>"/>
 			<input id="idPro" name="idPro" type="hidden" value="<?php echo $fila["ID_PRO"]?>"/>
+			<input id="nombreEmpresa" name="nombreEmpresa" type="hidden" value="<?php echo $fila["NOMBRE_EMPRESA"]?>"/>
+
 			
 
 			<td><?php echo $fila["ID_MON"]?></td>
@@ -103,6 +105,7 @@ if (isset($_SESSION["promotor"])) {
 			<td><?php echo $fila["EMAIL"]?></td>
 			<td><?php echo $fila["ID_EC"]?></td>
 			<td><?php echo $fila["ID_PRO"]?></td>
+			<td><?php echo $fila["NOMBRE_EMPRESA"]?></td>
 				
 			<td>
 				<div id="botones_fila">						

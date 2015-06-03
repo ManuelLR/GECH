@@ -24,7 +24,7 @@ function insertarMonitor($conexion, $nombre, $apellidos, $telefono, $email, $ide
 	return $result;
 }
 function seleccionarMonitores($conexion) {
-	$SQL = "SELECT * FROM MONITOR_ENSAYO";
+	$SQL = "SELECT * FROM MONITOR_ENSAYO ME, PROMOTOR P WHERE ME.ID_PRO=P.ID_PRO";
 	$stmt = $conexion -> query($SQL);
 	return $stmt;
 }function seleccionarMonitorUno($conexion, $promotor) {
