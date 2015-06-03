@@ -1,5 +1,11 @@
 <?php
 	session_start();
+	require_once("../../GestionarDB.php"); 
+	include_once ('../../eclinicos/GestionEnsayos.php');
+	include_once ('../GestionEmpleados.php');	
+	require_once ("../../FuncionesEsp.php");
+	$conexion = conectarBD(); 
+	
 	if(!isset($_SESSION["empleado"])and !isset($_SESSION["trabajaEn"])){
 		$errores[]="Debes seleccionar un empleado antes de añadirle un trabajaEn";
 		$_SESSION["errorModEmpleados"]=$errores;		
@@ -61,14 +67,20 @@ Limpia contenido</button>
 	<form action="ProcesaTrabajaEn.php" onsubmit="return validaForm()">
 		<div id="div_ID_EC">
 			<label for="ID_EC" id="label_ID_EC">Numero del Ensayo Clínico:</label>
-			<input id="ID_EC" name="ID_EC" type="text" value="<?php echo trim($trabajaEn["ID_EC"]); ?>"/>
+			<select id="ID_EC" name="ID_EC">
+	<?php
+		muestraOpciones(seleccionarEnsayos($conexion), "ID_EC", "ID_EC",$trabajaEn["ID_EC"]);?>
+			</select>			
 		</div>
 		
 
 		<div id="div_ID_EMP">
 			<label for="ID_EMP" id="label_ID_EMP">Identificado del empleado:</label>
-			<input id="ID_EMP" name="ID_EMP" type="text" value="<?php echo trim($trabajaEn["ID_EMP"]); ?>"/>
-		</div>
+			<select id="ID_EMP" name="ID_EMP">
+	<?php
+		muestraDosOpciones(seleccionarEmpleados($conexion), "APELLIDOS","NOMBRE",", " , "ID_EMP",$trabajaEn["ID_EMP"]);?>
+			</select>			
+		</div>			
 		<div id="div_cargo">
 			<label for="cargo" id="label_cargo">Cargo del empleado en el Ensayo:</label>
 			<select id="cargo" name="cargo">
