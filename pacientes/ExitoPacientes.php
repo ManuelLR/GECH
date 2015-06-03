@@ -52,7 +52,7 @@ if($paciente["accionPac"]=="insert"){
 		 	$paciente["accionPac"]="pre-update";
 		 	$_SESSION["paciente"] = $paciente;
 			?> <div id="div_errorRegistro">
-				Lo sentimos, el paciente <?php echo $paciente["nombre"] . " " . $paciente["apellidos"]; ?>
+				Lo sentimos, el paciente <?php echo $paciente["nombre"] . " " . $paciente["apellidos"]." (".$paciente["fechaInclusion"].")"; ?>
 				<b>NO</b> ha sido actualizado.
 			</div><?php 		 	 
 			$errores[]="El paciente ". $paciente["nombre"] . " " . $paciente["apellidos"]." <b>NO</b> ha sido actualizado correctamente.";

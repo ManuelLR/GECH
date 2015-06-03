@@ -36,7 +36,7 @@ function seleccionarPacientes($conexion) {
 
 function modificarPaciente($conexion, $OidPaciente, $nombre, $apellidos, $nuhsa, $nhc, $diagnostico, $medicacion, $fechaInclusion, $idEnsayoClinico) {
 	try{
-		$stmt=$conexion->prepare('CALL MODIFICAR_PACIENTE(:OidPaciente,:nombre, :apellidos, :nuhsa, :nhc, :diagnostco, :medicacion, :fechaInclusion, :idEnsayoClinico)');
+		$stmt=$conexion->prepare('CALL MODIFICAR_PACIENTE(:OidPaciente,:nombre, :apellidos, :nuhsa, :nhc, :diagnostco, :medicacion, to_date(:fechaInclusion,\'yyyy-mm-dd\'), :idEnsayoClinico)');
 		$stmt->bindParam(':OidPaciente', $OidPaciente);
 		$stmt->bindParam(':nombre',$nombre);
 		$stmt->bindParam(':apellidos',$apellidos);

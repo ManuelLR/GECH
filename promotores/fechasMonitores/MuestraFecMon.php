@@ -46,7 +46,7 @@ $_SESSION["fecMon"]=$fecMon;
 			unset($_SESSION["monitor"]);
 			header("Location: MuestraFecMon.php");
 		}?>">
-	<button id="clean" name="clean" type="submit" class="Limpiar formulario">Todas las Fechas</button>
+	<button id="clean" name="clean" type="submit" class="Limpiar formulario">Mostrar todas las Fechas</button>
 </form>
 <form method="post" action="
 	<?php 
@@ -71,14 +71,21 @@ if (isset($_SESSION["monitor"])) {
 		<?php 
 	$stmp = seleccionarFecMonUno($conexion, $monitor);
 }else{
-	echo "Muestra todas las citas";
+?><h4>Muestra todas las citas</h4><?php
 	$stmp = seleccionarFecMon($conexion);
 	}
 ?>
 	<div id='tablamuestra'>
 		<table>
 			<tr><th>Fecha</th><th>ID_MON</th><th>Nombre Monitor</th><th>Apellido Monitor</th><th>Ensayo Clínico</th><th>Controles</th></tr>
-<?php	
+<?php
+	if(count($stmp)<0){
+		echo "vacio";
+		echo count($stmp);
+		#echo $stmp;
+		
+	}else{
+		echo count($stmp, COUNT_RECURSIVE);
 	foreach($stmp as $fila) {
 		?>
 		
@@ -104,7 +111,7 @@ if (isset($_SESSION["monitor"])) {
 			</td>	
 		</form></div></tr>
 <?php 
-	} ?>
+	}} ?>
 		</table>
 		
 	</div>

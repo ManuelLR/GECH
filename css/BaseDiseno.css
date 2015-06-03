@@ -212,5 +212,8 @@ h3{
 }
 button{
 	border-radius: 8px;	
-	background-color: transparent;
+	background-color: #FFFFFF;
+}
+button:hover{
+	background-color: #BFFCBF;
 }
