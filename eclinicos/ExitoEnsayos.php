@@ -58,8 +58,8 @@ if($ensayo["accionEc"]=="insert"){
 				Lo sentimos, el ensayo 
 				<b>NO</b> ha sido actualizado.
 			</div><?php 
-			$errores[]="El ensayo <b>NO</b> ha sido actualizado correctamente.";
-			$_SESSION["errorModEnsayos"]=$errores;
+			#$errores[]="El ensayo <b>NO</b> ha sido actualizado correctamente.";
+			#$_SESSION["errorModEnsayos"]=$errores;
 			
 			?></br> Para volver al formulario pincha <a href="FormEnsayos.php">AQUÍ</a>
 			</br> Para volver a la tabla pincha <a href="MuestraEnsayos.php">AQUÍ</a><?php
@@ -72,8 +72,8 @@ if($ensayo["accionEc"]=="insert"){
 			Lo sentimos, el ensayo 
 			<b>NO</b> ha sido eliminado debido a políticas del sistema.
 		</div><?php 
- 		$errores[]="El ensayo no se puede borrar debido a políticas del sistema";
-		$_SESSION["errorModEnsayos"]=$errores;
+ 		#$errores[]="El ensayo no se puede borrar debido a políticas del sistema";
+		#$_SESSION["errorModEnsayos"]=$errores;
 
 		?></br> Para volver a la tabla pincha <a href="MuestraEnsayos.php">AQUÍ</a><?php
 		#header("Location: MuestraEnsayos.php");	

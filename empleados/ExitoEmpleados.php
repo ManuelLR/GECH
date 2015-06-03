@@ -57,8 +57,8 @@ if($empleado["accionEmp"]=="insert"){
 				Lo sentimos, el empleado 
 				<b>NO</b> ha sido actualizado.
 			</div><?php 
-			$errores[]="El empleado ". $empleado["nombre"] . " " . $empleado["apellidos"]." <b>NO</b> ha sido actualizado correctamente.";
-			$_SESSION["errorModEmpleados"]=$errores;
+			#$errores[]="El empleado ". $empleado["nombre"] . " " . $empleado["apellidos"]." <b>NO</b> ha sido actualizado correctamente.";
+			#$_SESSION["errorModEmpleados"]=$errores;
 			?></br> Para volver al formulario pincha <a href="FormEmpleados.php">AQUÍ</a>
 			</br> Para volver a la tabla pincha <a href="MuestraEmpleados.php">AQUÍ</a><?php			
 			#header("Location: MuestraEmpleados.php");
@@ -70,8 +70,8 @@ if($empleado["accionEmp"]=="insert"){
 			Lo sentimos, el empleado 
 			<b>NO</b> ha sido eliminado debido a políticas del sistema.
 		</div><?php
- 		$errores[]="El empleado ". $empleado["nombre"] . " " . $empleado["apellidos"]." no se puede borrar debido a políticas del sistema";
-		$_SESSION["errorModEmpleados"]=$errores;
+ 		#$errores[]="El empleado ". $empleado["nombre"] . " " . $empleado["apellidos"]." no se puede borrar debido a políticas del sistema";
+		#$_SESSION["errorModEmpleados"]=$errores;
 		?></br> Para volver a la tabla pincha <a href="MuestraEmpleados.php">AQUÍ</a><?php
 		
 		#header("Location: MuestraEmpleados.php");	

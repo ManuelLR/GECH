@@ -55,8 +55,8 @@ if($citaPac["accionCitaPac"]=="insert"){
 				Lo sentimos, la cita para el paciente <?php echo $paciente["nombre"] . " " . $paciente["apellidos"]; ?>
 				el día <?php echo $citaPac["fecha"]?> <b>NO</b> ha sido actualizada.
 			</div><?php 		 	 
-			$errores[]="La cita del paciente ". $paciente["nombre"] . " " . $paciente["apellidos"]." <b>NO</b> ha sido actualizado correctamente.";
-			$_SESSION["errorModPacCita"]=$errores;
+			#$errores[]="La cita del paciente ". $paciente["nombre"] . " " . $paciente["apellidos"]." <b>NO</b> ha sido actualizado correctamente.";
+			#$_SESSION["errorModPacCita"]=$errores;
 			?></br> Para volver al formulario pincha <a href="FormPacCitas.php">AQUÍ</a>
 			</br> Para volver a la tabla pincha <a href="MuestraPacCitas.php">AQUÍ</a><?php
 			#header("Location: MuestraPacCitas.php");
@@ -72,8 +72,8 @@ if($citaPac["accionCitaPac"]=="insert"){
 				Lo sentimos, la cita para el paciente <?php echo $paciente["nombre"] . " " . $paciente["apellidos"]; ?>
 				el día <?php echo $citaPac["fecha"]?> <b>NO</b> ha sido eliminada correctamente.
 			</div><?php  			
- 	 		$errores[]="La cita del paciente ". $paciente["nombre"] . " " . $paciente["apellidos"]." no se ha podido borrar.";
-			$_SESSION["errorModPacCita"]=$errores;
+ 	 		#$errores[]="La cita del paciente ". $paciente["nombre"] . " " . $paciente["apellidos"]." no se ha podido borrar.";
+			#$_SESSION["errorModPacCita"]=$errores;
 		?></br> Para volver a la tabla pincha <a href="MuestraPacCitas.php">AQUÍ</a><?php
 			#header("Location: MuestraPacCitas.php");		
  		}

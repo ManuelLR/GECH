@@ -53,8 +53,8 @@ if($promotor["accionPro"]=="insert"){
 				Lo sentimos, el Promotor <?php echo $promotor["nombre"]; ?>
 				<b>NO</b> ha sido actualizado.
 			</div><?php 		 	
-			$errores[]="El Promotor ". $promotor["nombre"] ." <b>NO</b> ha sido actualizado correctamente.";
-			$_SESSION["errorModPromotores"]=$errores;
+			#$errores[]="El Promotor ". $promotor["nombre"] ." <b>NO</b> ha sido actualizado correctamente.";
+			#$_SESSION["errorModPromotores"]=$errores;
 			
 			?></br> Para volver al formulario pincha <a href="FormPromotores.php">AQUÍ</a>
 			</br> Para volver a la tabla pincha <a href="MuestraPromotores.php">AQUÍ</a><?php			
@@ -67,8 +67,8 @@ if($promotor["accionPro"]=="insert"){
 			Lo sentimos, el Promotor <?php echo $promotor["nombre"]; ?>
 			<b>NO</b> ha sido eliminado debido a políticas del sistema.
 		</div><?php  	
- 		$errores[]="El Promotor ". $promotor["nombre"] ." no se puede borrar debido a políticas del sistema";
-		$_SESSION["errorModPromotores"]=$errores;
+ 		#$errores[]="El Promotor ". $promotor["nombre"] ." no se puede borrar debido a políticas del sistema";
+		#$_SESSION["errorModPromotores"]=$errores;
 		
 		?></br> Para volver a la tabla pincha <a href="MuestraPromotores.php">AQUÍ</a><?php		
 		#header("Location: MuestraPromotores.php");	

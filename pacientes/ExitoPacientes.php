@@ -55,8 +55,8 @@ if($paciente["accionPac"]=="insert"){
 				Lo sentimos, el paciente <?php echo $paciente["nombre"] . " " . $paciente["apellidos"]." (".$paciente["fechaInclusion"].")"; ?>
 				<b>NO</b> ha sido actualizado.
 			</div><?php 		 	 
-			$errores[]="El paciente ". $paciente["nombre"] . " " . $paciente["apellidos"]." <b>NO</b> ha sido actualizado correctamente.";
-			$_SESSION["errorModPacientes"]=$errores;
+			#$errores[]="El paciente ". $paciente["nombre"] . " " . $paciente["apellidos"]." <b>NO</b> ha sido actualizado correctamente.";
+			#$_SESSION["errorModPacientes"]=$errores;
 			
 			?></br> Para volver al formulario pincha <a href="FormPacientes.php">AQUÍ</a>
 			</br> Para volver a la tabla pincha <a href="MuestraPacientes.php">AQUÍ</a><?php			
@@ -69,8 +69,8 @@ if($paciente["accionPac"]=="insert"){
 			Lo sentimos, el paciente <?php echo $paciente["nombre"] . " " . $paciente["apellidos"]; ?>
 			<b>NO</b> ha sido eliminado debido a políticas del sistema.
 		</div><?php  	
- 		$errores[]="El paciente ". $paciente["nombre"] . " " . $paciente["apellidos"]." no se puede borrar debido a políticas del sistema";
-		$_SESSION["errorModPacientes"]=$errores;
+ 		#$errores[]="El paciente ". $paciente["nombre"] . " " . $paciente["apellidos"]." no se puede borrar debido a políticas del sistema";
+		#$_SESSION["errorModPacientes"]=$errores;
 		
 		?></br> Para volver a la tabla pincha <a href="MuestraPacientes.php">AQUÍ</a><?php
 		#header("Location: MuestraPacientes.php");	

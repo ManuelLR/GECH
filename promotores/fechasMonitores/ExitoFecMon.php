@@ -60,8 +60,8 @@ if($fecMon["accionFecMon"]=="insert"){
 				Lo sentimos, la cita para el monitor <?php echo $monitor["nombre"]; ?> el día <?php echo $fecMon["fecha"]?> 
 				<b>NO</b> ha sido actualizada.
 			</div><?php  			
- 	 		$errores[]="La cita del monitor ". $monitor["nombre"] ." no se ha podido actualizar.";
-			$_SESSION["errorModFecMon"]=$errores;
+ 	 		#$errores[]="La cita del monitor ". $monitor["nombre"] ." no se ha podido actualizar.";
+			#$_SESSION["errorModFecMon"]=$errores;
 			
 			?></br> Para volver a la tabla pincha <a href="MuestraFecMon.php">AQUÍ</a><?php
 
@@ -76,8 +76,8 @@ if($fecMon["accionFecMon"]=="insert"){
 				Lo sentimos, la cita para el monitor <?php echo $monitor["nombre"]; ?> el día <?php echo $fecMon["fecha"]?> 
 				<b>NO</b> ha sido eliminada.
 			</div><?php  			
- 	 		$errores[]="La cita del monitor ". $monitor["nombre"] ." no se ha podido borrar.";
-			$_SESSION["errorModFecMon"]=$errores;
+ 	 		#$errores[]="La cita del monitor ". $monitor["nombre"] ." no se ha podido borrar.";
+			#$_SESSION["errorModFecMon"]=$errores;
 			
 			?></br> Para volver a la tabla pincha <a href="MuestraFecMon.php">AQUÍ</a><?php
 			#header("Location: MuestraFecMon.php");		

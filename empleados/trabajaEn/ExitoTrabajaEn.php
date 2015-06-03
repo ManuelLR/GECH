@@ -56,8 +56,8 @@ if($trabajaEn["accionTraEn"]=="insert"){
 				Lo sentimos, el ensayo 
 				<b>NO</b> ha sido actualizado.
 			</div><?php 		 	 
-			$errores[]="El Trabaja En <b>NO</b> ha sido actualizado correctamente.";
-			$_SESSION["errorModTrabajaEn"]=$errores;
+			#$errores[]="El Trabaja En <b>NO</b> ha sido actualizado correctamente.";
+			#$_SESSION["errorModTrabajaEn"]=$errores;
 			?></br> Para volver al formulario pincha <a href="FormTrabajaEn.php">AQUÍ</a>
 			</br> Para volver a la tabla pincha <a href="MuestraTrabajaEn.php">AQUÍ</a><?php
 			#header("Location: MuestraTrabajaEn.php");
@@ -74,8 +74,8 @@ if($trabajaEn["accionTraEn"]=="insert"){
 				Lo sentimos, el Trabaja En 
 			<b>NO</b> ha sido eliminado correctamente.
 			</div><?php 
- 			$errores[]="El Trabaja En <b>NO</b> ha sido eliminado correctamente.";
-			$_SESSION["errorModTrabajaEn"]=$errores;
+ 			#$errores[]="El Trabaja En <b>NO</b> ha sido eliminado correctamente.";
+			#$_SESSION["errorModTrabajaEn"]=$errores;
 			
 			?></br> Para volver a la tabla pincha <a href="MuestraTrabajaEn.php">AQUÍ</a><?php
 			

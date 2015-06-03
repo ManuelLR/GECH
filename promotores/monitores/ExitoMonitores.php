@@ -59,8 +59,8 @@ if($monitor["accionMonitor"]=="insert"){
 				Lo sentimos, el monitor <?php echo $monitor["nombre"]. " ".$monitor["apellidos"];?> para el promotor<?php echo $promotor["nombre"]; ?> 
 				<b>NO</b> ha sido actualizado.
 			</div><?php 		 	
-			$errores[]="El monitor ". $monitor["nombre"]. " ".$monitor["apellidos"]." para el promotor".$promotor["nombre"]." <b>NO</b> ha sido actualizado correctamente.";
-			$_SESSION["errorModMonitor"]=$errores;
+			#$errores[]="El monitor ". $monitor["nombre"]. " ".$monitor["apellidos"]." para el promotor".$promotor["nombre"]." <b>NO</b> ha sido actualizado correctamente.";
+			#$_SESSION["errorModMonitor"]=$errores;
 			
 			?></br> Para volver al formulario pincha <a href="FormMonitor.php">AQUÍ</a>
 			</br> Para volver a la tabla pincha <a href="MuestraMonitor.php">AQUÍ</a><?php			
@@ -74,8 +74,8 @@ if($monitor["accionMonitor"]=="insert"){
 				Lo sentimos, el monitor <?php echo $monitor["nombre"]. " ".$monitor["apellidos"];?> 
 				<b>NO</b> ha sido eliminado por políticas del sistema.
 		</div><?php  	
-			$errores[]="El monitor ". $monitor["nombre"]. " ".$monitor["apellidos"]." <b>NO</b> ha sido eliminado por políticas del sistema.";
-			$_SESSION["errorModMonitor"]=$errores;
+			#$errores[]="El monitor ". $monitor["nombre"]. " ".$monitor["apellidos"]." <b>NO</b> ha sido eliminado por políticas del sistema.";
+			#$_SESSION["errorModMonitor"]=$errores;
 		
 		?></br> Para volver a la tabla pincha <a href="MuestraMonitor.php">AQUÍ</a><?php
 		
