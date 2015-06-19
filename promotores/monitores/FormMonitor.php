@@ -100,14 +100,14 @@ Limpia contenido</button>
 			<input id="email" name="email" type="text" value="<?php echo $monitor["email"]; ?>"/>
 		</div>
 		<div id="div_idEc">
-			<label for="idEc" id="label_idEc">Id Ec:</label>
+			<label for="idEc" id="label_idEc">Id Ensayo Clínico:</label>
 			<select id="idEc" name="idEc">
 	<?php
 		muestraOpciones(seleccionarEnsayos($conexion), "ID_EC", "ID_EC",$monitor["idEc"]);?>
 			</select>
 		</div>
 		<div id="div_idPro">
-			<label for="idPro" id="label_idPro">IdPro:</label>
+			<label for="idPro" id="label_idPro">Promotor:</label>
 			<select id="idPro" name="idPro">
 	<?php
 		muestraOpciones(seleccionarPromotores($conexion), "NOMBRE_EMPRESA", "ID_PRO",$monitor["idPro"]);?>
