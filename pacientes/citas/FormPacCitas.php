@@ -7,6 +7,11 @@
 	}else{
 		if(isset($_SESSION["paciente"])){
 			$paciente=$_SESSION["paciente"];}
+		include_once("../GestionPacientes.php");
+		require_once("../../GestionarDB.php"); 
+		require_once ("../../FuncionesEsp.php");		
+		
+		
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,7 +22,10 @@
 		<link type="text/css" rel="stylesheet" href="/css/Formularios.css">  
 		<script src="ValidacionPacCita.js"></script>
 	</head><body>
-	<?php include_once("../../CabeceraGenerica.php");?>
+	<?php 
+		include_once("../../CabeceraGenerica.php");
+
+		?>
 <div id="contenidoPag">
 	<h3>Formulario Citas</h3>
 	<?php 
@@ -85,10 +93,22 @@ Limpia contenido</button>
 				$citaPac["accionCitaPac"]="update";
 				$_SESSION["citaPac"]=$citaPac;?>
 		<input id="accionCitaPac" name="accionCitaPac" type="hidden" value="update"/>
-		<div id="div_idpac">
+<!--		<div id="div_idpac">
 			<label for="idPac" id="label_idPac">Identificador del paciente:</label>
 			<input id="idPac" name="idPac" type="text" value="<?php echo trim($citaPac["idPac"]); ?>"/>
-		</div>
+</div>-->
+				<?php 
+					$conexion = conectarBD(); 
+				
+					$optd=seleccionarPacientes($conexion);
+				?>
+				<div id="div_idpac">
+					<label for="idPac" id="label_idPac">Paciente:</label>
+					<select id="idPac" name="idPac">
+				<?php
+					muestraDosOpciones($optd, "NOMBRE","APELLIDOS", " ", "ID_PAC",$citaPac["idPac"]);?>
+					</select>		
+				</div>
 		<div id="div_submit">
 			<button type="submit" value="Actualizar">Actualizar</button>
 		</div>			
