@@ -97,7 +97,7 @@ Limpia contenido</button>
 		</div>
 		<div id="div_email">
 			<label for="email" id="label_email">Email:</label>
-			<input id="email" name="email" type="text" value="<?php echo $monitor["email"]; ?>"/>
+			<input id="email" name="email" type="email" value="<?php echo $monitor["email"]; ?>"/>
 		</div>
 		<div id="div_idEc">
 			<label for="idEc" id="label_idEc">Id Ensayo Clínico:</label>
