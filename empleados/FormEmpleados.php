@@ -76,7 +76,7 @@ Limpia contenido</button>
 		</div>
 		<div id="div_email">
 			<label for="email" id="label_email">Email del Empleado:</label>
-			<input id="email" name="email" type="text" value="<?php echo $empleado["email"]; ?>"/>
+			<input id="email" name="email" type="email" value="<?php echo $empleado["email"]; ?>"/>
 		</div>
 		
 		<?php if($empleado["accionEmp"]!="pre-update"){
