@@ -12,11 +12,12 @@ function insertarPacCitas($conexion, $fecha, $tipo, $idPac) {
 	} catch(PDOException $e) {
 		//Tratamiento del error
 		$result = false;
-		echo "<div id='muestraErrores'>";
-		echo "<div class='error'>";
-		echo "<b>ERROR: </b>" . $e -> GetMessage();
-		echo "</div>";
-		echo "</div>";
+		$errorDB = "<div id='muestraErrores'>";	
+		$errorDB = $errorDB . "<div class='error'>";
+		$errorDB = $errorDB . "<b>ERROR: </b>" . $e -> GetMessage();
+		$errorDB = $errorDB . "</div>";
+		$errorDB = $errorDB . "</div>";
+		$_SESSION["errorDB"] = $errorDB;
 	}
 	return $result;
 }
@@ -39,11 +40,12 @@ function modificarPacCitas($conexion,$oidfecha, $fecha, $tipo, $idPac) {
 		$stmt->execute();
 		return true;
 	}catch(PDOException $e){
-		echo "<div id='muestraErrores'>";
-		echo "<div class='error'>";
-		echo "<b>ERROR: </b>" . $e -> GetMessage();
-		echo "</div>";
-		echo "</div>";
+		$errorDB = "<div id='muestraErrores'>";	
+		$errorDB = $errorDB . "<div class='error'>";
+		$errorDB = $errorDB . "<b>ERROR: </b>" . $e -> GetMessage();
+		$errorDB = $errorDB . "</div>";
+		$errorDB = $errorDB . "</div>";
+		$_SESSION["errorDB"] = $errorDB;
 		return false;		
 	}
 }
@@ -58,11 +60,12 @@ function eliminaPacCitas($conexion,$oidfecha){
 		# DELETE FROM FECHA_MONITOR WHERE FECHA=to_date(".$fecha.",yyyy-mm-dd') AND ID_MON=".$idMon
 		$result=true;	
 	}catch (PDOException $e){
-		echo "<div id='muestraErrores'>";
-		echo "<div class='error'>";
-		echo "<b>ERROR: </b>" . $e -> GetMessage();
-		echo "</div>";
-		echo "</div>";		
+		$errorDB = "<div id='muestraErrores'>";	
+		$errorDB = $errorDB . "<div class='error'>";
+		$errorDB = $errorDB . "<b>ERROR: </b>" . $e -> GetMessage();
+		$errorDB = $errorDB . "</div>";
+		$errorDB = $errorDB . "</div>";
+		$_SESSION["errorDB"] = $errorDB;
 	}
 	return $result;
 }

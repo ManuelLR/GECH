@@ -17,11 +17,12 @@ function insertarEnsayo($situacion_actual, $criterio_inc, $criterio_exc, $inicio
 	} catch(PDOException $e) {
 		//Tratamiento del error
 		$result = false;
-		echo "<div id='muestraErrores'>";
-		echo "<div class='error'>";
-		echo "<b>ERROR: </b>" . $e -> GetMessage();
-		echo "</div>";
-		echo "</div>";
+		$errorDB = "<div id='muestraErrores'>";	
+		$errorDB = $errorDB . "<div class='error'>";
+		$errorDB = $errorDB . "<b>ERROR: </b>" . $e -> GetMessage();
+		$errorDB = $errorDB . "</div>";
+		$errorDB = $errorDB . "</div>";
+		$_SESSION["errorDB"] = $errorDB;
 	}
 	return $result;
 }
@@ -47,11 +48,12 @@ function modificarEnsayo($conexion, $OidEnsayo, $situacion_actual, $criterio_inc
 		$stmt->execute();
 		return true;
 	}catch(PDOException $e){
-		echo "<div id='muestraErrores'>";
-		echo "<div class='error'>";
-		echo "<b>ERROR: </b>" . $e -> GetMessage();
-		echo "</div>";
-		echo "</div>";
+		$errorDB = "<div id='muestraErrores'>";	
+		$errorDB = $errorDB . "<div class='error'>";
+		$errorDB = $errorDB . "<b>ERROR: </b>" . $e -> GetMessage();
+		$errorDB = $errorDB . "</div>";
+		$errorDB = $errorDB . "</div>";
+		$_SESSION["errorDB"] = $errorDB;
 		return false;		
 	}
 }

@@ -33,7 +33,9 @@ if($fecMon["accionFecMon"]=="insert"){
 	if (insertarFecMon($conexion, $fecMon["fecha"], $fecMon["idMon"])){
 			$_SESSION["exitoModFecMon"]="La cita del monitor ". $monitor["nombre"] . " " . $monitor["apellidos"]." ha sido insertada.";
 			header("Location: MuestraFecMon.php");	
-	}else{ ?>
+	}else{ 
+		echo $_SESSION["errorDB"];
+		?>
 		<div id="div_errorRegistro">
 			Lo sentimos, la cita para el monitor <?php echo $monitor["nombre"]; ?>
 			el día <?php echo $fecMon["fecha"]?> <b>NO</b> ha sido insertado.
@@ -55,6 +57,9 @@ if($fecMon["accionFecMon"]=="insert"){
  			$_SESSION["exitoModFecMon"]="La cita del monitor ". $monitor["nombre"] ." ha sido actualizada correctamente.";
 			header("Location: MuestraFecMon.php");	
  		}else{
+ 			
+		echo $_SESSION["errorDB"];
+		
 		 	$_SESSION["fecMon"] = $fecMon;
 			?> <div id="div_errorRegistro">
 				Lo sentimos, la cita para el monitor <?php echo $monitor["nombre"]; ?> el día <?php echo $fecMon["fecha"]?> 
@@ -71,6 +76,9 @@ if($fecMon["accionFecMon"]=="insert"){
  			$_SESSION["exitoModFecMon"]="La cita del monitor ". $monitor["nombre"] ." ha sido eliminado.";
 			header("Location: MuestraFecMon.php");	
  		}else{
+ 			
+			echo $_SESSION["errorDB"];
+		
 		 	$_SESSION["fecMon"] = $fecMon;
 			?> <div id="div_errorRegistro">
 				Lo sentimos, la cita para el monitor <?php echo $monitor["nombre"]; ?> el día <?php echo $fecMon["fecha"]?> 

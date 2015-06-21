@@ -33,7 +33,9 @@ if($citaPac["accionCitaPac"]=="insert"){
 	if (insertarPacCitas($conexion, $citaPac["fecha"], $citaPac["tipo"], $citaPac["idPac"])){
 		$_SESSION["exitoModPacCita"]="La cita del paciente ". $paciente["nombre"] . " " . $paciente["apellidos"]." ha sido insertada correctamente.";
 		header("Location: MuestraPacCitas.php");
-	}else{ ?>
+	}else{ 
+		echo $_SESSION["errorDB"];
+		?>
 		<div id="div_errorRegistro">
 			Lo sentimos, la cita para el paciente <?php echo $paciente["nombre"] . " " . $paciente["apellidos"]; ?>
 			el día <?php echo $citaPac["fecha"]?> <b>NO</b> ha sido insertado.
@@ -49,6 +51,9 @@ if($citaPac["accionCitaPac"]=="insert"){
 			$_SESSION["exitoModPacCita"]="La cita del paciente ". $paciente["nombre"] . " " . $paciente["apellidos"]." ha sido actualizado correctamente.";
 			header("Location: MuestraPacCitas.php");
 		 }else{
+		 	
+			echo $_SESSION["errorDB"];
+		
 		 	$citaPac["accionCitaPac"]="pre-update";
 		 	$_SESSION["citaPac"] = $citaPac;
 			?> <div id="div_errorRegistro">
@@ -67,6 +72,9 @@ if($citaPac["accionCitaPac"]=="insert"){
  			$_SESSION["exitoModPacCita"]="La cita del paciente ". $paciente["nombre"] . " " . $paciente["apellidos"]." ha sido eliminada.";
 			header("Location: MuestraPacCitas.php");	
  		}else{
+ 			
+			echo $_SESSION["errorDB"];
+		
  		 	$_SESSION["citaPac"] = $citaPac;
 			?> <div id="div_errorRegistro">
 				Lo sentimos, la cita para el paciente <?php echo $paciente["nombre"] . " " . $paciente["apellidos"]; ?>

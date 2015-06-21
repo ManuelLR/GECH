@@ -33,7 +33,9 @@ if($paciente["accionPac"]=="insert"){
        $paciente["diagnostico"], $paciente["medicacion"], $paciente["fechaInclusion"], $paciente["idEnsayoClinico"], $conexion)){
 			$_SESSION["exitoModPacientes"]="El paciente ". $paciente["nombre"] . " " . $paciente["apellidos"]." ha sido creado correctamente.";
 			header("Location: MuestraPacientes.php");
-	}else{ ?>
+	}else{ 
+		echo $_SESSION["errorDB"];
+		?>
 		<div id="div_errorRegistro">
 			Lo sentimos, el paciente <?php echo $paciente["nombre"] . " " . $paciente["apellidos"]; ?>
 			<b>NO</b> ha sido insertado.-
@@ -49,6 +51,9 @@ if($paciente["accionPac"]=="insert"){
 			$_SESSION["exitoModPacientes"]="El paciente ". $paciente["nombre"] . " " . $paciente["apellidos"]." ha sido actualizado correctamente.";
 			header("Location: MuestraPacientes.php");
 		 }else{
+		 	
+		echo $_SESSION["errorDB"];
+		
 		 	$paciente["accionPac"]="pre-update";
 		 	$_SESSION["paciente"] = $paciente;
 			?> <div id="div_errorRegistro">

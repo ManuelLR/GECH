@@ -35,7 +35,9 @@ if($ensayo["accionEc"]=="insert"){
 			$_SESSION["exitoModEnsayos"]="El ensayo ha sido insertado correctamente.";
 			header("Location: MuestraEnsayos.php");
 	
-	}else{ ?>
+	}else{ 
+		echo $_SESSION["errorDB"];
+		?>
 		<div id="div_errorRegistro">
 			Lo sentimos, el ensayo 
 			<b>NO</b> ha sido insertado.
@@ -52,6 +54,8 @@ if($ensayo["accionEc"]=="insert"){
 			$_SESSION["exitoModEnsayos"]="El ensayo ha sido actualizado correctamente.";
 			header("Location: MuestraEnsayos.php");
 		 }else{
+		 	echo $_SESSION["errorDB"];
+		 	
 		 	$ensayo["accionEc"]="pre-update";
 		 	$_SESSION["ensayo"] = $ensayo;
 			?> <div id="div_errorRegistro">

@@ -32,7 +32,9 @@ if($promotor["accionPro"]=="insert"){
 	if (insertarPromotor($promotor["nombre"], $promotor["cif"], $conexion)){
 			$_SESSION["exitoModPromotores"]="El Promotor ". $promotor["nombre"] ." ha sido insertado correctamente.";
 			header("Location: MuestraPromotores.php"); 
-	}else{ ?>
+	}else{ 
+		echo $_SESSION["errorDB"];
+		?>
 		<div id="div_errorRegistro">
 			Lo sentimos, el Promotor <?php echo $promotor["nombre"]; ?>
 			<b>NO</b> ha sido insertado.
@@ -47,6 +49,8 @@ if($promotor["accionPro"]=="insert"){
 			$_SESSION["exitoModPromotores"]="El Promotor ". $promotor["nombre"] ." ha sido actualizado correctamente.";
 			header("Location: MuestraPromotores.php");
 		 }else{
+		 echo $_SESSION["errorDB"];
+		
 		 	$promotor["accionPro"]="pre-update";
 		 	$_SESSION["promotor"] = $promotor;
 			?> <div id="div_errorRegistro">

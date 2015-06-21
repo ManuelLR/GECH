@@ -33,7 +33,9 @@ if($empleado["accionEmp"]=="insert"){
        $empleado["email"], $conexion)){
 			$_SESSION["exitoModEmpleados"]="El empleado ". $empleado["nombre"] . " " . $empleado["apellidos"]." ha sido insertado correctamente.";
 			header("Location: MuestraEmpleados.php");
-	}else{ ?>
+	}else{ 
+		echo $_SESSION["errorDB"];
+		?>
 		<div id="div_errorRegistro">
 			Lo sentimos, el empleado <?php echo $empleado["nombre"] . " " . $empleado["apellidos"]; ?>
 			<b>NO</b> ha sido insertado.
@@ -51,6 +53,8 @@ if($empleado["accionEmp"]=="insert"){
 			$_SESSION["exitoModEmpleados"]="El empleado ". $empleado["nombre"] . " " . $empleado["apellidos"]." ha sido actualizado correctamente.";
 			header("Location: MuestraEmpleados.php");
 		 }else{
+		echo $_SESSION["errorDB"];
+		
 		 	$empleado["accionEmp"]="pre-update";
 		 	$_SESSION["empleado"] = $empleado;
 			?> <div id="div_errorRegistro">

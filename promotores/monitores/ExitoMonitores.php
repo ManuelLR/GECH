@@ -37,7 +37,9 @@ if($monitor["accionMonitor"]=="insert"){
 	if (insertarMonitor($conexion, $monitor["nombre"], $monitor["apellidos"], $monitor["telefono"], $monitor["email"], $monitor["idEc"], $monitor["idPro"])){
 			$_SESSION["exitoModMonitor"]="El monitor ". $monitor["nombre"]. " ".$monitor["apellidos"]." ha sido insertado correctamente.";
 			header("Location: MuestraMonitor.php"); 
-	}else{ ?>
+	}else{ 
+		echo $_SESSION["errorDB"];
+		?>
 		<div id="div_errorRegistro">
 			Lo sentimos, el monitor <?php echo $monitor["nombre"]. " ".$monitor["apellidos"];?> para el promotor<?php echo $promotor["nombre"]; ?>
 			<b>NO</b> ha sido insertado.
@@ -53,6 +55,8 @@ if($monitor["accionMonitor"]=="insert"){
 			$_SESSION["exitoModMonitor"]="El monitor ". $monitor["nombre"]. " ".$monitor["apellidos"]." ha sido actualizado correctamente.";
 			header("Location: MuestraMonitor.php");
 		 }else{
+		echo $_SESSION["errorDB"];
+		
 		 	$monitor["accionMonitor"]="pre-update";
 		 	$_SESSION["monitor"] = $monitor;
 			?> <div id="div_errorRegistro">

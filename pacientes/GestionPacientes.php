@@ -19,11 +19,12 @@ function insertarPaciente($nombre, $apellidos, $nuhsa, $nhc, $diagnostico, $medi
 	} catch(PDOException $e) {
 		//Tratamiento del error
 		$result = false;
-		echo "<div id='muestraErrores'>";
-		echo "<div class='error'>";
-		echo "<b>ERROR: </b>" . $e -> GetMessage();
-		echo "</div>";
-		echo "</div>";
+		$errorDB = "<div id='muestraErrores'>";	
+		$errorDB = $errorDB . "<div class='error'>";
+		$errorDB = $errorDB . "<b>ERROR: </b>" . $e -> GetMessage();
+		$errorDB = $errorDB . "</div>";
+		$errorDB = $errorDB . "</div>";
+		$_SESSION["errorDB"] = $errorDB;
 	}
 	return $result;
 }
@@ -49,11 +50,12 @@ function modificarPaciente($conexion, $OidPaciente, $nombre, $apellidos, $nuhsa,
 		$stmt->execute();
 		return true;
 	}catch(PDOException $e){
-		echo "<div id='muestraErrores'>";
-		echo "<div class='error'>";
-		echo "<b>ERROR: </b>" . $e -> GetMessage();
-		echo "</div>";
-		echo "</div>";
+		$errorDB = "<div id='muestraErrores'>";	
+		$errorDB = $errorDB . "<div class='error'>";
+		$errorDB = $errorDB . "<b>ERROR: </b>" . $e -> GetMessage();
+		$errorDB = $errorDB . "</div>";
+		$errorDB = $errorDB . "</div>";
+		$_SESSION["errorDB"] = $errorDB;
 		return false;		
 	}
 }

@@ -34,7 +34,9 @@ if($trabajaEn["accionTraEn"]=="insert"){
 		$_SESSION["exitoModTrabajaEn"]="El Trabaja En ha sido actualizado correctamente.";
 		header("Location: MuestraTrabajaEn.php");
 
-	}else{ ?>
+	}else{
+		echo $_SESSION["errorDB"];
+ ?>
 		<div id="div_errorRegistro">
 			Lo sentimos, el Trabaja En <b>NO</b> ha sido insertado.
 		</div>
@@ -50,6 +52,7 @@ if($trabajaEn["accionTraEn"]=="insert"){
 			$_SESSION["exitoModTrabajaEn"]="El Trabaja En ha sido actualizado correctamente.";
 			header("Location: MuestraTrabajaEn.php");
 		 }else{
+			echo $_SESSION["errorDB"];
 		 	$trabajaEn["accionTraEn"]="pre-update";
 		 	$_SESSION["trabajaEn"] = $trabajaEn;
 			?> <div id="div_errorRegistro">

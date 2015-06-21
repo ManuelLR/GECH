@@ -11,11 +11,12 @@ function insertarFecMon($conexion, $fecha, $idMon) {
 	} catch(PDOException $e) {
 		//Tratamiento del error
 		$result = false;
-		echo "<div id='muestraErrores'>";
-		echo "<div class='error'>";
-		echo "<b>ERROR: </b>" . $e -> GetMessage();
-		echo "</div>";
-		echo "</div>";
+		$errorDB = "<div id='muestraErrores'>";	
+		$errorDB = $errorDB . "<div class='error'>";
+		$errorDB = $errorDB . "<b>ERROR: </b>" . $e -> GetMessage();
+		$errorDB = $errorDB . "</div>";
+		$errorDB = $errorDB . "</div>";
+		$_SESSION["errorDB"] = $errorDB;
 	}
 	return $result;
 }
@@ -45,11 +46,12 @@ function eliminaFecMon($conexion, $antiguo){
 		$result=true;	
 	}catch (PDOException $e){
 		$insertar=false;
-		echo "<div id='muestraErrores'>";
-		echo "<div class='error'>";
-		echo "<b>ERROR: </b>" . $e -> GetMessage();
-		echo "</div>";
-		echo "</div>";		
+		$errorDB = "<div id='muestraErrores'>";	
+		$errorDB = $errorDB . "<div class='error'>";
+		$errorDB = $errorDB . "<b>ERROR: </b>" . $e -> GetMessage();
+		$errorDB = $errorDB . "</div>";
+		$errorDB = $errorDB . "</div>";
+		$_SESSION["errorDB"] = $errorDB;		
 	}
 	return $result;
 }
@@ -64,11 +66,12 @@ function actualizaFecMon($conexion,$antiguo, $nuevo){
 				if(insertarFecMon($conexion, $antiguo["fecha"],$antiguo["idMon"])){
 				
 				}else{
-				echo "<div id='muestraErrores'>";
-				echo "<div class='error'>";
-				echo "<b>Por lo que NO se ha realizado el cambio y, además, se ha eliminado la cita que existía anteriormente</b>";
-				echo "</div>";
-				echo "</div>";					
+		$errorDB = "<div id='muestraErrores'>";	
+		$errorDB = $errorDB . "<div class='error'>";
+		$errorDB = $errorDB . "<b>ERROR: </b>" . $e -> GetMessage();
+		$errorDB = $errorDB . "</div>";
+		$errorDB = $errorDB . "</div>";
+		$_SESSION["errorDB"] = $errorDB;				
 				}
 			}
 
