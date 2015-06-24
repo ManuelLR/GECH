@@ -1,9 +1,9 @@
 <div id="pie">
 	<div class="navegacionPie">
 		<ul>
-			<li class="pestanaNavPie primPestanaNavPie">
+			<!-- <li class="pestanaNavPie primPestanaNavPie">
 				<a title="Mapa" href="/mapa.php">Mapa de la web</a>
-			</li>
+			</li> -->
 			<li class="pestanaNavPie">
 				<a title="Acerca de" href="/acercade.php">Acerca de</a>
 			</li>
